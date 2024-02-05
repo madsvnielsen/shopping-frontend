@@ -9,3 +9,14 @@ A front end for a shopping website.
 * React ⚛️
 * TypeScript ʦ
 * Vite ⚡️
+
+
+## How to run
+Ensure all dependencies are installed with
+```bash
+npm install
+```
+Run test server with
+```bash
+npm run dev
+```
