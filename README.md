@@ -2,7 +2,7 @@
 
 Shopping frontend.
 
-(Backend project)[https://github.com/madsvnielsen/shopping-backend]
+[Backend project](https://github.com/madsvnielsen/shopping-backend)
 
 
 ## Tech stack
