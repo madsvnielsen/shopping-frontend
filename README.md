@@ -1,6 +1,6 @@
 # Shopping frontend
 
-A front end for a shopping website.
+A front end for a shopping website
 
 [Backend project](https://github.com/madsvnielsen/shopping-backend)
 
