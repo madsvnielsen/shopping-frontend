@@ -3,7 +3,7 @@ import cardImage from "../assets/lowrescard.png";
 import {useState} from "react";
 
 
-function CheckoutCard(){
+function CheckoutCard() {
 
     const unitPrice = 125;
     const [amount, setAmount] = useState(1);
@@ -36,7 +36,7 @@ function CheckoutCard(){
                 </p>
             </div>
             <div className="textBox">
-                <select name="amount" id="cards" onChange={handleChange}>
+                <select onChange={handleChange}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
