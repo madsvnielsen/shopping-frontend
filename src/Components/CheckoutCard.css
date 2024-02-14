@@ -1,4 +1,32 @@
 .box {
-    padding: 10px 10px;
+    display: flex;
+    align-items: flex-start;
+    padding: 1px;
     background: #888888;
+    margin: 17px;
+}
+
+.pokemonImg {
+    display: block;
+    width: 30%;
+    height: auto;
+    padding: 10px;
+}
+
+.headline {
+    font-weight: bold;
+}
+
+.textBox {
+    align-items: start;
+    flex: 1;
+    padding: 10px 15px;
+
+}
+
+p {
+    text-align: center;
+    font-size: small;
+    color: #242424;
+    margin: 10px;
 }
