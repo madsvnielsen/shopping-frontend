@@ -1,39 +1,39 @@
 import './CheckoutCard.css'
-import cardImage from "../assets/lowrescard.png";
 import {useState} from "react";
+import {Card} from "../interfaces/Card.tsx";
 
 
-function CheckoutCard() {
+function CheckoutCard(props : {card : Card}) {
 
-    const unitPrice = 125;
     const [amount, setAmount] = useState(1);
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setAmount(Number(event.target.value));
     };
 
+
     return (
         <div className="box">
-            <img src={cardImage} className="pokemonImg" alt="Pokemon card"/>
+            <img src={props.card.images == undefined? "-" : props.card.images.small } className="pokemonImg" alt={props.card.name}/>
 
             <div className="textBox">
                 <p className="headline">
                     Name
                 </p>
                 <p>
-                    Venusaur
+                    {props.card.name}
                 </p>
                 <p className="headline">
                     Set
                 </p>
                 <p>
-                    XY
+                    {props.card.set == undefined? "-" : props.card.set.name }
                 </p>
                 <p className="headline">
                     Rarity
                 </p>
                 <p>
-                    Rare Holo EX
+                    {props.card.rarity}
                 </p>
             </div>
             <div className="textBox">
@@ -45,7 +45,7 @@ function CheckoutCard() {
                     <option value="5">5</option>
                 </select>
                 <p>
-                    ${unitPrice * amount}
+                    {props.card.cardmarket == undefined? "-" : "$" +props.card.cardmarket.prices.averageSellPrice?.toFixed(2) * amount}
                 </p>
             </div>
         </div>
