@@ -1,6 +1,5 @@
 .box {
     display: flex;
-
     align-items: flex-start;
     padding: 1px;
     background: #efefef;
@@ -36,4 +35,8 @@ p {
  select {
      min-width: 35px;
      background-color: #ed1515;
+}
+
+option:hover {
+    background-color: yellow;
 }

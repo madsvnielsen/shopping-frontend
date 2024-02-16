@@ -15,6 +15,7 @@ function CheckoutCard() {
     return (
         <div className="box">
             <img src={cardImage} className="pokemonImg" alt="Pokemon card"/>
+
             <div className="textBox">
                 <p className="headline">
                     Name

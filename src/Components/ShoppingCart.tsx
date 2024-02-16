@@ -2,7 +2,6 @@ import './ShoppingCart.css'
 import CheckoutCard from "./CheckoutCard.tsx";
 
 function ShoppingCart() {
-
     return (
         <>
             <h1>Your shopping cart</h1>
