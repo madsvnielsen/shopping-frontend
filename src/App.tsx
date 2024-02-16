@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './App.css'
 import {Card} from "./interfaces/Card.tsx";
 
+import ShoppingCart from "./Components/ShoppingCart.tsx";
 
 function App() {
 
@@ -19,11 +20,11 @@ function App() {
         }
         , [])
 
-  return (
-    <>
-        <h1>{card.name}</h1>
-    </>
-  )
+    return (
+        <>
+          <ShoppingCart />
+        </>
+    )
 }
 
 export default App
