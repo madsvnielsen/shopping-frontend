@@ -1,6 +1,8 @@
 # Shopping frontend
 
-A front end for a shopping website
+A front end for a shopping website.
+
+Deployed with Netlify at https://g16pokeshop.netlify.app/
 
 [Backend project](https://github.com/madsvnielsen/shopping-backend)
 
