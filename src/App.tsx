@@ -1,5 +1,4 @@
 
-import './App.css';
 import {useEffect, useState} from "react";
 import ShoppingCart from "./Components/ShoppingCart.tsx";
 import {BasketItem, DetailedBasketItem} from "./interfaces/BasketItem";
