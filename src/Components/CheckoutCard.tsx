@@ -1,14 +1,16 @@
 import './CheckoutCard.css'
 import {useState} from "react";
-import {Card} from "../interfaces/Card.tsx";
+import {DetailedBasketItem} from "../interfaces/BasketItem.ts";
 
 
-function CheckoutCard(props: { card: Card }) {
 
-    const [amount, setAmount] = useState(1);
-    let price: number | string = "-"
-    if (props.card.cardmarket?.prices.averageSellPrice != undefined) {
-        price = (props.card.cardmarket.prices.averageSellPrice * amount).toFixed(2)
+function CheckoutCard(props : {basketItem : DetailedBasketItem}) {
+
+    const [amount, setAmount] = useState(props.basketItem.quantity);
+    const card = props.basketItem.card;
+    let price : number | string = "-";
+    if(card.cardmarket?.prices.averageSellPrice != undefined){
+        price =  (card.cardmarket.prices.averageSellPrice * amount).toFixed(2)
 
     }
 
@@ -21,31 +23,33 @@ function CheckoutCard(props: { card: Card }) {
     return (
         <div className="box">
             <div className="imgBox">
-                <img src={props.card.images == undefined ? "-" : props.card.images.small} className="pokemonImg"
-                     alt={props.card.name}/>
+                <img src={card.images == undefined ? "-" : card.images.small} className="pokemonImg"
+                     alt={card.name}/>
             </div>
+
             <div className="textBox">
                 <p className="headline">
                     Name
                 </p>
                 <p>
-                    {props.card.name}
+                    {card.name}
                 </p>
                 <p className="headline">
                     Set
                 </p>
                 <p>
-                    {props.card.set == undefined ? "-" : props.card.set.name}
+
+                    {card.set == undefined? "-" : card.set.name }
                 </p>
                 <p className="headline">
                     Rarity
                 </p>
                 <p>
-                    {props.card.rarity}
+                    {card.rarity}
                 </p>
             </div>
             <div className="textBox">
-                <select onChange={handleChange}>
+                <select onChange={handleChange} value={amount}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
