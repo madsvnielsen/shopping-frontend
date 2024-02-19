@@ -3,12 +3,12 @@ import {useState} from "react";
 import {Card} from "../interfaces/Card.tsx";
 
 
-function CheckoutCard(props : {card : Card}) {
+function CheckoutCard(props: { card: Card }) {
 
     const [amount, setAmount] = useState(1);
-    let price : number | string = "-"
-    if(props.card.cardmarket?.prices.averageSellPrice != undefined){
-        price =  (props.card.cardmarket.prices.averageSellPrice * amount).toFixed(2)
+    let price: number | string = "-"
+    if (props.card.cardmarket?.prices.averageSellPrice != undefined) {
+        price = (props.card.cardmarket.prices.averageSellPrice * amount).toFixed(2)
 
     }
 
@@ -20,8 +20,10 @@ function CheckoutCard(props : {card : Card}) {
 
     return (
         <div className="box">
-            <img src={props.card.images == undefined? "-" : props.card.images.small } className="pokemonImg" alt={props.card.name}/>
-
+            <div className="imgBox">
+                <img src={props.card.images == undefined ? "-" : props.card.images.small} className="pokemonImg"
+                     alt={props.card.name}/>
+            </div>
             <div className="textBox">
                 <p className="headline">
                     Name
@@ -33,7 +35,7 @@ function CheckoutCard(props : {card : Card}) {
                     Set
                 </p>
                 <p>
-                    {props.card.set == undefined? "-" : props.card.set.name }
+                    {props.card.set == undefined ? "-" : props.card.set.name}
                 </p>
                 <p className="headline">
                     Rarity
