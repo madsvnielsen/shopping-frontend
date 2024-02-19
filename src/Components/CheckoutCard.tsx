@@ -1,6 +1,5 @@
 import './CheckoutCard.css'
 import {useState} from "react";
-import {Card} from "../interfaces/Card.tsx";
 import {DetailedBasketItem} from "../interfaces/BasketItem.ts";
 
 
