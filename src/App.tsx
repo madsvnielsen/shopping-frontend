@@ -1,9 +1,10 @@
-import './App.css';
+
 import {useEffect, useState} from "react";
 import ShoppingCart from "./Components/ShoppingCart.tsx";
 import {BasketItem, DetailedBasketItem} from "./interfaces/BasketItem";
 import {Card} from "./interfaces/Card.tsx";
 import {PokemonAPI} from "./PokemonAPI.ts";
+import Banner from "./Components/Banner.tsx";
 
 const basketMock : BasketItem[] = [{
     id: "base1-3",
@@ -57,9 +58,11 @@ function App() {
 
 
     return (
-        <>
+        <div style={{width: "100%"}}>
+            <Banner/>
           <ShoppingCart basketItems={basketItems} />
-        </>
+        </div>
+
     )
 }
 
