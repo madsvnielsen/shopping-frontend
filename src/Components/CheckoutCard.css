@@ -1,0 +1,42 @@
+.box {
+    display: flex;
+    align-items: flex-start;
+    padding: 1px;
+    background: #efefef;
+    margin: 10px;
+}
+
+.pokemonImg {
+    display: block;
+    width: 25%;
+    height: auto;
+    padding: 10px;
+}
+
+.headline {
+    font-weight: bold;
+}
+
+.textBox {
+    align-items: start;
+    flex: 1;
+    padding: 10px 15px;
+
+}
+
+p {
+    text-align: center;
+    font-size: small;
+    color: #222224;
+    margin: 10px;
+    min-width: 90px;
+}
+
+ select {
+     min-width: 35px;
+     background-color: #ed1515;
+}
+
+option:hover {
+    background-color: yellow;
+}
