@@ -7,7 +7,7 @@ function App() {
 
     return (
         <>
-          <ShoppingCart />
+          <ShoppingCart cardIDs={["base1-3", "xy1-5"]} />
         </>
     )
 }

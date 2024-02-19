@@ -5,28 +5,32 @@ import {Card} from "../interfaces/Card.tsx";
 import {PokemonAPI} from "../PokemonAPI.ts";
 
 
-function ShoppingCart() {
+function ShoppingCart(props : {cardIDs: string[]}) {
 
-    const [card, setCard] = useState<Card>({} as Card);
+
+    const [cards, setCards] = useState<Card[]>([]);
+
+    const addCard = (newCard : Card[]) => {
+        setCards(newCard);
+    };
 
 
     useEffect(() => {
-            PokemonAPI.getCard("xy1-1").then(
-                (data : Card) => {
-                    console.log(data)
-                    setCard(data)
-                }
-            )
-        }
-        , [])
+        Promise.all(
+            props.cardIDs.map((cardID) => PokemonAPI.getCard(cardID))
+        ).then((cards) => {
+            addCard(cards);
+        });
+    }, []);
+
 
     return (
         <>
             <h1>Your shopping cart</h1>
             <div className="Wrapper">
-                <CheckoutCard card={card}/>
-                <CheckoutCard card={card}/>
-                <CheckoutCard card={card}/>
+                {cards.map((card, index) => (
+                    <CheckoutCard key={index} card={card} />
+                ))}
             </div>
         </>
     )

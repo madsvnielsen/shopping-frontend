@@ -6,6 +6,7 @@ import {Card} from "../interfaces/Card.tsx";
 function CheckoutCard(props : {card : Card}) {
 
     const [amount, setAmount] = useState(1);
+    const price = props.card.cardmarket == undefined? "-" : props.card.cardmarket.prices.averageSellPrice?.toFixed(2) * amount
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setAmount(Number(event.target.value));
@@ -45,7 +46,7 @@ function CheckoutCard(props : {card : Card}) {
                     <option value="5">5</option>
                 </select>
                 <p>
-                    {props.card.cardmarket == undefined? "-" : "$" +props.card.cardmarket.prices.averageSellPrice?.toFixed(2) * amount}
+                    $ {typeof price !== "string" ? price?.toFixed(2) : "-"}
                 </p>
             </div>
         </div>
