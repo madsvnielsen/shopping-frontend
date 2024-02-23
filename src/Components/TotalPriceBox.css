@@ -1,0 +1,8 @@
+.TotalpriceBox{
+    display: flex;
+    align-items: flex-start;
+    padding: 1px;
+    background: #efefef;
+    margin: 10px;
+    max-height: 225px;
+}
