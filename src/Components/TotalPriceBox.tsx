@@ -12,20 +12,30 @@ function TotalPriceBox() {
                 <p className="headline">
                     Total price
                 </p>
-                <p>
-                    Subtotal \t \t 198
+                <p className="text">
+                    Subtotal
                 </p>
-                <p>
-                    Delivery 2
+                <p className="text">
+                    Delivery
                 </p>
-                <p>
-                    Total \t \t 200
+                <p className="priceleft">
+                    Total
                 </p>
-                <button>
-                    onPress={true}
-                    title="Checkout"
-                    color="#C52828"
+                <button className="checkoutbutton">
+                    Checkout
                 </button>
+            </div>
+            <div className="textBox">
+
+                <p className="textright">
+                    $198
+                </p>
+                <p className="textright">
+                   $2
+                </p>
+                <p className="price">
+                    $200
+                </p>
             </div>
 
         </div>
