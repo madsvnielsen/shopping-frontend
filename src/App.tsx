@@ -5,7 +5,6 @@ import {BasketItem, DetailedBasketItem} from "./interfaces/BasketItem";
 import {Card} from "./interfaces/Card.tsx";
 import {PokemonAPI} from "./PokemonAPI.ts";
 import Banner from "./Components/Banner.tsx";
-import TotalPriceBox from "./Components/TotalPriceBox.tsx";
 
 const basketMock : BasketItem[] = [{
     id: "base1-3",
