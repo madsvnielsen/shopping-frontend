@@ -12,12 +12,6 @@ function ShoppingCart(props : {basketItems: DetailedBasketItem[]}) {
                 {props.basketItems.map((basketItem, index) => (
                     <CheckoutCard key={index} basketItem={basketItem} />
                 ))}
-
-                <p>This is a checkbox for laminating your card:</p>
-                <input 
-                    type="checkbox"
-                    
-                />
             </div>
         </>
     )
