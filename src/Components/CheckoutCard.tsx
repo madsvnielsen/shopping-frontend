@@ -53,7 +53,9 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                 </p>
             </div>
             <div className="textBox">
-                <select onChange={ e => {updateItemQuantity(parseInt(e.target.value))}} value={props.basketItem.quantity}>
+                <select onChange={e => {
+                    updateItemQuantity(parseInt(e.target.value))
+                }} value={props.basketItem.quantity}>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
@@ -65,17 +67,15 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                 </p>
                 
                 <label>
-                    <input 
+                    <input
                         type="checkbox" id="box" name="laminating" value='box'
                         onClick={clickCheckbox}
                     />
                     Laminate
                 </label>
-                
+
             </div>
-            <div className="deleteContainer">
                 <button className="deleteButton" onClick={() => {updateItemQuantity(0)}}>Remove</button>
-            </div>
         </div>
     )
 }
