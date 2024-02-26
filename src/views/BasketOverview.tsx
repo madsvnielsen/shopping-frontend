@@ -87,7 +87,7 @@ export function BasketOverview() {
 
 
     return (
-        <div style={{width: "100%"}}>
+        <div>
             <Banner/>
             {basketItems.length > 0 && <ShoppingCart basketItems={basketItems} updateBasketItem={updateBasketItem} />}
             {basketItems.length == 0 && nothingToDisplayText}
