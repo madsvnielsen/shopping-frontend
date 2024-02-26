@@ -19,6 +19,12 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem}) {
         setAmount(Number(event.target.value));
     };
 
+    
+    function clickCheckbox() {
+        if (!card.laminate) { card.laminate = true; }
+        else card.laminate = false;
+    }
+
 
     return (
         <div className="box">
@@ -63,7 +69,7 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem}) {
                 <label>
                     <input 
                         type="checkbox" id="box" name="laminating" value='box'
-                        
+                        onClick={clickCheckbox}
                     />
                     Laminate
                 </label>
