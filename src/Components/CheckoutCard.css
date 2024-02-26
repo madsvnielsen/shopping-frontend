@@ -45,11 +45,8 @@ p {
     min-width: 90px;
 }
 
- select {
-     min-width: 35px;
-     background-color: #ed1515;
-}
-
-option:hover {
-    background-color: yellow;
+select {
+    min-width: 35px;
+    background-color: #ed1515;
+    color: #ffffff;
 }
