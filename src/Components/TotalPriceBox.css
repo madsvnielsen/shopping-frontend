@@ -17,7 +17,7 @@
     color: #efefef;
 }
 
-.textBox {
+.textBoxPriceBox {
     display: flex;
     align-self: center;
     flex: 1;
@@ -28,7 +28,7 @@
 }
 
 
-.headline {
+.headlinePriceBox {
     font-weight: bold;
     font-size: 16px;
     text-align: left;
@@ -37,17 +37,33 @@
 .priceleft {
     font-weight: bold;
     text-align: left;
+    font-size: small;
+    color: #222224;
+    min-width: 90px;
+    margin: 10px 10px;
 }
 
 .text {
     text-align:left;
+    font-size: small;
+    color: #222224;
+    min-width: 90px;
+    margin: 10px 10px;
 }
 
 .textright{
     text-align: right;
+    font-size: small;
+    color: #222224;
+    min-width: 90px;
+    margin: 10px 10px;
 }
 
 .price {
     font-weight: bold;
     text-align: right;
+    font-size: small;
+    color: #222224;
+    min-width: 90px;
+    margin: 10px 10px;
 }

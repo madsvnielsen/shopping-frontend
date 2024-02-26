@@ -9,4 +9,5 @@ export interface Card {
     rarity: string;
     images: ICardImage;
     cardmarket: ICardmarket;
+    laminate: boolean;
 }

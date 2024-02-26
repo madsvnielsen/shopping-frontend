@@ -7,3 +7,8 @@
     min-width: 500px;
     border-radius: 5px;
 }
+label{
+    font-family: inherit;
+    font-size: small;
+    color: black;
+}
