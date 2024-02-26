@@ -88,7 +88,7 @@ export function BasketOverview() {
 
 
     return (
-        <div style={{width: "100%"}}>
+        <div>
             <Banner/>
             <StatusBar /> {/* Include the StatusBar component here */}
             {basketItems.length > 0 && <ShoppingCart basketItems={basketItems} updateBasketItem={updateBasketItem} />}

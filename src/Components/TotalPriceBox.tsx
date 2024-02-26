@@ -18,8 +18,8 @@ function TotalPriceBox(props : {basketItems: DetailedBasketItem[]}) {
     return (
         <div className="TotalpriceBox">
 
-            <div className="textBox">
-                <p className="headline">
+            <div className="textBoxPriceBox">
+                <p className="headlinePriceBox">
                     Total price
                 </p>
                 <p className="text">
@@ -35,7 +35,7 @@ function TotalPriceBox(props : {basketItems: DetailedBasketItem[]}) {
                     Checkout
                 </button>
             </div>
-            <div className="textBox">
+            <div className="textBoxPriceBox">
 
                 <p className="textright">
                     $ {subTotal}

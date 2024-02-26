@@ -17,7 +17,7 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
         props.updateBasketItem(newItem)
     }
 
-    
+
     function clickCheckbox() {
         if (!card.laminate) { card.laminate = true; }
         else card.laminate = false;
@@ -53,28 +53,32 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                 </p>
             </div>
             <div className="textBox">
-                <select onChange={ e => {updateItemQuantity(parseInt(e.target.value))}} value={props.basketItem.quantity}>
+                <select onChange={e => {
+                    updateItemQuantity(parseInt(e.target.value))
+                }} value={props.basketItem.quantity}>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
                     <option value={4}>4</option>
                     <option value={5}>5</option>
                 </select>
-                <p>
-                    $ {price}
-                </p>
-                
-                <label>
-                    <input 
+
+                <label style={{margin: 10}}>
+                    <input
                         type="checkbox" id="box" name="laminating" value='box'
                         onClick={clickCheckbox}
                     />
                     Laminate
                 </label>
-                
-            </div>
-            <div className="deleteContainer">
-            <button className="deleteButton" onClick={() => {updateItemQuantity(0)}}>Remove</button>
+                <p>
+                    $ {price}
+                </p>
+
+
+                <button className="deleteButton" onClick={() => {
+                    updateItemQuantity(0)
+                }}>Remove
+                </button>
 
             </div>
         </div>
