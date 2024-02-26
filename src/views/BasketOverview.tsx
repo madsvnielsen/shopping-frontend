@@ -39,10 +39,24 @@ export function BasketOverview() {
     let [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
 
 
+
+
+
     const updateBasketItem = (basketItem : DetailedBasketItem) =>  {
+
+
+
         const index = basketItems.findIndex(item => item.id === basketItem.id);
         const newBasketItems = [... basketItems];
-        newBasketItems[index] = basketItem;
+
+
+        //Change item if quantity is positive, otherwise remove item.
+        if(basketItem.quantity > 0){
+            newBasketItems[index] = basketItem;
+        } else{
+            newBasketItems.splice(index, 1);
+        }
+
         setBasketItems(newBasketItems)
     }
 

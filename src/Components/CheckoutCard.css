@@ -25,6 +25,18 @@
     align-items: center;
     flex-basis: 50%;
 }
+.deleteContainer {
+    display: flex;
+    align-self: center;
+    flex: 1;
+}
+.deleteButton {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+
+}
 
 .imgBox{
     display: flex;
