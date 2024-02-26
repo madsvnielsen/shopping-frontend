@@ -9,11 +9,11 @@ function TotalPriceBox(props : {basketItems: DetailedBasketItem[]}) {
     let subTotal = 0;
 
     if(props.basketItems.length > 0){
-        subTotal = props.basketItems.flatMap(item => item.quantity * (item.card.cardmarket.prices.averageSellPrice as number))
-        .reduce((a,b,) => a+b)
+        subTotal = parseFloat(props.basketItems.flatMap(item => item.quantity * (item.card.cardmarket.prices.averageSellPrice as number))
+        .reduce((a,b,) => a+b).toFixed(2))
     }
 
-    let total = subTotal +deliveryFee;
+    let total = (subTotal +deliveryFee).toFixed(2);
 
     return (
         <div className="TotalpriceBox">

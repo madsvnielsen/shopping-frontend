@@ -37,6 +37,7 @@ const basketMock : BasketItem[] = [{
 
 export function BasketOverview() {
     let [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
+    let [isLoading, setIsLoading] = useState(true)
 
 
 
@@ -72,6 +73,7 @@ export function BasketOverview() {
                     isLaminated: item.isLaminated
                 } as DetailedBasketItem)
             }
+            setIsLoading(false)
             setBasketItems(newBasketItems)
         }
 
@@ -79,10 +81,17 @@ export function BasketOverview() {
 
     }, [])
 
+    let nothingToDisplayText = isLoading ? <h1>Loading...</h1> : <h1>Your shopping cart is empty!</h1>
+
+
+
+
     return (
         <div style={{width: "100%"}}>
             <Banner/>
-            <ShoppingCart basketItems={basketItems} updateBasketItem={updateBasketItem} />
+            {basketItems.length > 0 && <ShoppingCart basketItems={basketItems} updateBasketItem={updateBasketItem} />}
+            {basketItems.length == 0 && nothingToDisplayText}
+
         </div>
 
     )
