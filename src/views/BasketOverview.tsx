@@ -36,7 +36,30 @@ const basketMock : BasketItem[] = [{
 
 
 export function BasketOverview() {
-    const [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
+    let [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
+    let [isLoading, setIsLoading] = useState(true)
+
+
+
+
+
+    const updateBasketItem = (basketItem : DetailedBasketItem) =>  {
+
+
+
+        const index = basketItems.findIndex(item => item.id === basketItem.id);
+        const newBasketItems = [... basketItems];
+
+
+        //Change item if quantity is positive, otherwise remove item.
+        if(basketItem.quantity > 0){
+            newBasketItems[index] = basketItem;
+        } else{
+            newBasketItems.splice(index, 1);
+        }
+
+        setBasketItems(newBasketItems)
+    }
 
     useEffect(() => {
         async function loadBasketItems(){
@@ -44,11 +67,13 @@ export function BasketOverview() {
             for await (const item of basketMock) {
                 const card : Card = await PokemonAPI.getCard(item.id)
                 newBasketItems.push({
+                    id: item.id,
                     card: card,
                     quantity: item.quantity,
                     isLaminated: item.isLaminated
                 } as DetailedBasketItem)
             }
+            setIsLoading(false)
             setBasketItems(newBasketItems)
         }
 
@@ -56,12 +81,17 @@ export function BasketOverview() {
 
     }, [])
 
+    let nothingToDisplayText = isLoading ? <h1>Loading...</h1> : <h1>Your shopping cart is empty!</h1>
+
+
+
 
     return (
         <div style={{width: "100%"}}>
-
             <Banner/>
-            <ShoppingCart basketItems={basketItems} />
+            {basketItems.length > 0 && <ShoppingCart basketItems={basketItems} updateBasketItem={updateBasketItem} />}
+            {basketItems.length == 0 && nothingToDisplayText}
+
         </div>
 
     )

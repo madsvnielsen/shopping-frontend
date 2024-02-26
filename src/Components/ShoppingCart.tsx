@@ -4,7 +4,7 @@ import {DetailedBasketItem} from "../interfaces/BasketItem";
 import TotalPriceBox from "./TotalPriceBox.tsx";
 
 
-function ShoppingCart(props : {basketItems: DetailedBasketItem[]}) {
+function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketItem : (item : DetailedBasketItem) => void}) {
 
     return (
         <>
@@ -12,10 +12,11 @@ function ShoppingCart(props : {basketItems: DetailedBasketItem[]}) {
             <div style={{display:"flex"}}>
             <div className="Wrapper">
                 {props.basketItems.map((basketItem, index) => (
-                    <CheckoutCard key={index} basketItem={basketItem} />
+                    <CheckoutCard key={index} basketItem={basketItem} updateBasketItem={props.updateBasketItem} />
                 ))}
             </div>
-            <TotalPriceBox/>
+
+            <TotalPriceBox basketItems={props.basketItems}/>
                 </div>
         </>
     )
