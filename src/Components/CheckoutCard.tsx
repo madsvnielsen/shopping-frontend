@@ -59,11 +59,15 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem}) {
                 <p>
                     $ {price}
                 </p>
-                <p>Lamitate card:</p>
-                <input 
-                    type="checkbox"
-                    
-                />
+                
+                <label>
+                    <input 
+                        type="checkbox" id="box" name="laminating" value='box'
+                        
+                    />
+                    Laminate
+                </label>
+                
             </div>
         </div>
     )
