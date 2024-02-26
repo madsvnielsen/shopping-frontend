@@ -65,7 +65,7 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                 <p>
                     $ {price}
                 </p>
-                
+
                 <label>
                     <input
                         type="checkbox" id="box" name="laminating" value='box'
@@ -73,9 +73,12 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                     />
                     Laminate
                 </label>
+                <button className="deleteButton" onClick={() => {
+                    updateItemQuantity(0)
+                }}>Remove
+                </button>
 
             </div>
-                <button className="deleteButton" onClick={() => {updateItemQuantity(0)}}>Remove</button>
         </div>
     )
 }
