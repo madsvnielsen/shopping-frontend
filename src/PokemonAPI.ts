@@ -21,4 +21,45 @@ export class PokemonAPI {
                 Promise.reject(error);
             });
     }
+    static async searchcard(search: string) :Promise<Array<Card>>{
+        return fetch('https://api.pokemontcg.io/v2/cards?q=name:' + search+'*&page=1&pageSize=3',
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + "e7c3a10b-7fc1-4ddc-a225-f3412514f740",
+                }
+            }
+        )
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                return data.data;
+            })
+            .catch(error => {
+                Promise.reject(error);
+            });
+    }
+
+    static async listOfCards() :Promise<Array<Card>>{
+        return fetch('https://api.pokemontcg.io/v2/cards?page=1&pageSize=3',
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + "e7c3a10b-7fc1-4ddc-a225-f3412514f740",
+                }
+            }
+        )
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                return data.data;
+            })
+            .catch(error => {
+                Promise.reject(error);
+            });
+    }
 }
