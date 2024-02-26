@@ -1,9 +1,19 @@
 import './TotalPriceBox.css'
+import {DetailedBasketItem} from "../interfaces/BasketItem.ts";
 
 
+function TotalPriceBox(props : {basketItems: DetailedBasketItem[]}) {
 
-function TotalPriceBox() {
+    let deliveryFee = 2;
 
+    let subTotal = 0;
+
+    if(props.basketItems.length > 0){
+        subTotal = props.basketItems.flatMap(item => item.quantity * (item.card.cardmarket.prices.averageSellPrice as number))
+        .reduce((a,b,) => a+b)
+    }
+
+    let total = subTotal +deliveryFee;
 
     return (
         <div className="TotalpriceBox">
@@ -28,13 +38,13 @@ function TotalPriceBox() {
             <div className="textBox">
 
                 <p className="textright">
-                    $198
+                    $ {subTotal}
                 </p>
                 <p className="textright">
-                   $2
+                   $ {deliveryFee}
                 </p>
                 <p className="price">
-                    $200
+                    $ {total}
                 </p>
             </div>
 

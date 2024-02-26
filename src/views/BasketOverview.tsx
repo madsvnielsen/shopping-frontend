@@ -36,7 +36,16 @@ const basketMock : BasketItem[] = [{
 
 
 export function BasketOverview() {
-    const [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
+    let [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
+
+
+    const updateBasketItem = (basketItem : DetailedBasketItem) =>  {
+        const index = basketItems.findIndex(item => item.id === basketItem.id);
+        console.log(basketItem.id)
+        const newBasketItems = [... basketItems];
+        newBasketItems[index] = basketItem;
+        setBasketItems(newBasketItems)
+    }
 
     useEffect(() => {
         async function loadBasketItems(){
@@ -44,6 +53,7 @@ export function BasketOverview() {
             for await (const item of basketMock) {
                 const card : Card = await PokemonAPI.getCard(item.id)
                 newBasketItems.push({
+                    id: item.id,
                     card: card,
                     quantity: item.quantity,
                     isLaminated: item.isLaminated
@@ -55,13 +65,22 @@ export function BasketOverview() {
         loadBasketItems()
 
     }, [])
+    let totalItems = 0;
+    if(basketItems.length > 0){
+        totalItems = basketItems.flatMap(item => item.quantity).reduce((partialSum, a ) => partialSum+a)
+
+    }
+
+
 
 
     return (
         <div style={{width: "100%"}}>
-
             <Banner/>
-            <ShoppingCart basketItems={basketItems} />
+            <ShoppingCart basketItems={basketItems} updateBasketItem={updateBasketItem} />
+
+
+
         </div>
 
     )
