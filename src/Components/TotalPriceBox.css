@@ -3,7 +3,7 @@
     align-items: flex-start;
     padding: 1px;
     background: #efefef;
-    max-height: 225px;
+    max-height: 250px;
     align-self: auto;
     margin-left: auto;
     margin-right: 10px;
@@ -55,6 +55,15 @@
     text-align: right;
     font-size: small;
     color: #222224;
+    min-width: 90px;
+    margin: 10px 10px;
+}
+
+.discountText{
+    text-align: right;
+    font-weight: bold;
+    font-size: small;
+    color: #02de27;
     min-width: 90px;
     margin: 10px 10px;
 }
