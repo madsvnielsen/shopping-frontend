@@ -15,6 +15,7 @@
 .headline {
     font-weight: bold;
     font-size: 16px;
+    margin-bottom:0px;
 }
 
 .textBox {
@@ -67,12 +68,18 @@ select {
     margin: 10px;
 }
 input {
-    width: 75px;
     background-color:#C52828;
     color: #ffffff;
-    margin: 10px;
+    margin-bottom: 12px;
 }
 
 .laminate{
-    margin-top: 100%;
+
+    color: black;
+    display: inline;
+
+}
+
+.quantity{
+    margin-top: 75%;
 }
