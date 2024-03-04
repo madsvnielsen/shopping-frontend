@@ -23,6 +23,19 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
         else card.laminate = false;
     }
 
+    const enforceMinMax = (event : React.ChangeEvent<HTMLInputElement>) => {
+        const {value, min, max} = event.target;
+
+        if (value !== "") {
+            if (parseInt(value) < parseInt(min)) {
+                event.target.value = min;
+            }
+            if (parseInt(value) > parseInt(max)) {
+                event.target.value = max;
+            }
+            updateItemQuantity(parseInt(event.target.value))
+        }
+    };
 
     return (
         <div className="box">
@@ -43,7 +56,7 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                 </p>
                 <p>
 
-                    {card.set == undefined? "-" : card.set.name }
+                    {card.set == undefined ? "-" : card.set.name}
                 </p>
                 <p className="headline">
                     Rarity
@@ -53,28 +66,26 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                 </p>
             </div>
             <div className="textBox">
-                <select onChange={e => {
-                    updateItemQuantity(parseInt(e.target.value))
-                }} value={props.basketItem.quantity}>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                </select>
 
-                <label style={{margin: 10}}>
-                    <input
-                        type="checkbox" id="box" name="laminating" value='box'
-                        onClick={clickCheckbox}
-                    />
-                    Laminate
+
+
+
+                <label className="quantity">Quantity</label>
+                <input type="number" value={props.basketItem.quantity} min="1" max="1000" onChange={enforceMinMax}/>
+                <label className="laminate">
+
+                <input
+                    type="checkbox" id="box" name="laminating" value='box'
+                    onClick={clickCheckbox}
+                />
+                Laminate
                 </label>
+
                 <p>
+                    $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
+                    <br/>
                     $ {price}
                 </p>
-
-
                 <button className="deleteButton" onClick={() => {
                     updateItemQuantity(0)
                 }}>Remove
