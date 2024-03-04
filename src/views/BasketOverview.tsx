@@ -37,20 +37,13 @@ const basketMock : BasketItem[] = [{
 
 
 export function BasketOverview() {
-    let [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
-    let [isLoading, setIsLoading] = useState(true)
-
-
-
-
+    const [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
+    const [isLoading, setIsLoading] = useState(true)
 
     const updateBasketItem = (basketItem : DetailedBasketItem) =>  {
 
-
-
         const index = basketItems.findIndex(item => item.id === basketItem.id);
         const newBasketItems = [... basketItems];
-
 
         //Change item if quantity is positive, otherwise remove item.
         if(basketItem.quantity > 0){
@@ -82,7 +75,7 @@ export function BasketOverview() {
 
     }, [])
 
-    let nothingToDisplayText = isLoading ? <h1>Loading...</h1> : <h1>Your shopping cart is empty!</h1>
+    const nothingToDisplayText = isLoading ? <h1>Loading...</h1> : <h1>Your shopping cart is empty!</h1>
 
 
 

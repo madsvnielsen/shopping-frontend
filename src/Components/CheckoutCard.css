@@ -57,12 +57,22 @@ p {
     font-size: small;
     color: #222224;
     min-width: 90px;
-    margin: 10px 10px auto;
+    margin: 10px 0px auto;
 }
 
 select {
     min-width: 35px;
     background-color:#C52828;
     color: #ffffff;
+    margin: 10px;
+}
+input {
+    width: 75px;
+    background-color:#C52828;
+    color: #ffffff;
+    margin: 10px;
+}
+
+.laminate{
     margin-top: 100%;
 }
