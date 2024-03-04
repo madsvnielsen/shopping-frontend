@@ -6,6 +6,7 @@ import {Card} from "./../interfaces/Card.tsx";
 import {PokemonAPI} from "./../PokemonAPI.ts";
 import Banner from "./../Components/Banner.tsx";
 import StatusBar from "./../Components/StatusBar";
+import DiscountBanner from "./../Components/DiscountBanner";
 import RecommendedProducts from "./../Components/RecommendedProducts";
 
 const basketMock : BasketItem[] = [{
@@ -118,7 +119,8 @@ export function BasketOverview() {
     return (
         <div>
             <Banner/>
-            <StatusBar /> {/* Include the StatusBar component here */}
+            <StatusBar /> {}
+            <DiscountBanner /> {}
             {basketItems.length > 0 && <ShoppingCart basketItems={basketItems} updateBasketItem={updateBasketItem} />}
             {basketItems.length === 0 && nothingToDisplayText}
             <RecommendedProducts
