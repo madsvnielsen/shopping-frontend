@@ -1,4 +1,3 @@
-//import React from 'react';
 import './DiscountBanner.css';
 
 const DiscountBanner = () => {
