@@ -66,15 +66,21 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                 </p>
             </div>
             <div className="textBox">
+
+
+
+
+                <label className="quantity">Quantity</label>
+                <input type="number" value={props.basketItem.quantity} min="1" max="1000" onChange={enforceMinMax}/>
                 <label className="laminate">
-                    <input
-                        type="checkbox" id="box" name="laminating" value='box'
-                        onClick={clickCheckbox}
-                    />
-                    Laminate
+
+                <input
+                    type="checkbox" id="box" name="laminating" value='box'
+                    onClick={clickCheckbox}
+                />
+                Laminate
                 </label>
 
-                <input type="number" value={props.basketItem.quantity} min="1" max="1000" onChange={enforceMinMax}/>
                 <p>
                     $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
                     <br/>
