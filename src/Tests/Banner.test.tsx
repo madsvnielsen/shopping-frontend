@@ -10,5 +10,3 @@ describe(Banner.name, () => {
         expect(screen.getByText("Pokemonshop.com")).toBeInTheDocument();
     });
 });
-
-
