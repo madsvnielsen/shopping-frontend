@@ -6,6 +6,7 @@ import {Card} from "./../interfaces/Card.tsx";
 import {PokemonAPI} from "./../PokemonAPI.ts";
 import Banner from "./../Components/Banner.tsx";
 import StatusBar from "./../Components/StatusBar";
+import RecommendedProducts from "./../Components/RecommendedProducts";
 
 const basketMock : BasketItem[] = [{
     id: "base1-3",
@@ -34,11 +35,20 @@ const basketMock : BasketItem[] = [{
 },
 ]
 
+const recommendedMock : string[] = [
+    "base2-4",
+    "xy1-4",
+    "xy2-5",
+    "base3-4",
+    "base4-4",
+    "base5-4"
+]
 
 
 export function BasketOverview() {
     const [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
     const [isLoading, setIsLoading] = useState(true)
+    const [recommendedItems, setRecommendedItems] = useState([] as Card[])
 
     const updateBasketItem = (basketItem : DetailedBasketItem) =>  {
 
@@ -53,6 +63,17 @@ export function BasketOverview() {
         }
 
         setBasketItems(newBasketItems)
+    }
+
+    const addBasketItem = (card : Card) => {
+        const newItem : DetailedBasketItem = {
+            id: card.id,
+            card: card,
+            quantity: 1,
+            isLaminated: false
+        }
+        setBasketItems([...basketItems, newItem]);
+
     }
 
     useEffect(() => {
@@ -71,7 +92,21 @@ export function BasketOverview() {
             setBasketItems(newBasketItems)
         }
 
+        async function loadRecommendedProducts(){
+            const newRecommendedItems  : Card[] = []
+            for await (const id of recommendedMock){
+                const card : Card = await PokemonAPI.getCard(id);
+                newRecommendedItems.push(card);
+            }
+
+            setRecommendedItems(newRecommendedItems);
+
+        }
+
+
+
         loadBasketItems()
+        loadRecommendedProducts()
 
     }, [])
 
@@ -86,6 +121,10 @@ export function BasketOverview() {
             <StatusBar /> {/* Include the StatusBar component here */}
             {basketItems.length > 0 && <ShoppingCart basketItems={basketItems} updateBasketItem={updateBasketItem} />}
             {basketItems.length === 0 && nothingToDisplayText}
+            <RecommendedProducts
+            productsList={recommendedItems}
+            onProductAdded={addBasketItem}
+            />
         </div>
     );
 }
