@@ -3,13 +3,17 @@ import {DetailedBasketItem} from "../interfaces/BasketItem.ts";
 
 
 
+
 function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem : (item : DetailedBasketItem) => void}) {
     const card = props.basketItem.card;
     let price : number | string = "-";
+
     if(card.cardmarket?.prices.averageSellPrice != undefined){
         price =  (card.cardmarket.prices.averageSellPrice * props.basketItem.quantity).toFixed(2)
-
     }
+
+
+
 
     const updateItemQuantity = (newQuantity : number) => {
         const newItem = props.basketItem
@@ -70,6 +74,9 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                     />
                     Laminate
                 </label>
+                <p>
+                    $ -{discount}
+                </p>
                 <p>
                     $ {price}
                 </p>
