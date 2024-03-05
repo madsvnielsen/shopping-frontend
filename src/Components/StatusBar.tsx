@@ -1,6 +1,6 @@
 // src/components/StatusBar.tsx
 //import React from 'react';
-import './StatusBar.css'; // Adjust the path as necessary
+import './StatusBar.css';
 
 const StatusBar = () => {
     return (
