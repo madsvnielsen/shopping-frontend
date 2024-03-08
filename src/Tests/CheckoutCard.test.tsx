@@ -18,7 +18,12 @@ const basketMock : BasketItem[] = [{
 ]
 
 
-
+const basketMockSingleCard : BasketItem[] = [{
+    id: "base1-3",
+    quantity : 1,
+    isLaminated: false
+}
+]
 
 describe(CheckoutCard.name, () => {
     it("should render", async () => {
@@ -37,7 +42,6 @@ describe(CheckoutCard.name, () => {
             expect(image.src).toContain('https://images.pokemontcg.io/base1/3.png');
             expect(image.alt).toBeDefined();
         }
-
     });
     it('should allow for input', async () => {
         const user = userEvent.setup();
@@ -63,5 +67,16 @@ describe(CheckoutCard.name, () => {
         expect(numberInput).toHaveValue(123);
         expect(screen.getByText(/2857.29/)).toBeInTheDocument();
 
+    });
+    it('should remove card', async () => {
+
+        render(<BasketOverview basketMock={basketMockSingleCard} />);
+
+        await waitFor(() => expect(screen.getByText('Chansey')).toBeInTheDocument(), { timeout: 5000 });
+
+        const button = screen.getByTestId('delete');
+        await userEvent.click(button);
+
+        expect(screen.queryByText('Chansey')).toBeNull();
     });
 });

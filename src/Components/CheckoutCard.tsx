@@ -81,7 +81,7 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                     <br/>
                     $ {price}
                 </p>
-                <button className="deleteButton" onClick={() => {
+                <button className="deleteButton" data-testid="delete" onClick={() => {
                     updateItemQuantity(0)
                 }}>Remove
                 </button>
