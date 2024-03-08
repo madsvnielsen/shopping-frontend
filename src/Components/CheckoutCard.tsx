@@ -55,7 +55,6 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                     Set
                 </p>
                 <p>
-
                     {card.set == undefined ? "-" : card.set.name}
                 </p>
                 <p className="headline">
@@ -66,10 +65,6 @@ function CheckoutCard(props : {basketItem : DetailedBasketItem, updateBasketItem
                 </p>
             </div>
             <div className="textBox">
-
-
-
-
                 <label className="quantity">Quantity</label>
                 <input type="number" value={props.basketItem.quantity} min="1" max="1000" onChange={enforceMinMax}/>
                 <label className="laminate">
