@@ -17,7 +17,9 @@ const basketMockSingleCard : BasketItem[] = [{
 describe(quantDiscount.name, () => {
 
 
+
   it("Should give discount", async() =>{
+
       const basketItems : DetailedBasketItem[] = []
       for await (const item of basketMockSingleCard) {
           const card : Card = await PokemonAPI.getCard(item.id)
@@ -31,7 +33,11 @@ describe(quantDiscount.name, () => {
       render(<BasketOverview basketMock={basketMockSingleCard} />);
 
       await waitFor(() => expect(screen.getByText(basketItems[0].card.name)).toBeInTheDocument(), { timeout: 5000 });
-      expect(screen.queryByText("-")).toBeNull();
+
+      const price : string = ((basketItems[0].card.cardmarket.prices.averageSellPrice*4)*0.1).toFixed(2);
+      console.log(price)
+      const priceRegex= new RegExp(price)
+      expect(screen.getByText(priceRegex)).toBeInTheDocument();
 
     } )
 
