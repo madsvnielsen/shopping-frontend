@@ -11,7 +11,9 @@ function ProductListItem (props : {card: Card, onProductAdded : (card : Card ) =
     <img src={props.card.images.small} className="pokeImg"/>
     <br/>
     <span className="productPrice">{'Only $'+props.card.cardmarket.prices.averageSellPrice}</span>
-    {isAdded ? <span className="productPrice">Added to basket!</span>: <button className="addProductButton" onClick={() => {
+    {isAdded ? <span className="productPrice">Added to basket!</span>: <button
+    data-testid={"rec-btn-"+props.card.name}
+    className="addProductButton" onClick={() => {
         props.onProductAdded(props.card);
         setIsAdded(true);
     }}>+</button>}
