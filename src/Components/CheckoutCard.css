@@ -83,3 +83,9 @@ input {
 .quantity{
     margin-top: 75%;
 }
+
+
+totalprice{
+    font-weight: bold;
+    font-size: 20px;
+}

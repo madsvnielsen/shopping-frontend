@@ -1,15 +1,25 @@
 import './CheckoutCard.css'
 import {DetailedBasketItem} from "../interfaces/BasketItem.ts";
+import quantDiscount from "../HelperFunction/QuantDiscount.ts";
+
 
 
 function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem: (item: DetailedBasketItem) => void }) {
     const card = props.basketItem.card;
-    let price: number | string = "-";
-    if (card.cardmarket?.prices.averageSellPrice != undefined) {
-        price = (card.cardmarket.prices.averageSellPrice * props.basketItem.quantity).toFixed(2)
+    let price : number | string = "-";
+    let discount2 : number | string = "-";
+    let totalPrice : number | string = "-";
+
+    if(card.cardmarket?.prices.averageSellPrice != undefined){
+        price =  (card.cardmarket.prices.averageSellPrice * props.basketItem.quantity).toFixed(2)
     }
 
-    const updateItemQuantity = (newQuantity: number) => {
+    discount2= quantDiscount({basketItem: props.basketItem, updateBasketItem: props.updateBasketItem})
+
+    totalPrice= parseFloat((parseFloat(price)-discount2).toFixed(2));
+
+
+    const updateItemQuantity = (newQuantity : number) => {
         const newItem = props.basketItem
         newItem.quantity = newQuantity
         props.updateBasketItem(newItem)
@@ -90,6 +100,13 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
                     $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
                     <br/>
                     $ {price}
+
+                </p>
+                <p>
+                    $ -{discount2}
+                </p>
+                <p className="totalprice">
+                    $ {totalPrice}
                 </p>
                 <button className="deleteButton" data-testid="delete" onClick={() => {
                     updateItemQuantity(-1)
