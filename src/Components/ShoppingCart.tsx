@@ -23,7 +23,6 @@ function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketIt
     const total : number  = parseFloat((subTotal-discount+deliveryFee).toFixed(2));
 
     const prices: number[] = [deliveryFee, subTotal, total, discount]
-    console.log("Subtotal in ShoppingCart:", subTotal);
 
     return (
         <div style={{padding: 15}}>
