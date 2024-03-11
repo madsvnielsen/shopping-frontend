@@ -50,12 +50,34 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
         } else {
             updateItemQuantity(0)
         }
-
-
-
         updateItemQuantity(parseInt(event.target.value))
-
     };
+
+    function withDiscount() {
+        return <p>
+            $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
+            <br/>
+            $ {price} - {discount2}
+        </p>;
+    }
+
+    function withoutDiscount() {
+        return <p>
+            $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
+            <br/>
+            $ {price}
+        </p>;
+    }
+
+    function priceHTML(discount : number){
+        if (discount > 0) {
+            return withDiscount;
+        } else {
+            return withoutDiscount;
+        }
+    }
+
+    const priceElement = priceHTML(discount2);
 
     return (
         <div className="box">
@@ -95,16 +117,22 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
                     />
                     Laminate
                 </label>
+                {discount2 !== 0 && (
+                    <p>
+                        $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
+                        <br/>
+                        $ {price} - {discount2}
+                    </p>
+                )}
 
-                <p>
-                    $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
-                    <br/>
-                    $ {price}
+                {discount2 == 0 && (
+                    <p>
+                        $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
+                        <br/>
+                        $ {price}
+                    </p>
+                )}
 
-                </p>
-                <p>
-                    $ -{discount2}
-                </p>
                 <p className="totalprice">
                     $ {totalPrice}
                 </p>
