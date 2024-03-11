@@ -1,8 +1,7 @@
-/* Stil for headeren */
 header {
-    background-color: lightgrey; /* Baggrundsfarve mørkegrå */
-    color: red; /* Tekstfarve rød */
-    padding: 20px; /* Tilføjet polstring for at give plads omkring indholdet */
+    background-color: lightgrey;
+    color: red;
+    padding: 20px;
     font-size: 40px;
     height: 90px;
     display: flex;
@@ -16,23 +15,23 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: grey; /* Baggrundsfarve mørkegrå */
-    border-radius: 0px; /* Tilføjet afrunding til hele navbaren */
+    background-color: grey;
+    border-radius: 0px;
     display: flex;
-    justify-content: space-between; /* Justerer elementerne til at fylde hele pladsen i navbaren */
+    justify-content: space-between;
     align-items: center;
-    height: 120px; /* Justeret højden på navbaren */
+    height: 120px;
 }
 
 li {
     border-right: 1px solid #bbb;
     padding: 20px;
-    height: 100px; /* Justeret højden på hvert li-element for at matche navbaren */
-    position: relative; /* Tilføjet position relative */
+    height: 100px;
+    position: relative;
     display: flex;
-    flex-direction: column; /* Arrangeret indholdet i kolonne */
-    justify-content: center; /* Centreret indholdet lodret */
-    align-items: center; /* Centreret indholdet horisontalt */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 li a {
@@ -44,33 +43,33 @@ li a {
 }
 
 .step {
-    width: 30px; /* Justeret bredden på trinene */
-    height: 30px; /* Justeret højden på trinene */
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    margin-bottom: 5px; /* Juster margenen mellem cirkel/tal og tekst */
+    padding: 10px;
 }
 .step.active {
-    background-color: red; /* Ændret baggrundsfarven til rød for det aktive element */
-    color: white; /* Ændret tekstfarven til hvid for det aktive element */
+    background-color: red;
+    color: white;
 }
 .step-text {
-    font-size: 12px; /* Juster tekststørrelsen */
-    color: white; /* Ændret tekstfarven til hvid */
-    position: absolute; /* Justeret positionen til absolut */
-    top: calc(100% + 10px); /* Placeret teksten 10px under bunden af cirklen */
-    left: 50%; /* Centreret teksten horisontalt */
-    transform: translateX(-50%); /* Centreret teksten i forhold til cirklen */
-    z-index: 1; /* Sat z-index til at placere teksten over cirklen */
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
 }
 .white {
-    background-color: white; /* Ændret baggrundsfarven til hvid */
-    color: black; /* Ændret tekstfarven til sort */
+    background-color: white;
+    color: black;
 }
 .red {
-    background-color: red; /* Ændret baggrundsfarven til rød */
-    color: white; /* Ændret tekstfarven til hvid */
+    background-color: red;
+    color: white;
 }

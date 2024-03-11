@@ -3,6 +3,7 @@ import CheckoutCard from "./CheckoutCard.tsx";
 import {DetailedBasketItem} from "../interfaces/BasketItem";
 import TotalPriceBox from "./TotalPriceBox.tsx";
 import quantDiscount from "../HelperFunction/QuantDiscount.ts";
+import DiscountNudge from './DiscountNudge.tsx';
 
 
 function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketItem : (item : DetailedBasketItem) => void}) {
@@ -24,9 +25,7 @@ function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketIt
      discount2 = parseFloat(props.basketItems.flatMap(item => quantDiscount({ basketItem: item, updateBasketItem: props.updateBasketItem })).reduce((a, b) => a + b).toFixed(2));
     console.log(discount2)
     }
-
-
-    if (subTotal >= 50) {
+    if (subTotal >= 44) {
         discount = parseFloat((subTotal*0.1).toFixed(2))
     }
 
@@ -42,6 +41,7 @@ function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketIt
     return (
         <div style={{padding: 15}}>
             <h1>Your shopping cart</h1>
+            <DiscountNudge subTotal={subTotal} />
             <div style={{display:"flex"}}>
 
             <div className="Wrapper">
