@@ -85,7 +85,6 @@ input {
 }
 
 
-totalprice{
+.totalprice{
     font-weight: bold;
-    font-size: 20px;
 }

@@ -3,8 +3,6 @@ import './TotalPriceBox.css'
 
 function TotalPriceBox(props : {prices: number[]}) {
 
-
-
     return (
         <div className="TotalpriceBox">
 
@@ -34,7 +32,7 @@ function TotalPriceBox(props : {prices: number[]}) {
                     $ {props.prices[1]}
                 </p>
                 <p className="discountText">
-                    $ {props.prices[3]*-1}
+                    $ {(props.prices[3]*-1).toFixed(2)}
                 </p>
                 <p className="textright">
                     $ {props.prices[0]}
