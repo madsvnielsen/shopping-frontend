@@ -30,12 +30,11 @@ export function BasketOverview(props : { basketMock : BasketItem[]}) {
         const newBasketItems = [... basketItems];
 
         //Change item if quantity is positive, otherwise remove item.
-        if(basketItem.quantity > 0){
+        if(basketItem.quantity >= 0 || isNaN(basketItem.quantity)){
             newBasketItems[index] = basketItem;
         } else{
             newBasketItems.splice(index, 1);
         }
-
         setBasketItems(newBasketItems)
     }
 
