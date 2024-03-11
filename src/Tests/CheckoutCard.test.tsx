@@ -77,12 +77,13 @@ describe(CheckoutCard.name, async () => {
 
         expect(numberInput).toHaveValue(123);
 
-        let price: string = "0";
+        let itemPrice: string = "0";
         if (basketItems[0].card.cardmarket.prices.averageSellPrice !== null) {
-            price = (basketItems[0].card.cardmarket.prices.averageSellPrice*123).toString();
+            itemPrice = (basketItems[0].card.cardmarket.prices.averageSellPrice*123).toString();
         }
+        const priceRegex = new RegExp(itemPrice);
+        expect(screen.getByText(priceRegex)).toBeInTheDocument();
 
-        expect(screen.getByText(/price/gm)).toBeInTheDocument();
     });
 
 
