@@ -2,7 +2,7 @@ import './ShoppingCart.css'
 import CheckoutCard from "./CheckoutCard.tsx";
 import {DetailedBasketItem} from "../interfaces/BasketItem";
 import TotalPriceBox from "./TotalPriceBox.tsx";
-import initWasm from "*.wasm?init";
+import quantDiscount from "../HelperFunction/QuantDiscount.ts";
 
 
 function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketItem : (item : DetailedBasketItem) => void}) {
@@ -11,6 +11,7 @@ function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketIt
     const deliveryFee : number = 2;
     let discount : number = 0
     let subTotal : number = 0;
+    let discount2 : number = 0;
 
 
 
@@ -19,11 +20,20 @@ function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketIt
             .reduce((a,b,) => a+b).toFixed(2))
     }
 
+    if (props.basketItems.length>0){
+     discount2 = parseFloat(props.basketItems.flatMap(item => quantDiscount({ basketItem: item, updateBasketItem: props.updateBasketItem })).reduce((a, b) => a + b).toFixed(2));
+    console.log(discount2)
+    }
 
 
     if (subTotal >= 50) {
         discount = parseFloat((subTotal*0.1).toFixed(2))
     }
+
+    discount += discount2;
+
+
+
 
     const total : number  = parseFloat((subTotal-discount+deliveryFee).toFixed(2));
 

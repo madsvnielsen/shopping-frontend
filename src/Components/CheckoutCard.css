@@ -66,3 +66,9 @@ select {
     color: #ffffff;
     margin-top: 100%;
 }
+
+
+totalprice{
+    font-weight: bold;
+    font-size: 20px;
+}
