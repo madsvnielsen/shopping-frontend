@@ -30,7 +30,7 @@ describe(RecommendedProducts.name, async () => {
     await loadRecommendedProducts()
 
     it("should render", async () => {
-        render(<RecommendedProducts productsList={mockProductsList}  onProductAdded={(card : Card) => {}}/>);
+        render(<RecommendedProducts productsList={mockProductsList}  onProductAdded={()=> void 0}/>);
         expect(screen.getByText("We think you might like...")).toBeInTheDocument();
 
         await waitFor(() => expect(screen.getByText('Jolteon')).toBeInTheDocument(), { timeout: 5000 });
@@ -38,9 +38,7 @@ describe(RecommendedProducts.name, async () => {
 
     });
     it('should allow for adding', async () => {
-        const user = userEvent.setup();
-        let chosenCard : Card | undefined= undefined;
-        render(<RecommendedProducts productsList={mockProductsList}  onProductAdded={(card : Card) => {chosenCard = card}}/>);
+        render(<RecommendedProducts productsList={mockProductsList}  onProductAdded={()=> void 0}/>);
         const addButton = screen.getByTestId("rec-btn-Jolteon")
         expect(addButton).not.null
         if(addButton != null){
