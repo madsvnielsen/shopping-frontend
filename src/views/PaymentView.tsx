@@ -64,7 +64,7 @@ export function PaymentView() {
                             </li>
                             <li>
                                 <label htmlFor="notsame_address">No</label>
-                                <input type="radio" id="notsame_address" name="adress" value="notsame_address" />
+                                <input type="radio" id="notsame_address" name="address" value="notsame_address" />
                             </li>
                         </ul>
                     </div>
@@ -76,7 +76,7 @@ export function PaymentView() {
                         <ul>
                             <li>
                                 <label htmlFor="credit_card">Credit card</label>
-                                <input type="radio" id="credit_card" name="payment_option" value="credit_card" checked={true} 
+                                <input type="radio" id="credit_card" name="payment_option" value="credit_card" 
                                     onChange={handlePaymentChoice}/>
                             </li>
                             <li>
