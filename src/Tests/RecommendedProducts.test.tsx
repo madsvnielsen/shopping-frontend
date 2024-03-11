@@ -1,31 +1,10 @@
 import { render, screen, waitFor} from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import CheckoutCard from "../Components/CheckoutCard.tsx";
 import RecommendedProducts from "../Components/RecommendedProducts.tsx";
-import {BasketItem} from "../interfaces/BasketItem.ts";
 import {Card} from "../interfaces/Card.ts";
 import { userEvent } from '@testing-library/user-event';
 import {PokemonAPI} from "../PokemonAPI.ts"
 
-const basketMock : BasketItem[] = [{
-    id: "base1-3",
-    quantity : 1,
-    isLaminated: false
-},
-    {
-        id: "xy1-4",
-        quantity : 1,
-        isLaminated: false
-    }
-]
-
-
-const basketMockSingleCard : BasketItem[] = [{
-    id: "base1-3",
-    quantity : 1,
-    isLaminated: false
-}
-]
 
 const mockProductsList : Array<Card> = []
 
