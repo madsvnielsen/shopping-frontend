@@ -33,9 +33,10 @@ describe(quantDiscount.name, () => {
       render(<BasketOverview basketMock={basketMockSingleCard} />);
 
       await waitFor(() => expect(screen.getByText(basketItems[0].card.name)).toBeInTheDocument(), { timeout: 5000 });
-
-      const price : string = ((basketItems[0].card.cardmarket.prices.averageSellPrice*4)*0.1).toFixed(2);
-      console.log(price)
+      let price: string = "0";
+      if (basketItems[0].card.cardmarket.prices.averageSellPrice !== null) {
+          price = ((basketItems[0].card.cardmarket.prices.averageSellPrice * 4) * 0.1).toFixed(2);
+      }
       const priceRegex= new RegExp(price)
       expect(screen.getByText(priceRegex)).toBeInTheDocument();
 
