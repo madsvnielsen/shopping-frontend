@@ -53,32 +53,6 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
         updateItemQuantity(parseInt(event.target.value))
     };
 
-    function withDiscount() {
-        return <p>
-            $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
-            <br/>
-            $ {price} - {discount2}
-        </p>;
-    }
-
-    function withoutDiscount() {
-        return <p>
-            $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
-            <br/>
-            $ {price}
-        </p>;
-    }
-
-    function priceHTML(discount : number){
-        if (discount > 0) {
-            return withDiscount;
-        } else {
-            return withoutDiscount;
-        }
-    }
-
-    const priceElement = priceHTML(discount2);
-
     return (
         <div className="box">
             <div className="imgBox">
