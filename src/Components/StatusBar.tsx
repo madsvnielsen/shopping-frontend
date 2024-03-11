@@ -1,6 +1,6 @@
 // src/components/StatusBar.tsx
-import React, { useState } from 'react';
 import './StatusBar.css';
+import {useState} from "react";
 
 const StatusBar = () => {
     // State to keep track of the active step
