@@ -33,7 +33,7 @@ export function PaymentView() {
                         </p>
                         <p>
                             <label htmlFor="comp_vat">Company VAT</label>
-                            <input type="" id="comp_vat" name="user_companyvat" required maxLength={65} /*TODO: validate VAT*//>
+                            <input type="number" id="comp_vat" name="user_companyvat" pattern="[0-9]{8}" />
                         </p>
                         <p>
                             <label htmlFor="address1">Street address </label>
@@ -90,15 +90,15 @@ export function PaymentView() {
                         </ul>
                         <p>
                             <label htmlFor="card_no">Card Number </label>
-                            <input type="number" id="card_no" name="user_card" required maxLength={16} />
+                            <input type="number" id="card_no" name="user_card" required pattern="[0-9]{16}" />
                         </p>
                         <p>
                             <label htmlFor="exp_date">Exp. date </label>
-                            <input type="number" id="exp_date" name="user_expdate" required maxLength={8} />
+                            <input type="number" id="exp_date" name="user_expdate" required pattern="[0-3]{1}[0-9]{1}[0-1]{1}[0-9]{5}" />
                         </p>
                         <p>
                             <label htmlFor="card_cvv">CVV </label>
-                            <input type="number" id="card_cvv" name="user_cardcvv" required maxLength={3} />
+                            <input type="number" id="card_cvv" name="user_cardcvv" required pattern="[0-9]{3}" />
                         </p>
                     </div>
                 </fieldset>
