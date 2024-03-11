@@ -9,33 +9,6 @@ import StatusBar from "./../Components/StatusBar";
 import DiscountBanner from "./../Components/DiscountBanner";
 import RecommendedProducts from "./../Components/RecommendedProducts";
 
-const basketMock : BasketItem[] = [{
-    id: "base1-3",
-    quantity : 1,
-    isLaminated: false
-},
-{
-    id: "xy1-5",
-    quantity : 2,
-    isLaminated: false
-},
-{
-    id: "base1-2",
-    quantity : 1,
-    isLaminated: false
-},
-{
-    id: "base1-7",
-    quantity : 4,
-    isLaminated: true
-},
-{
-    id: "base2-7",
-    quantity : 3,
-    isLaminated: false
-},
-]
-
 const recommendedMock : string[] = [
     "base2-4",
     "xy1-4",
@@ -46,7 +19,7 @@ const recommendedMock : string[] = [
 ]
 
 
-export function BasketOverview() {
+export function BasketOverview(props : { basketMock : BasketItem[]}) {
     const [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
     const [isLoading, setIsLoading] = useState(true)
     const [recommendedItems, setRecommendedItems] = useState([] as Card[])
@@ -57,12 +30,11 @@ export function BasketOverview() {
         const newBasketItems = [... basketItems];
 
         //Change item if quantity is positive, otherwise remove item.
-        if(basketItem.quantity > 0){
+        if(basketItem.quantity >= 0 || isNaN(basketItem.quantity)){
             newBasketItems[index] = basketItem;
         } else{
             newBasketItems.splice(index, 1);
         }
-
         setBasketItems(newBasketItems)
     }
 
@@ -74,13 +46,12 @@ export function BasketOverview() {
             isLaminated: false
         }
         setBasketItems([...basketItems, newItem]);
-
     }
 
     useEffect(() => {
         async function loadBasketItems(){
             const newBasketItems : DetailedBasketItem[] = []
-            for await (const item of basketMock) {
+            for await (const item of props.basketMock) {
                 const card : Card = await PokemonAPI.getCard(item.id)
                 newBasketItems.push({
                     id: item.id,
@@ -104,16 +75,12 @@ export function BasketOverview() {
 
         }
 
-
-
         loadBasketItems()
         loadRecommendedProducts()
 
     }, [])
 
     const nothingToDisplayText = isLoading ? <h1>Loading...</h1> : <h1>Your shopping cart is empty!</h1>
-
-
 
 
     return (
