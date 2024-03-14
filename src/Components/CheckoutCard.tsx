@@ -50,11 +50,7 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
         } else {
             updateItemQuantity(0)
         }
-
-
-
         updateItemQuantity(parseInt(event.target.value))
-
     };
 
     return (
@@ -95,16 +91,22 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
                     />
                     Laminate
                 </label>
+                {discount2 !== 0 && (
+                    <p>
+                        $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
+                        <br/>
+                        $ {price} - {discount2}
+                    </p>
+                )}
 
-                <p>
-                    $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
-                    <br/>
-                    $ {price}
+                {discount2 == 0 && (
+                    <p>
+                        $ {card.cardmarket.prices.averageSellPrice} x {props.basketItem.quantity}
+                        <br/>
+                        $ {price}
+                    </p>
+                )}
 
-                </p>
-                <p>
-                    $ -{discount2}
-                </p>
                 <p className="totalprice">
                     $ {totalPrice}
                 </p>
