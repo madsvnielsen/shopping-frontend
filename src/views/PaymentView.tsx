@@ -1,6 +1,8 @@
 import Banner from "../Components/Banner";
 import StatusBar from "../Components/StatusBar";
 import React, { useState } from 'react';
+import { ICity } from "../interfaces/ICity";
+import { CityAPI } from '../CityAPI';
 
 
 export function PaymentView() {
@@ -8,6 +10,16 @@ export function PaymentView() {
     const [isChecked, setIsChecked] = useState();
     function handlePaymentChoice() {}
 
+    async function ValidateZip(value: string) {
+        const newCity : ICity[] = await CityAPI.getCity()
+        const result = newCity.find((a)=> a.nr.toString() === value)
+        
+        if (result) {
+            //console.log(newCity)
+        }
+        
+
+    }
     
     return (
         <div>
@@ -42,7 +54,9 @@ export function PaymentView() {
                         </p>
                         <p>
                             <label htmlFor="zip">Postal code </label>
-                            <input type="number" id="zip" name="user_zip" pattern="[1-9]{1}[0-9]{3}" required /*TODO: match against https://api.dataforsyningen.dk/postnumre*//>
+                            <input type="number" id="zip" name="user_zip" pattern="[1-9]{1}[0-9]{3}" required 
+                                onChange={e => ValidateZip(e.target.value)}/*TODO: match against https://api.dataforsyningen.dk/postnumre*/
+                                />
                         </p>
                         <p>
                             <label htmlFor="city">City </label>
@@ -90,15 +104,15 @@ export function PaymentView() {
                         </ul>
                         <p>
                             <label htmlFor="card_no">Card Number </label>
-                            <input type="number" id="card_no" name="user_card" required pattern="[0-9]{16}" />
+                            <input type="text" id="card_no" name="user_card" required pattern="[0-9]{16}" />
                         </p>
                         <p>
                             <label htmlFor="exp_date">Exp. date </label>
-                            <input type="number" id="exp_date" name="user_expdate" required pattern="[0-3]{1}[0-9]{1}[0-1]{1}[0-9]{5}" />
+                            <input type="text" id="exp_date" name="user_expdate" required pattern="[0-3]{1}[0-9]{1}[0-1]{1}[0-9]{5}" />
                         </p>
                         <p>
                             <label htmlFor="card_cvv">CVV </label>
-                            <input type="number" id="card_cvv" name="user_cardcvv" required pattern="[0-9]{3}" />
+                            <input type="text" id="card_cvv" name="user_cardcvv" required pattern="[0-9]{3}" />
                         </p>
                     </div>
                 </fieldset>
