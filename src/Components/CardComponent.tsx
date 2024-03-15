@@ -3,9 +3,6 @@ import "./CardComponent.css"
 
 
 function CardComponent( props: {card: Card}){
-
-
-
     return(
         <div className="CardBox">
         <div>
@@ -31,7 +28,5 @@ function CardComponent( props: {card: Card}){
     )
     */
 }
-
-
 
 export default CardComponent
