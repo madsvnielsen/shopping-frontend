@@ -1,20 +1,14 @@
 import {Card} from "../interfaces/Card.tsx";
+import CardComponent from "./CardComponent.tsx";
+import "./CardList.css"
 
-
-function CardList(props: {cards: Card[]}){
-
-
-
-
+function cardList(props: {cards: Card[]}) {
     return(
-        <div>
-                {props.cards.map((card: Card)   => <img src={card.images == undefined ? "-" : card.images.small} className="pokemonImg"
-                                        alt={card.name}/>)}
-
-
-        </div>
-
+    <div className="CardList">
+        {props.cards.map((basketItem) => (
+            <CardComponent card={basketItem}/>
+        ))}
+    </div>
     )
 }
-
-export default CardList
+export default cardList

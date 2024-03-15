@@ -1,0 +1,22 @@
+.CardBox {
+    display: flex;
+    align-items: center;
+    padding: 1px;
+    background: #efefef;
+    margin: 10px;
+    width: fit-content;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Button{
+    background-color: #ed1515;
+    margin-bottom: 5px;
+}
+
+.pricetext{
+    color: black;
+    margin: 2px;
+}
