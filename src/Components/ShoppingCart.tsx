@@ -23,7 +23,6 @@ function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketIt
 
     if (props.basketItems.length>0){
      discount2 = parseFloat(props.basketItems.flatMap(item => quantDiscount({ basketItem: item, updateBasketItem: props.updateBasketItem })).reduce((a, b) => a + b).toFixed(2));
-    console.log(discount2)
     }
     if (subTotal >= 44) {
         discount = parseFloat((subTotal*0.1).toFixed(2))
