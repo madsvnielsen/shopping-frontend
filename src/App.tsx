@@ -1,5 +1,6 @@
 
 import {BasketOverview} from "./views/BasketOverview"
+import {ShoppingPage} from "./views/ShoppingPage.tsx";
 import {BasketItem} from "./interfaces/BasketItem.ts";
 
 const basketMock : BasketItem[] = [{
@@ -29,9 +30,7 @@ const basketMock : BasketItem[] = [{
     },
 ]
 
-
 function App() {
-
     return (
         <BasketOverview basketMock={basketMock}/>
     )
