@@ -1,17 +1,17 @@
 import Banner from "../Components/Banner.tsx";
-import CardComponent from "../Components/CardComponent.tsx";
+import ShopCardt from "../Components/ShopCardt.tsx";
 import { PokemonAPI } from "../PokemonAPI.ts";
 import { useEffect, useState } from "react";
 import CardList from "../Components/CardList.tsx";
 
 export function ShoppingPage() {
-    const [cards, setCards] = useState([] as CardComponent[]);
+    const [cards, setCards] = useState([] as ShopCardt[]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
         async function getCards() {
-            const result: CardComponent[] = await PokemonAPI.listOfCards();
+            const result: ShopCardt[] = await PokemonAPI.listOfCards();
             setCards(result);
             setTotalPages(Math.ceil(result.length / 10)); // Assuming 10 cards per page
         }

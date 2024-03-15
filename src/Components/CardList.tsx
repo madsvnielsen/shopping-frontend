@@ -1,5 +1,5 @@
 import { Card } from "../interfaces/Card.tsx";
-import CardComponent from "./CardComponent.tsx";
+import ShopCardt from "./ShopCardt.tsx";
 import "./CardList.css";
 
 function CardList(props: { cards: Card[], currentPage: number, totalPages: number }) {
@@ -11,7 +11,7 @@ function CardList(props: { cards: Card[], currentPage: number, totalPages: numbe
     return (
         <div className="CardList">
             {cards.slice(startIndex, endIndex).map((card, index) => (
-                <CardComponent key={index} card={card} />
+                <ShopCardt key={index} card={card} />
             ))}
         </div>
     );

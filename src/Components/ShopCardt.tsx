@@ -1,8 +1,8 @@
 import {Card} from "../interfaces/Card.tsx";
-import "./CardComponent.css"
+import "./ShopCard.css"
 
 
-function CardComponent( props: {card: Card}){
+function ShopCardt(props: {card: Card}){
     return(
         <div className="CardBox">
         <div>
@@ -20,7 +20,7 @@ function CardComponent( props: {card: Card}){
     /*return(
         <div>
             <div>
-                {props.cards.map((card: CardComponent)   => <img src={card.images == undefined ? "-" : card.images.small} className="pokemonImg"
+                {props.cards.map((card: ShopCardt)   => <img src={card.images == undefined ? "-" : card.images.small} className="pokemonImg"
                                         alt={card.name}/>)}
             </div>
         </div>
@@ -29,4 +29,4 @@ function CardComponent( props: {card: Card}){
     */
 }
 
-export default CardComponent
+export default ShopCardt

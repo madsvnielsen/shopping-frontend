@@ -61,8 +61,8 @@ export class PokemonAPI {
             );
             return await response.json();
         } catch (error) {
-            console.error("Couldn't get CardComponent:", error);
-            throw new Error("Couldn't get CardComponent");
+            console.error("Couldn't get ShopCardt:", error);
+            throw new Error("Couldn't get ShopCardt");
         }
     }
 }
