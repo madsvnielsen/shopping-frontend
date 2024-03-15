@@ -4,9 +4,9 @@
     padding: 10px;
     flex-direction: column;
     width: 32%;
-    min-width: 500px;
+    min-width: 550px;
+    border-radius: 5px;
 }
-
 label{
     font-family: inherit;
     font-size: small;
