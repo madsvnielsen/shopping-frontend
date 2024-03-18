@@ -1,13 +1,13 @@
 import Banner from "../Components/Banner";
 import StatusBar from "../Components/StatusBar";
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
 import { ICity } from "../interfaces/ICity";
 import { CityAPI } from '../CityAPI';
 
 
 export function PaymentView() {
 
-    const [isChecked, setIsChecked] = useState();
+    //const [isChecked, setIsChecked] = useState();
     function handlePaymentChoice() {}
 
     async function ValidateZip(value: string) {
