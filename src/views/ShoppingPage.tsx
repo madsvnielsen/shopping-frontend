@@ -1,5 +1,4 @@
 import Banner from "../Components/Banner.tsx";
-import ShopCardt from "../Components/ShopCardt.tsx";
 import { PokemonAPI } from "../PokemonAPI.ts";
 import { useEffect, useState } from "react";
 import CardList from "../Components/CardList.tsx";

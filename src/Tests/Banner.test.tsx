@@ -6,7 +6,7 @@ import Banner from "../Components/Banner.tsx";
 
 describe(Banner.name, () => {
     it("should render", () => {
-        render(<Banner />);
+        render(<Banner  goToBasket={true}/>);
         expect(screen.getByText("Pokemonshop.com")).toBeInTheDocument();
         const image : HTMLImageElement | null = document.querySelector('img[alt="Pokeball"]');
         expect(image).not.toBeNull();
