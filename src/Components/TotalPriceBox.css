@@ -3,11 +3,12 @@
     align-items: flex-start;
     padding: 1px;
     background: #efefef;
-    max-height: 225px;
+    max-height: 250px;
     align-self: auto;
     margin-left: auto;
     margin-right: 10px;
     width:300px;
+    border-radius: 5px;
 }
 
 .checkoutbutton{
@@ -16,7 +17,7 @@
     color: #efefef;
 }
 
-.textBox {
+.textBoxPriceBox {
     display: flex;
     align-self: center;
     flex: 1;
@@ -27,7 +28,7 @@
 }
 
 
-.headline {
+.headlinePriceBox {
     font-weight: bold;
     font-size: 16px;
     text-align: left;
@@ -36,17 +37,42 @@
 .priceleft {
     font-weight: bold;
     text-align: left;
+    font-size: small;
+    color: #222224;
+    min-width: 90px;
+    margin: 10px 10px;
 }
 
 .text {
     text-align:left;
+    font-size: small;
+    color: #222224;
+    min-width: 90px;
+    margin: 10px 10px;
 }
 
 .textright{
     text-align: right;
+    font-size: small;
+    color: #222224;
+    min-width: 90px;
+    margin: 10px 10px;
+}
+
+.discountText{
+    text-align: right;
+    font-weight: bold;
+    font-size: small;
+    color: #02de27;
+    min-width: 90px;
+    margin: 10px 10px;
 }
 
 .price {
     font-weight: bold;
     text-align: right;
+    font-size: small;
+    color: #222224;
+    min-width: 90px;
+    margin: 10px 10px;
 }

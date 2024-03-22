@@ -1,7 +1,10 @@
 .Banner{
     width: 100%;
-    background: #1abc9c;
+    background: #7b1414;
     text-align: left;
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

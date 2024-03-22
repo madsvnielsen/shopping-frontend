@@ -14,6 +14,8 @@
 
 .headline {
     font-weight: bold;
+    font-size: 16px;
+    margin-bottom:0px;
 }
 
 .textBox {
@@ -22,20 +24,22 @@
     flex: 1;
     padding: 10px 15px;
     flex-direction: column;
+    height: 100%;
     align-items: center;
-    flex-basis: 50%;
+    flex-basis: 60%;
+    justify-content: center;
 }
+
 .deleteContainer {
     display: flex;
     align-self: center;
     flex: 1;
 }
 .deleteButton {
-    background-color: red;
+    background-color: #C52828;
     color: white;
     padding: 5px;
-    margin: 5px;
-
+    margin: 15px;
 }
 
 .imgBox{
@@ -53,12 +57,34 @@ p {
     text-align: center;
     font-size: small;
     color: #222224;
-    margin: 10px;
     min-width: 90px;
+    margin: 10px 0px auto;
 }
 
 select {
     min-width: 35px;
-    background-color: #ed1515;
+    background-color:#C52828;
     color: #ffffff;
+    margin: 10px;
+}
+input {
+    background-color:#C52828;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.laminate{
+
+    color: black;
+    display: inline;
+
+}
+
+.quantity{
+    margin-top: 75%;
+}
+
+
+.totalprice{
+    font-weight: bold;
 }
