@@ -65,4 +65,26 @@ export class PokemonAPI {
             throw new Error("Couldn't get ShopCardt");
         }
     }
+    static async addToCart(itemID: string){
+        try {
+            const response: Response = await fetch(
+                "${PokemonAPI.apiURL}/basket/add",
+                {method: "POST",
+                headers:{
+                Accept: 'application/json',
+                    'Content-Type':
+                'application/json',
+                    Authorization:
+                'Bearer ' + PokemonAPI.token,
+                },
+                    body: JSON.stringify({itemID})
+            }
+        );
+            return await response.json();}
+    catch (error) {
+            console.error("Couldn't add item to cart", error);
+            throw new Error("Couldn't add item to cart");
+        }
+    }
 }
+

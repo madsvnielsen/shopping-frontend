@@ -4,7 +4,7 @@ import "./CardList.css";
 
 function CardList(props: { cards: Card[], currentPage: number, totalPages: number }) {
     const { cards, currentPage } = props;
-    const cardsPerPage = 9; // Assuming 10 cards per page
+    const cardsPerPage = 10; // Assuming 10 cards per page
     const startIndex = (currentPage - 1) * cardsPerPage;
     const endIndex = startIndex + cardsPerPage;
 
