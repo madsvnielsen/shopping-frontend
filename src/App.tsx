@@ -2,6 +2,9 @@
 import {BasketOverview} from "./views/BasketOverview"
 import {ShoppingPage} from "./views/ShoppingPage.tsx";
 import {BasketItem} from "./interfaces/BasketItem.ts";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PaymentView } from "./views/PaymentView.tsx";
+
 
 const basketMock : BasketItem[] = [{
     id: "base1-3",
@@ -32,7 +35,14 @@ const basketMock : BasketItem[] = [{
 
 function App() {
     return (
-        <BasketOverview basketMock={basketMock}/>
+    <BrowserRouter>
+      <Routes>
+      <Route path="/basket/payment" element={<PaymentView/>} />
+        <Route path="/basket" element={<BasketOverview basketMock={basketMock}/>} />
+        <Route path="/" element={<ShoppingPage/>}>
+        </Route>
+      </Routes>
+    </BrowserRouter>
     )
 }
 

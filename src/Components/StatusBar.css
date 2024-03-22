@@ -32,6 +32,7 @@ li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 li a {
@@ -51,6 +52,8 @@ li a {
     align-items: center;
     font-weight: bold;
     padding: 10px;
+    cursor: pointer;
+
 }
 .step.active {
     background-color: red;

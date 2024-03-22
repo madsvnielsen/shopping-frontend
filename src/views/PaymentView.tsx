@@ -23,8 +23,8 @@ export function PaymentView() {
     
     return (
         <div>
-            <Banner/>
-            <StatusBar /> {}
+            <Banner goToBasket={false}/>
+            <StatusBar activeStep={2}/> 
             <form action="handle_submit_form" method="post">
                 <fieldset>
                     <legend>Delivery address</legend>

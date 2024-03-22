@@ -85,9 +85,9 @@ export function BasketOverview(props : { basketMock : BasketItem[]}) {
 
     return (
         <div>
-            <Banner/>
-            <StatusBar /> {}
-            <DiscountBanner /> {}
+            <Banner goToBasket={false}/>
+            <StatusBar activeStep={1}/>
+            <DiscountBanner />
             {basketItems.length > 0 && <ShoppingCart basketItems={basketItems} updateBasketItem={updateBasketItem} />}
             {basketItems.length === 0 && nothingToDisplayText}
             <RecommendedProducts

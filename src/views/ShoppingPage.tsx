@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import CardList from "../Components/CardList.tsx";
 
 export function ShoppingPage() {
-    const [cards, setCards] = useState([] as ShopCardt[]);
+    const [cards, setCards] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
         async function getCards() {
-            const result: ShopCardt[] = await PokemonAPI.listOfCards();
+            const result = await PokemonAPI.listOfCards();
             setCards(result);
             setTotalPages(Math.ceil(result.length / 10)); // Assuming 10 cards per page
         }
@@ -28,7 +28,7 @@ export function ShoppingPage() {
 
     return (
         <div style={{ width: "100%" }}>
-            <Banner />
+            <Banner goToBasket={true}/>
             <CardList cards={cards} currentPage={currentPage} totalPages={totalPages} />
             <div style={{ textAlign: "center", marginTop: "20px" }}>
                 <button onClick={handlePrevPage} disabled={currentPage === 1}>Previous Page</button>

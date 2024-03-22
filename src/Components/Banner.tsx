@@ -1,7 +1,7 @@
 import './Banner.css'
 import pokelogo from "../assets/pokeball.png"
 
-function Banner(){
+function Banner( props : {goToBasket : Boolean}){
 
     return(
         <div className="Banner">
@@ -9,7 +9,11 @@ function Banner(){
             <img src={pokelogo} alt="Pokeball" height="80"/>
         </div>
             <h1 style={{paddingLeft: 20}}>Pokemonshop.com</h1>
+            <a href={props.goToBasket ? "/basket" : "/"} style={{marginLeft: "auto", marginRight: 50}}>
+            {props.goToBasket ? "Go to basket" : "Go to products"}
+            </a>
         </div>
+        
     )
 }
 

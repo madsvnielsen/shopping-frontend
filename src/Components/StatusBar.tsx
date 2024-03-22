@@ -1,14 +1,33 @@
 // src/components/StatusBar.tsx
 import './StatusBar.css';
-import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
-const StatusBar = () => {
+
+const StatusBar = (props : {activeStep : number}) => {
+
+    const navigate = useNavigate();
+
     // State to keep track of the active step
+    
+    /*
     const [activeStep, setActiveStep] = useState<number>(1);
+    */
+   const activeStep = props.activeStep
 
     const handleStepClick = (step: number) => {
-        setActiveStep(step);
+        switch(step){
+            case 1:
+                navigate("/basket")
+                break
+            case 2: 
+                navigate("/basket/payment")
+                break
+            default:
+                break
+
+        }
     };
+    
 
     return (
         <ul>
