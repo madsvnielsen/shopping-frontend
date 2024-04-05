@@ -82,12 +82,12 @@ export function PaymentView() {
                                     onChange={handlePaymentChoice}/>
                             </li>
                             <li className="form-select">
-                                <label htmlFor="pokemon_pay">Pokemon Trade</label>
-                                <input className="form-control" type="radio" id="pokemon_pay" name="payment_option" value="pokemon_pay" />
+                                <label htmlFor="mobile_pay">Mobile Pay</label>
+                                <input className="form-control" type="radio" id="mobile_pay" name="payment_option" value="mobile_pay" />
                             </li>
                             <li className="form-select">
-                                <label htmlFor="kidney_pay">Kidney Payment</label>
-                                <input className="form-control" type="radio" id="kidney_pay" name="payment_option" value="kidney_pay" />
+                                <label htmlFor="gift_card">Gift card</label>
+                                <input className="form-control" type="radio" id="gift_card" name="payment_option" value="gift_card" />
                             </li>
                         </ul>
                             <label htmlFor="card_no">Card Number </label>
