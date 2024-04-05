@@ -3,10 +3,12 @@ import StatusBar from "../Components/StatusBar";
 import { ICity } from "../interfaces/ICity";
 import { CityAPI } from '../CityAPI';
 import './PaymentView.css';
+import {useState} from 'react';
 
 export function PaymentView() {
 
     //const [isChecked, setIsChecked] = useState();
+    const [city, setCity] = useState("")
     function handlePaymentChoice() {}
 
     async function ValidateZip(value: string) {
@@ -15,6 +17,7 @@ export function PaymentView() {
         
         if (result) {
             //console.log(newCity)
+            setCity(result.navn)
         }
         
 
@@ -52,11 +55,12 @@ export function PaymentView() {
                             <input className="form-control" type="text" id="address1" name="user_address1" required maxLength={65} />
                             <input className="form-control" type="text" id="address2" name="user_address2" maxLength={65} />
                             <label htmlFor="zip">Postal code </label>
-                            <input className="form-control" type="number" id="zip" name="user_zip" pattern="[1-9]{1}[0-9]{3}" required 
+                            <input className="form-control" type="text" id="zip" name="user_zip"  required 
                                 onChange={e => ValidateZip(e.target.value)}/*TODO: match against https://api.dataforsyningen.dk/postnumre*/
+                                
                                 />
                             <label htmlFor="city">City </label>
-                            <input className="form-control" type="text" id="city" name="user_city" /*TODO: Provide automatically from zip*/ /> 
+                            <input className="form-control" type="text" id="city" name="user_city" onChange={(e) => setCity(e.target.value)} value={city} /*TODO: Provide automatically from zip*/ /> 
                         Is delivery address and billing address the same?
                         <ul className="form-select-group">
                             <li className="form-select">
