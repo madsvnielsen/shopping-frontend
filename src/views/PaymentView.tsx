@@ -7,7 +7,6 @@ import React, {useState} from 'react';
 import CardDetails from "../Components/CardDetails.tsx";
 import PhoneDetails from "../Components/PhoneDetails.tsx";
 import GiftDetails from "../Components/GiftDetails.tsx";
-//import DeliveryAddress from "../Components/DeliveryAddress.tsx";
 
 export function PaymentView() {
 
