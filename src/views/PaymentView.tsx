@@ -10,9 +10,9 @@ import GiftDetails from "../Components/GiftDetails.tsx";
 
 export function PaymentView() {
 
-    //const [isChecked, setIsChecked] = useState();
     const [city, setCity] = useState("")
 
+    const [deliveryAddress, setDeliveryAddress] = useState('same_address');
 
     const [paymentOption, setPaymentOption] = useState('credit_card'); // Default payment option
 
@@ -25,12 +25,10 @@ export function PaymentView() {
         const result = newCity.find((a) => a.nr.toString() === value)
 
         if (result) {
-            //console.log(newCity)
             setCity(result.navn)
         }
-
-
     }
+
 
     return (
         <div>
@@ -48,11 +46,11 @@ export function PaymentView() {
                         <input className="form-control" type="number" id="comp_vat" name="user_companyvat"
                                pattern="[0-9]{8}"/>
                         <label htmlFor="phone">Phone </label>
-                        <input className="form-control" type="tel" id="phone" name="user_phone"
+                        <input className="form-control" type="tel" id="phone" name="user_phone" required
                                pattern="[1-9]{1}[0-9]{7}"/>
                         <label htmlFor="mail">Email </label>
-                        <input className="form-control" type="email" id="mail" name="user_email"
-                               pattern="^[\w-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$" required/>
+                        <input className="form-control" type="email" id="mail" name="user_email" required
+                               pattern="^[\w-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$" />
 
                     </div>
                 </fieldset>
@@ -69,13 +67,13 @@ export function PaymentView() {
                         <input className="form-control" type="text" id="address2" name="user_address2" maxLength={65}/>
                         <label htmlFor="zip">Postal code </label>
                         <input className="form-control" type="text" id="zip" name="user_zip" required
-                               onChange={e => ValidateZip(e.target.value)}/*TODO: match against https://api.dataforsyningen.dk/postnumre*/
+                               onChange={e => ValidateZip(e.target.value)}
 
                         />
                         <label htmlFor="city">City </label>
                         <input className="form-control" type="text" id="city" name="user_city"
                                onChange={(e) => setCity(e.target.value)}
-                               value={city} /*TODO: Provide automatically from zip*/ />
+                               value={city} />
                         Is delivery address and billing address the same?
                         <ul className="form-select-group">
                             <li className="form-select">
@@ -88,6 +86,7 @@ export function PaymentView() {
                                 <input className="form-control" type="radio" id="notsame_address" name="address"
                                        value="notsame_address"/>
                             </li>
+                            
                         </ul>
                     </div>
                 </fieldset>
