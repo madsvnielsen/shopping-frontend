@@ -7,6 +7,7 @@ import React, {useState} from 'react';
 import CardDetails from "../Components/CardDetails.tsx";
 import PhoneDetails from "../Components/PhoneDetails.tsx";
 import GiftDetails from "../Components/GiftDetails.tsx";
+//import DeliveryAddress from "../Components/DeliveryAddress.tsx";
 
 export function PaymentView() {
 
@@ -27,6 +28,33 @@ export function PaymentView() {
         if (result) {
             setCity(result.navn)
         }
+    }
+
+    function DeliveryAddress(){
+        return(
+            <fieldset>
+                <legend>Delivery address</legend>
+                <div className="form-control-group">
+                    <label htmlFor="country">Country </label>
+                        <select className="form-control" id="country" name="user_country" autoFocus>
+                            <option selected>Denmark</option>
+                        </select>
+                        <label htmlFor="address1">Street address </label>
+                        <input className="form-control" type="text" id="address1" name="user_address1" required
+                                maxLength={65}/>
+                        <input className="form-control" type="text" id="address2" name="user_address2" maxLength={65}/>
+                        <label htmlFor="zip">Postal code </label>
+                        <input className="form-control" type="text" id="zip" name="user_zip" required
+                                onChange={e => ValidateZip(e.target.value)}
+
+                        />
+                        <label htmlFor="city">City </label>
+                        <input className="form-control" type="text" id="city" name="user_city"
+                                onChange={(e) => setCity(e.target.value)}
+                                value={city} />
+                </div>
+            </fieldset>
+        )
     }
 
 
@@ -55,7 +83,7 @@ export function PaymentView() {
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend>Delivery address</legend>
+                    <legend>Billing address</legend>
                     <div className="form-control-group">
                         <label htmlFor="country">Country </label>
                         <select className="form-control" id="country" name="user_country" autoFocus>
@@ -79,18 +107,21 @@ export function PaymentView() {
                             <li className="form-select">
                                 <label htmlFor="same_address">Yes</label>
                                 <input className="form-control" type="radio" id="same_address" name="address"
-                                       value="same_address" checked={true}/>
+                                       onChange={(e) => setDeliveryAddress(e.target.value)}
+                                       value="same_address" checked={deliveryAddress === 'same_address'}/>
                             </li>
                             <li className="form-select">
                                 <label htmlFor="notsame_address">No</label>
                                 <input className="form-control" type="radio" id="notsame_address" name="address"
-                                       value="notsame_address"/>
+                                       onChange={(e) => setDeliveryAddress(e.target.value)}
+                                       value="notsame_address" checked={deliveryAddress === 'notsame_address'}/>
                             </li>
-                            
                         </ul>
                     </div>
                 </fieldset>
 
+                {deliveryAddress === 'same_address'}
+                {deliveryAddress === 'notsame_address' && <DeliveryAddress/>}
 
                 <fieldset>
                     <legend>Payment method</legend>
