@@ -8,10 +8,12 @@ import StatusBar from "../Components/StatusBar.tsx";
 import InvoiceDetails from "../Components/InvoiceDetails.tsx";
 import AddressForm from "../Components/AddressForm.tsx";
 
-
+    
 export function PaymentView() {
 
     const [paymentOption, setPaymentOption] = useState('credit_card'); // Default payment option
+
+    
 
     const handlePaymentChoice = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPaymentOption(event.target.value);

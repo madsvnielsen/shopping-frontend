@@ -9,7 +9,12 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    border-radius: 8px;
+    
+    
 }
+
+
 
 .Button{
     background-color: #ed1515;

@@ -1,7 +1,8 @@
 import './TotalPriceBox.css'
-
+import { useNavigate } from "react-router-dom";
 
 function TotalPriceBox(props : {prices: number[]}) {
+    const navigate = useNavigate();
 
     return (
         <div className="TotalpriceBox">
@@ -22,7 +23,7 @@ function TotalPriceBox(props : {prices: number[]}) {
                 <p className="priceleft">
                     Total
                 </p>
-                <button className="checkoutbutton">
+                <button className="checkoutbutton" onClick={() => navigate("/basket/payment")}>
                     Checkout
                 </button>
             </div>
