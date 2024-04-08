@@ -178,8 +178,9 @@ export function PaymentView() {
                     </fieldset>
 
                 </div>
+                <fieldset>
+                <legend>Comment</legend>
                 <div className="form-control-group">
-                    <label htmlFor="comment">Comment:</label>
                     <textarea
                         id="comment"
                         name="comment"
@@ -190,6 +191,7 @@ export function PaymentView() {
                         rows={4}
                     ></textarea>
                 </div>
+                </fieldset>
 
                 <div className="form-control-group terms-and-conditions">
                     <input
