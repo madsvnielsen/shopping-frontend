@@ -9,8 +9,7 @@ header {
     justify-content: flex-start;
 }
 
-
-ul {
+.unordered {
     list-style-type: none;
     margin: 0;
     padding: 0;

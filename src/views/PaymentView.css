@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    align-items: start;
 }
 
 .form-control {
@@ -24,10 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    
-    
 }
-
 label {
     color: white;
     margin-top: 5px;
@@ -55,7 +52,7 @@ fieldset {
 }
 
 .form-select{
-    padding: 5px;
+    padding: 10px;
     height: 20px;
     width: auto;
     
@@ -67,4 +64,24 @@ fieldset {
     background:#C52828;
     color: #efefef;
     font-size: 20px;
+}
+
+.checkBox{
+    display: flex;
+    border-radius: 5px;
+    background-color: darkred;
+    border: 1px solid rgb(136, 136, 136);
+    padding: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: grey;
+    border-radius: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
