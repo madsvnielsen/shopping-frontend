@@ -2,7 +2,7 @@
 
 A front end for a shopping website.
 
-Deployed with Netlify at https://g16pokeshop.netlify.app/
+Deployed with an Apache2 webserver at http://dtu62597.eduhost.dk:10261/
 
 [Backend project](https://github.com/madsvnielsen/shopping-backend)
 
