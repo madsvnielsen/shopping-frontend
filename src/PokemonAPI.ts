@@ -67,4 +67,23 @@ export class PokemonAPI {
             throw new Error("Couldn't get ShopCardt");
         }
     }
+    static async order(firstName: string, lastName: string): Promise<unknown> {
+        try {
+            const response = await fetch(
+                `${PokemonAPI.apiURL}/order`,
+                {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ firstName, lastName }), // Send firstName and lastName in the request body
+                }
+            );
+            return await response.json();
+        } catch (error) {
+            console.error("Couldn't post order:", error);
+            throw new Error("Couldn't post order");
+        }
+    }
 }
