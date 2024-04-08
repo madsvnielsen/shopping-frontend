@@ -7,6 +7,7 @@ import CardDetails from "../Components/CardDetails.tsx";
 import PhoneDetails from "../Components/PhoneDetails.tsx";
 import GiftDetails from "../Components/GiftDetails.tsx";
 import StatusBar from "../Components/StatusBar.tsx";
+import InvoiceDetails from "../Components/InvoiceDetails.tsx";
 
 export function PaymentView() {
 
@@ -149,10 +150,19 @@ export function PaymentView() {
                                            checked={paymentOption === 'gift_card'}
                                            onChange={handlePaymentChoice}/>
                                 </li>
+                                <li className="form-select">
+                                    <label htmlFor="invoice">Invoice</label>
+                                    <input className="form-control" type="radio" id="invoice" name="payment_option"
+                                           value="invoice"
+                                           checked={paymentOption === 'invoice'}
+                                           onChange={handlePaymentChoice}/>
+                                </li>
                             </ul>
                             {paymentOption === 'credit_card' && <CardDetails/>}
                             {paymentOption === 'mobile_pay' && <PhoneDetails/>}
                             {paymentOption === 'gift_card' && <GiftDetails/>}
+                            {paymentOption === 'invoice' && <InvoiceDetails/>}
+
                         </div>
                     </fieldset>
 
