@@ -1,7 +1,7 @@
 import './Banner.css'
 import pokelogo from "../assets/pokeball.png"
 
-function Banner( props : {goToBasket : Boolean}){
+function Banner( props : {goToBasket : boolean}){
 
     return(
         <div className="Banner">
