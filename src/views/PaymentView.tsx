@@ -31,6 +31,15 @@ export function PaymentView() {
         setHasAgreedToTerms(e.target.checked);
     };
 
+    const [hasAgreedToMails, setHasAgreedToMails] = useState(false);
+
+    const handleMailsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setHasAgreedToMails(e.target.checked);
+    };
+
+
+
+
     async function ValidateZip(value: string) {
         const newCity: ICity[] = await CityAPI.getCity()
         const result = newCity.find((a) => a.nr.toString() === value)
@@ -179,6 +188,19 @@ export function PaymentView() {
                     />
                     <label htmlFor="terms">
                         I agree to the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>
+                    </label>
+                </div>
+
+                <div className="form-control-group Accept marketing mails">
+                    <input
+                        type="checkbox"
+                        id="mails"
+                        name="mails"
+                        onChange={handleMailsChange}
+                        checked={hasAgreedToMails}
+                    />
+                    <label htmlFor="mails">
+                        I want to receive marketing mails
                     </label>
                 </div>
                 <div className="form-control-group">
