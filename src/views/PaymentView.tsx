@@ -169,6 +169,8 @@ export function PaymentView() {
                     </p>
                 </div>
             </form>
+
+            <h2></h2>
         </div>
     );
 }

@@ -54,7 +54,7 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
     };
 
     return (
-        <div className="box">
+        <div className="Cardbox">
             <div className="imgBox">
                 <img src={card.images == undefined ? "-" : card.images.small} className="pokemonImg"
                      alt={card.name}/>
