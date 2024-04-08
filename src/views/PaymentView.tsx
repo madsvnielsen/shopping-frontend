@@ -9,6 +9,7 @@ import GiftDetails from "../Components/GiftDetails.tsx";
 import StatusBar from "../Components/StatusBar.tsx";
 import InvoiceDetails from "../Components/InvoiceDetails.tsx";
 
+
 export function PaymentView() {
 
     const [city, setCity] = useState("")
@@ -35,6 +36,8 @@ export function PaymentView() {
 
     const handleMailsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setHasAgreedToMails(e.target.checked);
+
+    const [comment, setComment] = useState('');
     };
 
 
@@ -177,6 +180,19 @@ export function PaymentView() {
                     </fieldset>
 
                 </div>
+                <div className="form-control-group">
+                    <label htmlFor="comment">Comment:</label>
+                    <textarea
+                        id="comment"
+                        name="comment"
+                        className="form-control"
+                        placeholder="Add any comment here..."
+                        value={Comment}
+                        onChange={(e) => setComment(e.target.value)}
+                        rows={4}
+                    ></textarea>
+                </div>
+
                 <div className="form-control-group terms-and-conditions">
                     <input
                         type="checkbox"
