@@ -9,12 +9,14 @@ import GiftDetails from "../Components/GiftDetails.tsx";
 import StatusBar from "../Components/StatusBar.tsx";
 import InvoiceDetails from "../Components/InvoiceDetails.tsx";
 
-
+    
 export function PaymentView() {
 
     const [city, setCity] = useState("")
 
     const [paymentOption, setPaymentOption] = useState('credit_card'); // Default payment option
+
+    
 
     const handlePaymentChoice = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPaymentOption(event.target.value);
@@ -36,10 +38,9 @@ export function PaymentView() {
 
     const handleMailsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setHasAgreedToMails(e.target.checked);
-
-    const [comment, setComment] = useState('');
+    
     };
-
+    const [comment, setComment] = useState('');
 
 
 
@@ -187,7 +188,7 @@ export function PaymentView() {
                         name="comment"
                         className="form-control"
                         placeholder="Add any comment here..."
-                        value={Comment}
+                        value={comment}
                         onChange={(e) => setComment(e.target.value)}
                         rows={4}
                     ></textarea>

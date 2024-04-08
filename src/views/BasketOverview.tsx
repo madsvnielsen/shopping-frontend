@@ -23,6 +23,8 @@ export function BasketOverview(props : { basketMock : BasketItem[]}) {
     const [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
     const [isLoading, setIsLoading] = useState(true)
     const [recommendedItems, setRecommendedItems] = useState([] as Card[])
+    
+    
 
     const updateBasketItem = (basketItem : DetailedBasketItem) =>  {
 
