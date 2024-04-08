@@ -25,6 +25,12 @@ export function PaymentView() {
         setDeliveryAddress(e.target.checked);
     };
 
+    const [hasAgreedToTerms, setHasAgreedToTerms] = useState(false);
+
+    const handleTermsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setHasAgreedToTerms(e.target.checked);
+    };
+
     async function ValidateZip(value: string) {
         const newCity: ICity[] = await CityAPI.getCity()
         const result = newCity.find((a) => a.nr.toString() === value)
@@ -162,7 +168,19 @@ export function PaymentView() {
                     </fieldset>
 
                 </div>
-
+                <div className="form-control-group terms-and-conditions">
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        onChange={handleTermsChange}
+                        checked={hasAgreedToTerms}
+                        required // This here makes sure that the user has to accept before they can proceed
+                    />
+                    <label htmlFor="terms">
+                        I agree to the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>
+                    </label>
+                </div>
                 <div className="form-control-group">
                     <p className="button">
                         <button type="submit" className="submit-btn">Continue</button>
