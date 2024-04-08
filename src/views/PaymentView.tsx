@@ -35,12 +35,11 @@ export function PaymentView() {
     };
 
     const [hasAgreedToMails, setHasAgreedToMails] = useState(false);
-
+    const [comment, setComment] = useState('');
     const handleMailsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setHasAgreedToMails(e.target.checked);
-    
     };
-    const [comment, setComment] = useState('');
+
 
 
 
