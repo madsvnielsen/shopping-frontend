@@ -4,6 +4,7 @@ import {ShoppingPage} from "./views/ShoppingPage.tsx";
 import {BasketItem} from "./interfaces/BasketItem.ts";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PaymentView } from "./views/PaymentView.tsx";
+import {SummaryView} from "./views/SummaryView.tsx";
 
 
 const basketMock : BasketItem[] = [{
@@ -38,6 +39,7 @@ function App() {
     <BrowserRouter>
       <Routes>
       <Route path="/basket/payment" element={<PaymentView/>} />
+          <Route path="/basket/summary" element={<SummaryView/>} />
         <Route path="/basket" element={<BasketOverview basketMock={basketMock}/>} />
         <Route path="/" element={<ShoppingPage/>}>
         </Route>

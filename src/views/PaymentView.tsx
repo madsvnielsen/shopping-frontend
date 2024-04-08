@@ -72,11 +72,6 @@ export function PaymentView() {
                     <div className="form-control-group">
                         <label htmlFor="name">Full name </label>
                         <input className="form-control" type="text" id="name" name="user_name" required maxLength={65}/>
-                        <label htmlFor="comp_name">Company name </label>
-                        <input className="form-control" type="text" id="comp_name" name="user_company" maxLength={65}/>
-                        <label htmlFor="comp_vat">Company VAT</label>
-                        <input className="form-control" type="number" id="comp_vat" name="user_companyvat"
-                               pattern="[0-9]{8}"/>
                         <label htmlFor="phone">Phone </label>
                         <input className="form-control" type="tel" id="phone" name="user_phone" required
                                pattern="[1-9]{1}[0-9]{7}"/>
