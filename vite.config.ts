@@ -8,5 +8,8 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["vitest.setup.ts"],
   },
+  build: {
+    outDir: '/var/www/html/g16pokeshop.com/public_html/'
+  }
 });
 
