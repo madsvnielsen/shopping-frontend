@@ -67,7 +67,7 @@ export class PokemonAPI {
     static async addToCart(itemID: string){
         try {
             const response: Response = await fetch(
-                "${PokemonAPI.apiURL}/basket/add",
+                `${PokemonAPI.apiURL}/basket/add`,
                 {method: "POST",
                 headers:{
                 Accept: 'application/json',
@@ -83,6 +83,27 @@ export class PokemonAPI {
     catch (error) {
             console.error("Couldn't add item to cart", error);
             throw new Error("Couldn't add item to cart");
+        }
+    }
+
+    static async getBasket(){
+        try {
+            const response: Response = await fetch(
+                `${PokemonAPI.apiURL}/basket/`,
+                {method: "get",
+                    headers:{
+                        Accept: 'application/json',
+                        'Content-Type':
+                            'application/json',
+                        Authorization:
+                            'Bearer ' + PokemonAPI.token,
+                    },
+                }
+            );
+            return await response.json();}
+        catch (error) {
+            console.error("Couldn't get basket", error);
+            throw new Error("Couldn't get basket");
         }
     }
 }

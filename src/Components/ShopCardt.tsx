@@ -13,7 +13,8 @@ function ShopCardt(props: {card: Card}){
             <p className="pricetext">
             ${props.card.cardmarket.prices.averageSellPrice}
             </p>
-            <button className="Button" onClick={() => PokemonAPI.addToCart(props.card.id)}>
+            <button className="Button" onClick={() => {
+                PokemonAPI.addToCart(props.card.id)}}>
                 Add to cart
             </button>
         </div>

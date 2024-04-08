@@ -13,7 +13,7 @@ export function ShoppingPage() {
         async function getCards() {
             const result: ShopCardt[] = await PokemonAPI.listOfCards();
             setCards(result);
-            setTotalPages(Math.ceil(result.length / 10)); // Assuming 10 cards per page
+            setTotalPages(Math.ceil(result.length / 9)); // Assuming 10 cards per page
         }
         getCards();
     }, []);

@@ -32,7 +32,8 @@ const basketMock : BasketItem[] = [{
 
 function App() {
     return (
-        <BasketOverview basketMock={basketMock}/>
+        <ShoppingPage/>
+
     )
 }
 
