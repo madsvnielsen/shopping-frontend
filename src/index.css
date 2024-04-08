@@ -68,3 +68,21 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.loading-text{
+  width: max-content;
+  text-align: center;
+  margin: 2em auto;
+  animation-name: loadingAnim;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  font-size: 3.2em;
+}
+
+@keyframes loadingAnim {
+  0%   {color:red}
+  25%  {color:yellow}
+  50%  {color: blue}
+  75%  {color: green}
+  100% {color:red}
+}

@@ -82,7 +82,7 @@ export function BasketOverview(props : { basketMock : BasketItem[]}) {
 
     }, [])
 
-    const nothingToDisplayText = isLoading ? <h1>Loading...</h1> : <h1>Your shopping cart is empty!</h1>
+    const nothingToDisplayText = isLoading ? <h1 className="loading-text">Loading...</h1> : <h1>Your shopping cart is empty!</h1>
 
 
     return (
