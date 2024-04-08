@@ -33,11 +33,9 @@ export function PaymentView() {
     };
 
     const [hasAgreedToMails, setHasAgreedToMails] = useState(false);
-
+    const [comment, setComment] = useState('');
     const handleMailsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setHasAgreedToMails(e.target.checked);
-
-    const [comment, setComment] = useState('');
     };
 
 
@@ -187,7 +185,7 @@ export function PaymentView() {
                         name="comment"
                         className="form-control"
                         placeholder="Add any comment here..."
-                        value={Comment}
+                        value={comment}
                         onChange={(e) => setComment(e.target.value)}
                         rows={4}
                     ></textarea>
