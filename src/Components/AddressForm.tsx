@@ -1,6 +1,7 @@
 import {ICity} from "../interfaces/ICity";
 import {CityAPI} from '../CityAPI';
 import {useState} from 'react';
+import './AddressForm.css';
 
 function AddressForm(){
 
@@ -16,7 +17,7 @@ function AddressForm(){
     }
 
     return(
-        <div>
+        <div className="form-control-group">
             <label htmlFor="country">Country </label>
             <select className="form-control" id="country" name="user_country" autoFocus>
                 <option selected>Denmark</option>
