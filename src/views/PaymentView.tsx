@@ -179,8 +179,7 @@ export function PaymentView() {
                 </div>
                     <fieldset className="form-section">
                         <legend>Preferences</legend>
-
-                        <div className="form-control-group">
+                        <div className="form-control-group checkbox-group">
                             <input
                                 type="checkbox"
                                 id="terms"
@@ -194,7 +193,7 @@ export function PaymentView() {
                                 Conditions</a></label>
                         </div>
 
-                        <div className="form-control-group">
+                        <div className="form-control-group checkbox-group">
                             <input
                                 type="checkbox"
                                 id="mails"
