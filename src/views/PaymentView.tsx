@@ -175,7 +175,8 @@ export function PaymentView() {
                             {paymentOption === 'invoice' && <InvoiceDetails/>}
 
                         </div>
-                    </fieldset>                </div>
+                    </fieldset>
+                </div>
                 <fieldset className="form-section">
                     <legend>Preferences</legend>
                     <div className="form-control-group checkbox-group">
