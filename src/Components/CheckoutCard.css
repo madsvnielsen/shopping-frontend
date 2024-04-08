@@ -1,6 +1,7 @@
-.box {
+.Cardbox {
     display: flex;
     align-items: flex-start;
+    flex-direction: row;
     padding: 1px;
     background: #efefef;
     margin: 10px;
@@ -82,6 +83,7 @@ input {
 
 .quantity{
     margin-top: 75%;
+    color: black;
 }
 
 

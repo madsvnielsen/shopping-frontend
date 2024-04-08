@@ -3,9 +3,7 @@ import {Card} from "./interfaces/Card.tsx";
 export class PokemonAPI {
 
 
-    static apiURL = "https://g16pokeshop.netlify.app/api/"
-
-
+    static apiURL = "http://dtu62597.eduhost.dk:10261/api"
     static token = 'e7c3a10b-7fc1-4ddc-a225-f3412514f740';
 
     static async getCard(id: string): Promise<Card> {
