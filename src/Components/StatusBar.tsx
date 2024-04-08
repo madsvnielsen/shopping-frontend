@@ -30,7 +30,7 @@ const StatusBar = (props : {activeStep : number}) => {
     
 
     return (
-        <ul>
+        <ul className="unordered">
             <li 
                 className={`step ${activeStep === 1 ? 'active' : ''} white`} 
                 style={{ marginLeft: '200px' }} 
