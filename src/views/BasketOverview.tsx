@@ -58,6 +58,20 @@ export function BasketOverview() {
                 try {
                     const basketItems: BasketItem[] = await PokemonAPI.getBasket();
 
+                    const temp = [];
+
+                    for await (const item of basketItems) {
+                        const detailedItem = {
+                            id: item.id,
+                            quantity: item.quantity,
+                            isLaminated: item.isLaminated,
+                            card: await PokemonAPI.getCard(item.id),
+                        };
+                        temp.push(detailedItem)
+                    }
+                    setBasketItems(temp)
+
+                    /*
                     const detailedBasketItems: DetailedBasketItem[] = await Promise.all(
                         basketItems.map(async (item) => ({
                             id: item.id,
@@ -67,7 +81,8 @@ export function BasketOverview() {
                         }))
                     );
 
-                    setBasketItems(detailedBasketItems);
+                     */
+
                 } catch (error) {
                     console.error("Error loading basket items:", error);
                 }

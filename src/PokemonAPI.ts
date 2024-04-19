@@ -21,7 +21,7 @@ export class PokemonAPI {
                         Accept: 'application/json',
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ itemId: cardID, quantity }),
+                    body: JSON.stringify({ itemId: cardID, quantity: quantity }),
                 }
             );
             return await response.json();
