@@ -5,8 +5,12 @@ import {BasketItem} from "./interfaces/BasketItem.ts";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PaymentView } from "./views/PaymentView.tsx";
 import {SummaryView} from "./views/SummaryView.tsx";
+import {PokemonAPI} from "./PokemonAPI.ts";
+
+const userBasket: Promise<BasketItem[]> = PokemonAPI.getBasket();
 
 
+/*
 const basketMock : BasketItem[] = [{
     id: "base1-3",
     quantity : 1,
@@ -34,13 +38,15 @@ const basketMock : BasketItem[] = [{
     },
 ]
 
+ */
+
 function App() {
     return (
     <BrowserRouter>
       <Routes>
       <Route path="/basket/payment" element={<PaymentView/>} />
           <Route path="/basket/summary" element={<SummaryView/>} />
-        <Route path="/basket" element={<BasketOverview basketMock={basketMock}/>} />
+        <Route path="/basket" element={<BasketOverview basket={userBasket}/>} />
         <Route path="/" element={<ShoppingPage/>}>
         </Route>
       </Routes>

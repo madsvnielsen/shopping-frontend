@@ -1,9 +1,11 @@
 import {Card} from "./interfaces/Card.tsx";
+import {BasketItem} from "./interfaces/BasketItem.ts";
 
 export class PokemonAPI {
 
 
-    static apiURL = "http://130.225.170.52:10261/api"
+    //static apiURL = "http://130.225.170.52:10261/api"
+    static apiURL = "http://localhost:3000"
 
 
     static token = 'e7c3a10b-7fc1-4ddc-a225-f3412514f740';
@@ -86,4 +88,46 @@ export class PokemonAPI {
             throw new Error("Couldn't post order");
         }
     }
+
+    static async getBasket(): Promise<BasketItem[]>{
+        try {
+            const response = await fetch(
+                `${PokemonAPI.apiURL}/basket/get`,
+                {
+                    method: 'GET',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + PokemonAPI.token,
+
+                    }
+                }
+            );
+            return await response.json();
+        } catch (error) {
+            console.error("Couldn't get basket:", error);
+            throw new Error("Couldn't get basket");
+        }
+    }
+    static async addToBasket(cardID: string, quantity: number): Promise<unknown> {
+        try {
+            const response = await fetch(
+                `${PokemonAPI.apiURL}/basket/add`,
+                {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ cardID, quantity }),
+                }
+            );
+            return await response.json();
+        } catch (error) {
+            console.error("Couldn't add card:", error);
+            throw new Error("Couldn't add card");
+        }
+    }
 }
+
+

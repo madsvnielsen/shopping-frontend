@@ -19,7 +19,7 @@ const recommendedMock : string[] = [
 ]
 
 
-export function BasketOverview(props : { basketMock : BasketItem[]}) {
+export function BasketOverview(props : { basket : BasketItem[]}) {
     const [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
     const [isLoading, setIsLoading] = useState(true)
     const [recommendedItems, setRecommendedItems] = useState([] as Card[])
@@ -40,20 +40,26 @@ export function BasketOverview(props : { basketMock : BasketItem[]}) {
         setBasketItems(newBasketItems)
     }
 
+
     const addBasketItem = (card : Card) => {
+        /*
         const newItem : DetailedBasketItem = {
             id: card.id,
             card: card,
             quantity: 1,
             isLaminated: false
         }
-        setBasketItems([...basketItems, newItem]);
+
+         */
+        PokemonAPI.addToBasket(card.id, 1)
+        props.basket = PokemonAPI.getBasket();
+       // setBasketItems([...basketItems, newItem]);
     }
 
     useEffect(() => {
         async function loadBasketItems(){
             const newBasketItems : DetailedBasketItem[] = []
-            for await (const item of props.basketMock) {
+            for await (const item of props.basket) {
                 const card : Card = await PokemonAPI.getCard(item.id)
                 newBasketItems.push({
                     id: item.id,
