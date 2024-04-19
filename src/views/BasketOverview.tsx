@@ -41,7 +41,7 @@ export function BasketOverview(props : { basket : BasketItem[]}) {
     }
 
 
-    const addBasketItem = (card : Card) => {
+    const addBasketItem = async (card: Card) => {
         /*
         const newItem : DetailedBasketItem = {
             id: card.id,
@@ -51,9 +51,11 @@ export function BasketOverview(props : { basket : BasketItem[]}) {
         }
 
          */
-        PokemonAPI.addToBasket(card.id, 1)
-        props.basket = PokemonAPI.getBasket();
-       // setBasketItems([...basketItems, newItem]);
+        PokemonAPI.addToBasket(card.id, "1")
+        const updatedBasket = await PokemonAPI.getBasket();
+        setBasketItems(updatedBasket);
+
+        // setBasketItems([...basketItems, newItem]);
     }
 
     useEffect(() => {

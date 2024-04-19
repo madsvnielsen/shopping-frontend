@@ -10,6 +10,27 @@ export class PokemonAPI {
 
     static token = 'e7c3a10b-7fc1-4ddc-a225-f3412514f740';
 
+
+    static async addToBasket(cardID: string, quantity: string): Promise<unknown> {
+        try {
+            const response = await fetch(
+                `${PokemonAPI.apiURL}/basket/add`,
+                {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ itemId: cardID, quantity }),
+                }
+            );
+            return await response.json();
+        } catch (error) {
+            console.error("Couldn't add card:", error);
+            throw new Error("Couldn't add card");
+        }
+    }
+
     static async getCard(id: string): Promise<Card> {
         try {
         const response: Response = await fetch(`${PokemonAPI.apiURL}/products/` + id,
@@ -109,25 +130,7 @@ export class PokemonAPI {
             throw new Error("Couldn't get basket");
         }
     }
-    static async addToBasket(cardID: string, quantity: number): Promise<unknown> {
-        try {
-            const response = await fetch(
-                `${PokemonAPI.apiURL}/basket/add`,
-                {
-                    method: 'POST',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ cardID, quantity }),
-                }
-            );
-            return await response.json();
-        } catch (error) {
-            console.error("Couldn't add card:", error);
-            throw new Error("Couldn't add card");
-        }
-    }
+
 }
 
 

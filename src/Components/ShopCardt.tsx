@@ -1,5 +1,6 @@
 import {Card} from "../interfaces/Card.tsx";
 import "./ShopCard.css"
+import {PokemonAPI} from "../PokemonAPI.ts";
 
 
 function ShopCardt(props: {card: Card}){
@@ -12,7 +13,7 @@ function ShopCardt(props: {card: Card}){
             <p className="pricetext">
             ${props.card.cardmarket.prices.averageSellPrice}
             </p>
-            <button className="Button">
+            <button className="Button" onClick={() => PokemonAPI.addToBasket(props.card.id, "1")}>
                 Add to cart
             </button>
         </div>
