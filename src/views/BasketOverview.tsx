@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import ShoppingCart from "./../Components/ShoppingCart.tsx";
 import {BasketItem, DetailedBasketItem} from "./../interfaces/BasketItem";
 import {Card} from "./../interfaces/Card.tsx";
@@ -8,6 +8,8 @@ import StatusBar from "./../Components/StatusBar";
 import DiscountBanner from "./../Components/DiscountBanner";
 import RecommendedProducts from "./../Components/RecommendedProducts";
 import { BasketContext } from "../App.tsx";
+
+
 const recommendedMock: string[] = [
     "base2-4",
     "xy1-4",
@@ -19,23 +21,14 @@ const recommendedMock: string[] = [
 
 
 export function BasketOverview() {
-    
-    const [isLoading, setIsLoading] = useState(true)
-export function BasketOverview() {
-    const [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
     const [isLoading] = useState(true)
     const [recommendedItems, setRecommendedItems] = useState([] as Card[])
     const { basket, setBasket } = useContext(BasketContext);
 
-    
-
-    const updateBasketItem = (basketItem : DetailedBasketItem) =>  {
-
-
     const updateBasketItem = async (basketItem: DetailedBasketItem) => {
 
-        const index = basketItems.findIndex(item => item.id === basketItem.id);
-        const newBasketItems = [...basketItems];
+        const index = basket.findIndex(item => item.id === basketItem.id);
+        const newBasketItems = [...basket];
 
         //Change item if quantity is positive, otherwise remove item.
         if (basketItem.quantity >= 0 || isNaN(basketItem.quantity)) {
@@ -59,9 +52,8 @@ export function BasketOverview() {
             isLaminated: false
         }
 
-
         await PokemonAPI.addToBasket(card.id, "1")
-        setBasketItems([...basketItems, newItem]);
+        setBasket([...basket, newItem]);
     }
 
     useEffect(() => {
@@ -81,7 +73,7 @@ export function BasketOverview() {
                         };
                         temp.push(detailedItem)
                     }
-                    setBasketItems(temp)
+                    setBasket(temp)
 
 
                 } catch (error) {
@@ -99,9 +91,8 @@ export function BasketOverview() {
                 setRecommendedItems(newRecommendedItems);
 
             }
-
+        loadBasketItems();
         loadRecommendedProducts()
-
         }
 
         ,
@@ -117,8 +108,8 @@ export function BasketOverview() {
             <Banner goToBasket={false}/>
             <StatusBar activeStep={1}/>
             <DiscountBanner />
-            {basket.length > 0 && <ShoppingCart basketItems={basket} updateBasketItem={updateBasketItem} />}
-            {basket.length === 0 && nothingToDisplayText}
+            {recommendedItems.length > 0 && <ShoppingCart basketItems={basket} updateBasketItem={updateBasketItem} />}
+            {recommendedItems.length === 0 && nothingToDisplayText}
             <RecommendedProducts
                 productsList={recommendedItems}
                 onProductAdded={addBasketItem}

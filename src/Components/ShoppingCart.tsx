@@ -4,12 +4,16 @@ import {DetailedBasketItem} from "../interfaces/BasketItem";
 import TotalPriceBox from "./TotalPriceBox.tsx";
 import DiscountNudge from './DiscountNudge.tsx';
 import PriceCalculator from "../HelperFunction/PriceCalculator.ts";
-
+import { BasketContext } from '../App.tsx';
+import { useContext } from 'react';
 
 
 function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketItem : (item : DetailedBasketItem) => void}) {
 
     const prices = PriceCalculator({basketItems: props.basketItems, updateBasketItem: props.updateBasketItem});
+    
+    const { basket } = useContext(BasketContext);
+
 
     return (
         <div style={{padding: 15}}>
@@ -18,7 +22,7 @@ function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketIt
             <div style={{display:"flex"}}>
 
             <div className="Wrapper">
-                {props.basketItems.map((basketItem, index) => (
+                {basket.map((basketItem, index) => (
                     <CheckoutCard key={index} basketItem={basketItem} updateBasketItem={props.updateBasketItem} />
                 ))}
             </div>

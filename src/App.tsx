@@ -23,16 +23,16 @@ function App() {
     const [basket, setBasket] = useState([] as DetailedBasketItem[])
 
     return (
+    <BasketContext.Provider value={{basket, setBasket}}>
     <BrowserRouter>
       <Routes>
-        <BasketContext.Provider value={{basket, setBasket}}>
         <Route path="/basket/payment" element={<PaymentView/>} />
         <Route path="/basket/summary" element={<SummaryView/>} />
         <Route path="/basket" element={<BasketOverview />} />
         <Route path="/" element={<ShoppingPage/>}/>
-        </BasketContext.Provider>
       </Routes>
     </BrowserRouter>
+    </BasketContext.Provider>
     )
 }
 
