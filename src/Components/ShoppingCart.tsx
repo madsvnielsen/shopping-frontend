@@ -8,13 +8,10 @@ import { BasketContext } from '../App.tsx';
 import { useContext } from 'react';
 
 
-function ShoppingCart(props : {basketItems: DetailedBasketItem[], updateBasketItem : (item : DetailedBasketItem) => void}) {
-
-    const prices = PriceCalculator({basketItems: props.basketItems, updateBasketItem: props.updateBasketItem});
+function ShoppingCart(props : { updateBasketItem : (item : DetailedBasketItem) => void}) {
     
     const { basket } = useContext(BasketContext);
-
-
+    const prices = PriceCalculator({basketItems: basket, updateBasketItem: props.updateBasketItem});
     return (
         <div style={{padding: 15}}>
             <h1>Your shopping cart</h1>

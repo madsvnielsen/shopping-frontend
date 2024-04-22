@@ -12,7 +12,7 @@ import { createContext, useState } from "react";
 
 
 export const BasketContext = createContext({basket: [] as DetailedBasketItem[],  setBasket: (_: DetailedBasketItem[]) => {}});
-
+export const OrderInfoContext = createContext({orderInfo: {} as OrderInfo, setOrderInfo: (_:OrderInfo) => {}})
 
 
 
@@ -21,9 +21,19 @@ export const BasketContext = createContext({basket: [] as DetailedBasketItem[], 
 function App() {
     
     const [basket, setBasket] = useState([] as DetailedBasketItem[])
+    const [orderInfo, setOrderInfo] = useState({
+        paymentMethod: "credit_card",
+        streetName: "",
+        city: "",
+        zipCode: "",
+        fullName: "",
+        phoneNumber: "",
+        email: "" 
+    } as OrderInfo)
 
     return (
     <BasketContext.Provider value={{basket, setBasket}}>
+        <OrderInfoContext.Provider value={{orderInfo, setOrderInfo}}>
     <BrowserRouter>
       <Routes>
         <Route path="/basket/payment" element={<PaymentView/>} />
@@ -32,6 +42,7 @@ function App() {
         <Route path="/" element={<ShoppingPage/>}/>
       </Routes>
     </BrowserRouter>
+    </OrderInfoContext.Provider>
     </BasketContext.Provider>
     )
 }

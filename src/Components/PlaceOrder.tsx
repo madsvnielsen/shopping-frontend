@@ -1,9 +1,9 @@
 import PlaceOrderFunc from "../HelperFunction/PlaceOrderFunc.tsx";
 import './PlaceOrder.css';
-function PlaceOrder(){
+function PlaceOrder( props : {onClick : () => {}}){
     return(
         <div className="placerOrderBox">
-            <button onClick={() => PlaceOrderFunc("placeHolder", "Placeholder")} className="placeOrderButton">
+            <button onClick={props.onClick} className="placeOrderButton">
                 Place Order
             </button>
         </div>

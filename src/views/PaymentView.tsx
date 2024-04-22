@@ -1,15 +1,19 @@
 import Banner from "../Components/Banner";
 import "./PaymentView.css";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CardDetails from "../Components/CardDetails.tsx";
 import PhoneDetails from "../Components/PhoneDetails.tsx";
 import GiftDetails from "../Components/GiftDetails.tsx";
 import StatusBar from "../Components/StatusBar.tsx";
 import InvoiceDetails from "../Components/InvoiceDetails.tsx";
 import AddressForm from "../Components/AddressForm.tsx";
+import { OrderInfoContext } from "../App.tsx";
+import { useNavigate } from "react-router-dom";
 
 export function PaymentView() {
-  const [paymentOption, setPaymentOption] = useState("credit_card"); // Default payment option
+  const {orderInfo, setOrderInfo} = useContext(OrderInfoContext)
+
+  const navigate = useNavigate();
 
 
   const [deliveryAddress, setDeliveryAddress] = useState<boolean>(false);
@@ -17,11 +21,6 @@ export function PaymentView() {
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDeliveryAddress(e.target.checked);
   };
-
-    const handlePaymentChoice = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPaymentOption(event.target.value);
-    };
-
 
   const [hasAgreedToTerms, setHasAgreedToTerms] = useState(false);
 
@@ -33,6 +32,7 @@ export function PaymentView() {
   const handleMailsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setHasAgreedToMails(e.target.checked);
   };
+  
 
   const [userMessage, setUserMessage] = useState("");
 
@@ -43,7 +43,6 @@ export function PaymentView() {
       <form
         action="handle_submit_form"
         className="form-container"
-        method="post"
       >
         <fieldset>
           <legend>Billing Information</legend>
@@ -57,6 +56,8 @@ export function PaymentView() {
               required
               maxLength={65}
               placeholder="Anders Andersen"
+              value={orderInfo.fullName}
+              onChange={(e) => setOrderInfo({... orderInfo, fullName: e.target.value} as OrderInfo)}
             />
             <label htmlFor="phone">Phone </label>
             <input
@@ -67,6 +68,8 @@ export function PaymentView() {
               required
               pattern="\+[1-9]{1,3}[1-9][0-9]{6,14}"
               placeholder="+XXXXXXXXXX"
+              value={orderInfo.phoneNumber}
+              onChange={(e) => setOrderInfo({... orderInfo, phoneNumber: e.target.value} as OrderInfo)}
             />
             <label htmlFor="mail">Email </label>
             <input
@@ -77,6 +80,8 @@ export function PaymentView() {
               required
               pattern="^[\w-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$"
               placeholder="anders@andersen.dk"
+              value={orderInfo.email}
+              onChange={(e) => setOrderInfo({... orderInfo, email: e.target.value} as OrderInfo)}
             />
           </div>
         </fieldset>
@@ -118,8 +123,8 @@ export function PaymentView() {
                     id="credit_card"
                     name="payment_option"
                     value="credit_card"
-                    checked={paymentOption === "credit_card"}
-                    onChange={handlePaymentChoice}
+                    checked={orderInfo.paymentMethod === "credit_card"}
+                    onChange={(e) => setOrderInfo({... orderInfo, paymentMethod: e.target.value} as OrderInfo)}
                   />
                 </li>
                 <li className="form-select">
@@ -130,8 +135,8 @@ export function PaymentView() {
                     id="mobile_pay"
                     name="payment_option"
                     value="mobile_pay"
-                    checked={paymentOption === "mobile_pay"}
-                    onChange={handlePaymentChoice}
+                    checked={orderInfo.paymentMethod === "mobile_pay"}
+                    onChange={(e) => setOrderInfo({... orderInfo, paymentMethod: e.target.value} as OrderInfo)}
                   />
                 </li>
                 <li className="form-select">
@@ -142,8 +147,8 @@ export function PaymentView() {
                     id="gift_card"
                     name="payment_option"
                     value="gift_card"
-                    checked={paymentOption === "gift_card"}
-                    onChange={handlePaymentChoice}
+                    checked={orderInfo.paymentMethod === "gift_card"}
+                    onChange={(e) => setOrderInfo({... orderInfo, paymentMethod: e.target.value} as OrderInfo)}
                   />
                 </li>
                 <li className="form-select">
@@ -154,15 +159,15 @@ export function PaymentView() {
                     id="invoice"
                     name="payment_option"
                     value="invoice"
-                    checked={paymentOption === "invoice"}
-                    onChange={handlePaymentChoice}
+                    checked={orderInfo.paymentMethod === "invoice"}
+                    onChange={(e) => setOrderInfo({... orderInfo, paymentMethod: e.target.value} as OrderInfo)}
                   />
                 </li>
               </ul>
-              {paymentOption === "credit_card" && <CardDetails />}
-              {paymentOption === "mobile_pay" && <PhoneDetails />}
-              {paymentOption === "gift_card" && <GiftDetails />}
-              {paymentOption === "invoice" && <InvoiceDetails />}
+              {orderInfo.paymentMethod === "credit_card" && <CardDetails />}
+              {orderInfo.paymentMethod === "mobile_pay" && <PhoneDetails />}
+              {orderInfo.paymentMethod === "gift_card" && <GiftDetails />}
+              {orderInfo.paymentMethod === "invoice" && <InvoiceDetails />}
             </div>
           </fieldset>
         </div>
@@ -210,7 +215,7 @@ export function PaymentView() {
         </fieldset>
         <div className="form-control-group">
           <p className="button">
-            <button type="submit" className="submit-btn">
+            <button onClick={()=> navigate("/basket/summary")} className="submit-btn">
               Continue
             </button>
           </p>

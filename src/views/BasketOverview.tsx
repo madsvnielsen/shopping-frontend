@@ -109,7 +109,7 @@ export function BasketOverview() {
             <Banner goToBasket={false}/>
             <StatusBar activeStep={1}/>
             <DiscountBanner />
-            {recommendedItems.length > 0 && <ShoppingCart basketItems={basket} updateBasketItem={updateBasketItem} />}
+            {recommendedItems.length > 0 && <ShoppingCart updateBasketItem={updateBasketItem} />}
             {recommendedItems.length === 0 && nothingToDisplayText}
             <RecommendedProducts
                 productsList={recommendedItems}
