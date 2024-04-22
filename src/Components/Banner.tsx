@@ -19,6 +19,8 @@ function Banner( props : {goToBasket : boolean}){
             {!props.goToBasket && (
                 <a href="/" style={{marginLeft: 'auto', marginRight: 50, color: "black"}}>
                     <img src={productIcon} alt="Product" height="60"/>
+                    <br/>
+                    {" To shop"}
                 </a>
             )}
         </div>
