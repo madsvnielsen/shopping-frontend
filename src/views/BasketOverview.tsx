@@ -8,6 +8,7 @@ import StatusBar from "./../Components/StatusBar";
 import DiscountBanner from "./../Components/DiscountBanner";
 import RecommendedProducts from "./../Components/RecommendedProducts";
 
+
 const recommendedMock: string[] = [
     "base2-4",
     "xy1-4",
