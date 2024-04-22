@@ -11,15 +11,17 @@ import AddressForm from "../Components/AddressForm.tsx";
 export function PaymentView() {
   const [paymentOption, setPaymentOption] = useState("credit_card"); // Default payment option
 
-  const handlePaymentChoice = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPaymentOption(event.target.value);
-  };
 
   const [deliveryAddress, setDeliveryAddress] = useState<boolean>(false);
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDeliveryAddress(e.target.checked);
   };
+
+    const handlePaymentChoice = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPaymentOption(event.target.value);
+    };
+
 
   const [hasAgreedToTerms, setHasAgreedToTerms] = useState(false);
 
