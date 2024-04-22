@@ -3,7 +3,6 @@ import {DetailedBasketItem} from "../interfaces/BasketItem.ts";
 import quantDiscount from "../HelperFunction/QuantDiscount.ts";
 
 
-
 function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem: (item: DetailedBasketItem) => void }) {
     const card = props.basketItem.card;
     let price : number | string = "-";
@@ -36,12 +35,6 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
 
         const {value, max} = event.target;
 
-        /*
-        if (parseInt(value) < parseInt(min)) {
-            event.target.value = min;
-        }
-
-         */
         if (parseInt(value) > parseInt(max)) {
             event.target.value = max;
         }
@@ -50,7 +43,6 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
         } else {
             updateItemQuantity(0)
         }
-        updateItemQuantity(parseInt(event.target.value))
     };
 
     return (
