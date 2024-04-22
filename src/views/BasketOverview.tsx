@@ -10,6 +10,7 @@ import RecommendedProducts from "./../Components/RecommendedProducts";
 import { BasketContext } from "../App.tsx";
 
 
+
 const recommendedMock: string[] = [
     "base2-4",
     "xy1-4",

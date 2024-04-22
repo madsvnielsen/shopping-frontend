@@ -1,17 +1,21 @@
 import { Card } from "../interfaces/Card.tsx";
-import ShopCardt from "./ShopCardt.tsx";
+import ShopCard from "./ShopCard.tsx";
 import "./CardList.css";
 
-function CardList(props: { cards: Card[], currentPage: number, totalPages: number }) {
-    const { cards, currentPage } = props;
+function CardList(props: { cards: Card[]; currentPage: number; totalPages: number; setIsAdded: (cardId: string) => void; addedCards: Set<string>; setAddedCards: (cards: Set<string>) => void }) {
     const cardsPerPage = 9; // Assuming 10 cards per page
-    const startIndex = (currentPage - 1) * cardsPerPage;
+    const startIndex = (props.currentPage - 1) * cardsPerPage;
     const endIndex = startIndex + cardsPerPage;
 
     return (
         <div className="CardList">
-            {cards.slice(startIndex, endIndex).map((card, index) => (
-                <ShopCardt key={index} card={card} />
+            {props.cards.slice(startIndex, endIndex).map((card, index) => (
+                <ShopCard
+                    key={index}
+                    card={card}
+                    setIsAdded={() => props.setIsAdded(card.id)}
+                    addedCards={props.addedCards}
+                />
             ))}
         </div>
     );

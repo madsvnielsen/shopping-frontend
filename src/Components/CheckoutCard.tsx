@@ -39,12 +39,10 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
             event.target.value = max;
         }
         if (parseInt(event.target.value) >= 0) {
-
             updateItemQuantity(parseInt(event.target.value))
         } else {
             updateItemQuantity(0)
         }
-        updateItemQuantity(parseInt(event.target.value))
     };
 
     return (
