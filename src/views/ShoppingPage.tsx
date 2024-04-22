@@ -10,6 +10,12 @@ export function ShoppingPage() {
 
     const [loading, setLoading] = useState(true);
 
+    const [addedCards, setAddedCards] = useState(new Set<string>()); // Set to store added card IDs
+
+    const handleAddToCart = (cardId: string) => {
+        setAddedCards(prevAddedCards => new Set(prevAddedCards).add(cardId));
+    };
+
     useEffect(() => {
         async function getCards() {
             const result = await PokemonAPI.listOfCards();
@@ -34,7 +40,7 @@ export function ShoppingPage() {
             {loading && <h1 className="loading-text">Finding the best pokemon cards for you.</h1>}
 
             {!loading && <>
-                <CardList cards={cards} currentPage={currentPage} totalPages={totalPages} />
+                <CardList cards={cards} currentPage={currentPage} totalPages={totalPages} setIsAdded={handleAddToCart} addedCards={addedCards} setAddedCards={setAddedCards} />
                 <div style={{ textAlign: "center", margin: "20px 20px" }}>
                     <button onClick={handlePrevPage} disabled={currentPage === 1}>Previous Page</button>
                     <span style={{ margin: "0 10px" }}>Page {currentPage} of {totalPages}</span>
@@ -45,3 +51,5 @@ export function ShoppingPage() {
         </div>
     );
 }
+
+
