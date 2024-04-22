@@ -11,12 +11,12 @@ function Banner( props : {goToBasket : boolean}){
         </div>
             <h1 style={{paddingLeft: 20}}>Pokemonshop.com</h1>
             {props.goToBasket && (
-                <a href="/basket" style={{ marginLeft: 'auto', marginRight: 50 }}>
-                    <img src={basketIcon} alt="Basket" height="30" />
+                <a href="/basket" style={{marginLeft: 'auto', marginRight: 50}}>
+                    <img src={basketIcon} alt="Basket" height="50"/>
                 </a>
             )}
             {!props.goToBasket && (
-                <a href="/" style={{ marginLeft: 'auto', marginRight: 50 }}>
+                <a href="/" style={{marginLeft: 'auto', marginRight: 50}}>
                     Go to products
                 </a>
                 )}
