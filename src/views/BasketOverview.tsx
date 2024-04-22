@@ -24,15 +24,18 @@ export function BasketOverview() {
     const [recommendedItems, setRecommendedItems] = useState([] as Card[])
 
 
-    const updateBasketItem = (basketItem: DetailedBasketItem) => {
+    const updateBasketItem = async (basketItem: DetailedBasketItem) => {
 
         const index = basketItems.findIndex(item => item.id === basketItem.id);
         const newBasketItems = [...basketItems];
 
         //Change item if quantity is positive, otherwise remove item.
         if (basketItem.quantity >= 0 || isNaN(basketItem.quantity)) {
+            await PokemonAPI.removeFromBasket(basketItem.id)
+            await PokemonAPI.addToBasket(basketItem.id, basketItem.quantity.toString())
             newBasketItems[index] = basketItem;
         } else {
+            await PokemonAPI.removeFromBasket(basketItem.id)
             newBasketItems.splice(index, 1);
         }
         setBasketItems(newBasketItems)
@@ -49,39 +52,29 @@ export function BasketOverview() {
         }
 
 
-        PokemonAPI.addToBasket(card.id, "1")
+        await PokemonAPI.addToBasket(card.id, "1")
         setBasketItems([...basketItems, newItem]);
     }
 
     useEffect(() => {
             async function loadBasketItems() {
                 try {
-                    const basketItems: BasketItem[] = await PokemonAPI.getBasket();
+                    const itemsInBasket: BasketItem[] = await PokemonAPI.getBasket();
 
                     const temp = [];
+                    console.log(itemsInBasket)
 
-                    for await (const item of basketItems) {
+                    for await (const item of itemsInBasket) {
                         const detailedItem = {
                             id: item.id,
                             quantity: item.quantity,
-                            isLaminated: item.isLaminated,
                             card: await PokemonAPI.getCard(item.id),
+                            isLaminated: item.isLaminated,
                         };
                         temp.push(detailedItem)
                     }
                     setBasketItems(temp)
 
-                    /*
-                    const detailedBasketItems: DetailedBasketItem[] = await Promise.all(
-                        basketItems.map(async (item) => ({
-                            id: item.id,
-                            quantity: item.quantity,
-                            isLaminated: item.isLaminated,
-                            card: await PokemonAPI.getCard(item.id),
-                        }))
-                    );
-
-                     */
 
                 } catch (error) {
                     console.error("Error loading basket items:", error);

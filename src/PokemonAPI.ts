@@ -4,8 +4,8 @@ import {BasketItem} from "./interfaces/BasketItem.ts";
 export class PokemonAPI {
 
 
-    //static apiURL = "http://130.225.170.52:10261/api"
-    static apiURL = "http://localhost:3000"
+    static apiURL = "http://130.225.170.52:10261/api"
+    //static apiURL = "http://localhost:3000"
 
 
     static token = 'e7c3a10b-7fc1-4ddc-a225-f3412514f740';
@@ -13,6 +13,7 @@ export class PokemonAPI {
 
     static async addToBasket(cardID: string, quantity: string): Promise<unknown> {
         try {
+            const sessionId = window.sessionStorage.getItem("sessionId")
             const response = await fetch(
                 `${PokemonAPI.apiURL}/basket/add`,
                 {
@@ -21,13 +22,37 @@ export class PokemonAPI {
                         Accept: 'application/json',
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ itemId: cardID, quantity: quantity }),
+                    body: JSON.stringify({ itemId: cardID, quantity: quantity, sessionId }),
+
                 }
+
             );
-            return await response.json();
+            const data = await response.json()
+            window.sessionStorage.setItem("sessionId", data.sessionId)
+            return await data;
         } catch (error) {
             console.error("Couldn't add card:", error);
             throw new Error("Couldn't add card");
+        }
+    }
+
+    static async removeFromBasket(cardID: string){
+        try {
+            const response = await fetch(
+                `${PokemonAPI.apiURL}/basket/`+ window.sessionStorage.getItem("sessionId")+ "/" + cardID,
+                {
+                    method: 'DELETE',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                }
+
+            );
+            return await response.json();
+        } catch (error) {
+            console.error("Couldn't delete card:", error);
+            throw new Error("Couldn't delete card");
         }
     }
 
@@ -112,8 +137,12 @@ export class PokemonAPI {
 
     static async getBasket(): Promise<BasketItem[]>{
         try {
+            let url =`${PokemonAPI.apiURL}/basket/`;
+            if(window.sessionStorage.getItem("sessionId") != null) {
+                url = `${PokemonAPI.apiURL}/basket/` + window.sessionStorage.getItem("sessionId")
+            }
             const response = await fetch(
-                `${PokemonAPI.apiURL}/basket/get`,
+                url,
                 {
                     method: 'GET',
                     headers: {
@@ -124,7 +153,9 @@ export class PokemonAPI {
                     }
                 }
             );
-            return await response.json();
+            const data = await response.json()
+            window.sessionStorage.setItem("sessionId", data.sessionId)
+            return data.basket
         } catch (error) {
             console.error("Couldn't get basket:", error);
             throw new Error("Couldn't get basket");
