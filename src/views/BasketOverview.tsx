@@ -8,7 +8,7 @@ import Banner from "./../Components/Banner.tsx";
 import StatusBar from "./../Components/StatusBar";
 import DiscountBanner from "./../Components/DiscountBanner";
 import RecommendedProducts from "./../Components/RecommendedProducts";
-
+import { BasketContext } from "../App.tsx";
 const recommendedMock : string[] = [
     "base2-4",
     "xy1-4",
@@ -19,11 +19,12 @@ const recommendedMock : string[] = [
 ]
 
 
-export function BasketOverview(props : { basketMock : BasketItem[]}) {
-    const [basketItems, setBasketItems] = useState([] as DetailedBasketItem[])
+export function BasketOverview() {
+    
     const [isLoading, setIsLoading] = useState(true)
     const [recommendedItems, setRecommendedItems] = useState([] as Card[])
-    
+    const { basket, setBasket } = useContext(BasketContext);
+
     
 
     const updateBasketItem = (basketItem : DetailedBasketItem) =>  {

@@ -1,48 +1,31 @@
 
 import {BasketOverview} from "./views/BasketOverview"
 import {ShoppingPage} from "./views/ShoppingPage.tsx";
-import {BasketItem} from "./interfaces/BasketItem.ts";
+import {BasketItem, DetailedBasketItem} from "./interfaces/BasketItem.ts";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PaymentView } from "./views/PaymentView.tsx";
 import {SummaryView} from "./views/SummaryView.tsx";
+import { createContext, useState } from "react";
 
 
-const basketMock : BasketItem[] = [{
-    id: "base1-3",
-    quantity : 1,
-    isLaminated: false
-},
-    {
-        id: "xy1-5",
-        quantity : 2,
-        isLaminated: false
-    },
-    {
-        id: "base1-2",
-        quantity : 1,
-        isLaminated: false
-    },
-    {
-        id: "base1-7",
-        quantity : 4,
-        isLaminated: true
-    },
-    {
-        id: "base2-7",
-        quantity : 3,
-        isLaminated: false
-    },
-]
+
+
+
+export const BasketContext = createContext({basket: [] as DetailedBasketItem[],  setBasket: (_: DetailedBasketItem[]) => {}});
 
 function App() {
+    
+    const [basket, setBasket] = useState([] as DetailedBasketItem[])
+
     return (
     <BrowserRouter>
       <Routes>
+      <BasketContext.Provider value={{basket, setBasket}}>
       <Route path="/basket/payment" element={<PaymentView/>} />
-          <Route path="/basket/summary" element={<SummaryView/>} />
-        <Route path="/basket" element={<BasketOverview basketMock={basketMock}/>} />
-        <Route path="/" element={<ShoppingPage/>}>
-        </Route>
+      <Route path="/basket/summary" element={<SummaryView/>} />
+      <Route path="/basket" element={<BasketOverview />} />
+      <Route path="/" element={<ShoppingPage/>}/>
+      </BasketContext.Provider>
       </Routes>
     </BrowserRouter>
     )
