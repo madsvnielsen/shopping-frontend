@@ -76,7 +76,6 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
                 <label className="quantity">Quantity</label>
                 <input type="number" value={props.basketItem.quantity} min="0" max="1000" onChange={enforceMinMax}/>
                 <label className="laminate">
-
                     <input
                         type="checkbox" id="box" name="laminating" value='box'
                         onClick={clickCheckbox}

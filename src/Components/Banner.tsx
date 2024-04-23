@@ -16,8 +16,9 @@ function Banner( props : {goToBasket : boolean}){
                 </a>
             )}
             {!props.goToBasket && (
-                <a href="/" style={{marginLeft: 'auto', marginRight: 50, color: "black"}}>
-                    Go to products
+                <a href="/" className="productIcon">
+                    <p> Go to products</p>
+
                 </a>
                 )}
         </div>

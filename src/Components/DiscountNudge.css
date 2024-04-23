@@ -7,12 +7,17 @@
         border: 2px solid #ffcc00;
         border-radius: 10px;
     }
+    .discountMessage {
+        color: #000;
+        font-size: 16px;
+        text-align: center;
+    }
 }
 
 @media (max-width: 767px) {
     .discountNudgeContainer {
         padding: 15px;
-        width: 50%;
+        width: 90%;
         margin-bottom: 5px;
 
         /*margin: 20px auto;*/
@@ -20,10 +25,11 @@
         border: 2px solid #ffcc00;
         border-radius: 10px;
     }
+    .discountMessage {
+        color: #000;
+        font-size: 20px;
+        text-align: center;
+    }
 }
 
-.discountMessage {
-    color: #000;
-    font-size: 16px;
-    text-align: center;
-}
+

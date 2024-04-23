@@ -11,6 +11,50 @@
         width: 300px;
         border-radius: 5px;
     }
+    .text {
+        text-align:left;
+        font-size: small;
+        color: #222224;
+        min-width: 90px;
+        margin: 10px 10px;
+    }
+    .textright{
+        text-align: right;
+        font-size: small;
+        color: #222224;
+        min-width: 90px;
+        margin: 10px 10px;
+    }
+    .priceleft {
+        font-weight: bold;
+        text-align: left;
+        font-size: small;
+        color: #222224;
+        min-width: 90px;
+        margin: 10px 10px;
+    }
+    .discountText{
+        text-align: right;
+        font-weight: bold;
+        font-size: small;
+        color: #02de27;
+        min-width: 90px;
+        margin: 10px 10px;
+    }
+    .headlinePriceBox {
+        font-weight: bold;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .price {
+        font-weight: bold;
+        text-align: right;
+        font-size: small;
+        color: #222224;
+        min-width: 90px;
+        margin: 10px 10px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -19,12 +63,55 @@
         align-items: flex-start;
         padding: 1px;
         background: #efefef;
-        max-height: 250px;
+        max-height: 300px;
         align-self: auto;
         margin-left: 5px;
         margin-right: 5px;
         width: 300px;
         border-radius: 5px;
+    }
+    .text {
+        text-align:left;
+        font-size: 20px;
+        color: #222224;
+        min-width: 90px;
+        margin: 10px 10px;
+    }
+    .textright{
+        text-align: right;
+        font-size: 20px;
+        color: #222224;
+        min-width: 90px;
+        margin: 10px 10px;
+    }
+    .priceleft {
+        font-weight: bold;
+        text-align: left;
+        font-size: 20px;
+        color: #222224;
+        min-width: 90px;
+        margin: 10px 10px;
+    }
+    .discountText{
+        text-align: right;
+        font-weight: bold;
+        font-size: 20px;
+        color: #02de27;
+        min-width: 90px;
+        margin: 10px 10px;
+    }
+    .headlinePriceBox {
+        font-weight: bold;
+        font-size: 20px;
+        text-align: left;
+    }
+    .price {
+        font-weight: bold;
+        text-align: right;
+        font-size: 20px;
+        color: #222224;
+        min-width: 90px;
+        margin: 10px 10px;
     }
 }
 .checkoutbutton{
@@ -43,52 +130,3 @@
     flex-basis: 50%;
 }
 
-
-.headlinePriceBox {
-    font-weight: bold;
-    font-size: 16px;
-    text-align: left;
-}
-
-.priceleft {
-    font-weight: bold;
-    text-align: left;
-    font-size: small;
-    color: #222224;
-    min-width: 90px;
-    margin: 10px 10px;
-}
-
-.text {
-    text-align:left;
-    font-size: small;
-    color: #222224;
-    min-width: 90px;
-    margin: 10px 10px;
-}
-
-.textright{
-    text-align: right;
-    font-size: small;
-    color: #222224;
-    min-width: 90px;
-    margin: 10px 10px;
-}
-
-.discountText{
-    text-align: right;
-    font-weight: bold;
-    font-size: small;
-    color: #02de27;
-    min-width: 90px;
-    margin: 10px 10px;
-}
-
-.price {
-    font-weight: bold;
-    text-align: right;
-    font-size: small;
-    color: #222224;
-    min-width: 90px;
-    margin: 10px 10px;
-}
