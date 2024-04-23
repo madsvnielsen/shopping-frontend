@@ -1,10 +1,25 @@
-.discountNudgeContainer {
-    padding: 15px;
-    width: 50%;
-    margin: 20px auto;
-    background-color: #D3D3D3;
-    border: 2px solid #ffcc00;
-    border-radius: 10px;
+@media (min-width: 768px) {
+    .discountNudgeContainer {
+        padding: 15px;
+        width: 50%;
+        margin: 20px auto;
+        background-color: #D3D3D3;
+        border: 2px solid #ffcc00;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .discountNudgeContainer {
+        padding: 15px;
+        width: 50%;
+        margin-bottom: 5px;
+
+        /*margin: 20px auto;*/
+        background-color: #D3D3D3;
+        border: 2px solid #ffcc00;
+        border-radius: 10px;
+    }
 }
 
 .discountMessage {

@@ -15,7 +15,9 @@ const recommendedMock: string[] = [
     "xy2-5",
     "base3-4",
     "base4-4",
-    "base5-4"
+    "base5-4",
+    "hgss2-1",
+    "pl3-2"
 ]
 
 
@@ -107,12 +109,13 @@ export function BasketOverview() {
 
 
     return (
-        <div>
+        <div className="shopPage">
             <Banner goToBasket={false}/>
             <StatusBar activeStep={1}/>
             <DiscountBanner/>
             {basketItems.length > 0 && <ShoppingCart basketItems={basketItems} updateBasketItem={updateBasketItem}/>}
             {basketItems.length === 0 && nothingToDisplayText}
+
             <RecommendedProducts
                 productsList={recommendedItems}
                 onProductAdded={addBasketItem}
