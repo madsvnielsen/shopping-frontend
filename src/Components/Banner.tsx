@@ -9,9 +9,9 @@ function Banner( props : {goToBasket : boolean}){
         <div style={{height: "100%", display: "flex", flexDirection: "column", justifyContent:"center"}}>
             <img src={pokelogo} alt="Pokeball" height="80"/>
         </div>
-            <h1 style={{paddingLeft: 20}}>Pokemonshop.com</h1>
+            <h1 className="title">Pokemonshop.com</h1>
             {props.goToBasket && (
-                <a href="/basket" style={{marginLeft: 'auto', marginRight: 50}}>
+                <a href="/basket" className="cartIcon" >
                     <img src={basketIcon} alt="Basket" height="50"/>
                 </a>
             )}

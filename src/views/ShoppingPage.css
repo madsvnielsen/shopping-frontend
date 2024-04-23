@@ -1,0 +1,31 @@
+/*Desktop*/
+@media (min-width: 768px) {
+    .shopPage {
+        width: 100%;
+    }
+    .Shoploading-text{
+        width: 100%;
+        text-align: center;
+        margin: 2em auto;
+        animation-name: loadingAnim;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        font-size: 3.2em;
+    }
+}
+/*Mobile*/
+@media (max-width: 767px) {
+    .shopPage {
+        width: min-content;
+    }
+    .Shoploading-text{
+        width: 80%;
+        text-align: center;
+        margin: 2em auto;
+        animation-name: loadingAnim;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        font-size: 3.2em;
+    }
+}
+
