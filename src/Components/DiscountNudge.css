@@ -1,14 +1,35 @@
-.discountNudgeContainer {
-    padding: 15px;
-    width: 50%;
-    margin: 20px auto;
-    background-color: #D3D3D3;
-    border: 2px solid #ffcc00;
-    border-radius: 10px;
+@media (min-width: 768px) {
+    .discountNudgeContainer {
+        padding: 15px;
+        width: 50%;
+        margin: 20px auto;
+        background-color: #D3D3D3;
+        border: 2px solid #ffcc00;
+        border-radius: 10px;
+    }
+    .discountMessage {
+        color: #000;
+        font-size: 16px;
+        text-align: center;
+    }
 }
 
-.discountMessage {
-    color: #000;
-    font-size: 16px;
-    text-align: center;
+@media (max-width: 767px) {
+    .discountNudgeContainer {
+        padding: 15px;
+        width: 90%;
+        margin-bottom: 5px;
+
+        /*margin: 20px auto;*/
+        background-color: #D3D3D3;
+        border: 2px solid #ffcc00;
+        border-radius: 10px;
+    }
+    .discountMessage {
+        color: #000;
+        font-size: 20px;
+        text-align: center;
+    }
 }
+
+

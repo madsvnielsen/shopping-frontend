@@ -1,7 +1,8 @@
 import Banner from "../Components/Banner.tsx";
-import { PokemonAPI } from "../PokemonAPI.ts";
-import { useEffect, useState } from "react";
-import CardList from "../Components/CardList.tsx";
+import {PokemonAPI} from "../PokemonAPI.ts";
+import {useEffect, useState} from "react";
+import CardList from "../Components/CardList.tsx"
+import "./ShoppingPage.css";
 
 export function ShoppingPage() {
     const [cards, setCards] = useState([]);
@@ -23,6 +24,7 @@ export function ShoppingPage() {
             setTotalPages(Math.ceil(result.length / 10)); // Assuming 10 cards per page
             setLoading(false)
         }
+
         getCards();
     }, []);
 
@@ -35,20 +37,22 @@ export function ShoppingPage() {
     };
 
     return (
-        <div style={{ width: "100%" }}>
+        <div className="shopPage">
             <Banner goToBasket={true}/>
-            {loading && <h1 className="loading-text">Finding the best pokemon cards for you.</h1>}
+            {loading && <h1 className="Shoploading-text">Finding the best pokemon cards for you.</h1>}
 
             {!loading && <>
-                <CardList cards={cards} currentPage={currentPage} totalPages={totalPages} setIsAdded={handleAddToCart} addedCards={addedCards} setAddedCards={setAddedCards} />
-                <div style={{ textAlign: "center", margin: "20px 20px" }}>
+                <CardList cards={cards} currentPage={currentPage} totalPages={totalPages}
+                          setIsAdded={handleAddToCart} addedCards={addedCards} setAddedCards={setAddedCards}/>
+                <div style={{textAlign: "center", margin: "20px 20px"}}>
                     <button onClick={handlePrevPage} disabled={currentPage === 1}>Previous Page</button>
-                    <span style={{ margin: "0 10px" }}>Page {currentPage} of {totalPages}</span>
+                    <span style={{margin: "0 10px"}}>Page {currentPage} of {totalPages}</span>
                     <button onClick={handleNextPage} disabled={currentPage === totalPages}>Next Page</button>
                 </div>
             </>
             }
         </div>
+
     );
 }
 

@@ -8,3 +8,35 @@
     flex-direction: row;
     align-items: center;
 }
+@media (min-width: 768px) {
+    .cartIcon {
+        margin-left: auto;
+        margin-right: 50px
+    }
+    .productIcon {
+        margin-left: auto;
+        margin-right: 50px
+    }
+    .title {
+        padding-left: 20px;
+        padding-right: 20px;
+
+    }
+}
+
+@media (max-width: 767px) {
+    .cartIcon {
+        margin-left: auto;
+        margin-right: 1px
+    }
+    .productIcon {
+        margin-left: auto;
+        margin-right: 1px
+    }
+    .title {
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 3em;
+        line-height: 1.1;
+    }
+}
