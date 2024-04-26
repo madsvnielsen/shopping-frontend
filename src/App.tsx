@@ -1,11 +1,10 @@
 
 import {BasketOverview} from "./views/BasketOverview"
 import {ShoppingPage} from "./views/ShoppingPage.tsx";
-import {BasketItem, DetailedBasketItem} from "./interfaces/BasketItem.ts";
+import {DetailedBasketItem} from "./interfaces/BasketItem.ts";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PaymentView } from "./views/PaymentView.tsx";
 import {SummaryView} from "./views/SummaryView.tsx";
-import {PokemonAPI} from "./PokemonAPI.ts";
 import { createContext, useState } from "react";
 
 
@@ -19,7 +18,7 @@ export const OrderInfoContext = createContext({orderInfo: {} as OrderInfo, setOr
 
 
 function App() {
-    
+
     const [basket, setBasket] = useState([] as DetailedBasketItem[])
     const [orderInfo, setOrderInfo] = useState({
         paymentMethod: "credit_card",
@@ -28,11 +27,11 @@ function App() {
         zipCode: "",
         fullName: "",
         phoneNumber: "",
-        email: "" 
+        email: ""
     } as OrderInfo)
 
     return (
-    <BasketContext.Provider value={{basket, setBasket}}>
+        <BasketContext.Provider value={{basket, setBasket}}>
         <OrderInfoContext.Provider value={{orderInfo, setOrderInfo}}>
     <BrowserRouter>
       <Routes>

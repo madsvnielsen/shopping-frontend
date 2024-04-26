@@ -9,10 +9,8 @@ function ShopCard(props: { card: Card; setIsAdded: () => void; addedCards: Set<s
 
     return (
         <div className="CardBox">
-            <div>
-                <img src={props.card.images == undefined ? "-" : props.card.images.small} className="pokemonImg"
-                     alt={props.card.name}/>
-            </div>
+            <img src={props.card.images == undefined ? "-" : props.card.images.small} className="pokemonImg"
+                 alt={props.card.name}/>
             <p className="pricetext">
                 ${props.card.cardmarket.prices.averageSellPrice}
             </p>

@@ -7,17 +7,17 @@
     margin: 10px;
 }
 
-.pokemonImg {
-    display: block;
-    height: auto;
-    width: 100%;
-}
 
 @media (min-width: 768px) {
     .headline {
         font-weight: bold;
         font-size: 16px;
         margin-bottom:0px;
+    }
+    .pokemonImg {
+        display: block;
+        height: auto;
+        width: 100%;
     }
 
 }
@@ -26,6 +26,11 @@
         font-weight: bold;
         font-size: 25px;
         margin-bottom:0px;
+    }
+    .pokemonImg {
+        display: block;
+        height: auto;
+        width: 190px;
     }
 }
 

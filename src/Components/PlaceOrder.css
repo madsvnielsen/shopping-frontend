@@ -1,7 +1,18 @@
-.placeOrderButton {
-    background-color: #ed1515;
-    color: white;
+@media (min-width: 768px) {
+    .placeOrderButton {
+        background-color: #ed1515;
+        color: white;
+    }
 }
+
+@media (max-width: 767px) {
+    .placeOrderButton {
+        font-size: 25px;
+        background-color: #ed1515;
+        color: white;
+    }
+}
+
 
 .placerOrderBox{
     align-content: center;
