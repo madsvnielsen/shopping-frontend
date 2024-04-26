@@ -1,15 +1,16 @@
-.Banner {
-    width: 100%;
-    background: #ad2624;
-    text-align: left;
-    padding-top: 0.625em; /* 10px / 16px */
-    padding-bottom: 0.625em; /* 10px / 16px */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+
 
 @media (min-width: 768px) {
+    .Banner {
+        min-width: 1540px;
+        background: #ad2624;
+        text-align: left;
+        padding-top: 0.625em; /* 10px / 16px */
+        padding-bottom: 0.625em; /* 10px / 16px */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
     .cartIcon {
         margin-left: auto;
         margin-right: 50px
@@ -26,6 +27,16 @@
 }
 
 @media (max-width: 767px) {
+    .Banner {
+        width: 100%;
+        background: #ad2624;
+        text-align: left;
+        padding-top: 0.625em; /* 10px / 16px */
+        padding-bottom: 0.625em; /* 10px / 16px */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
     .cartIcon {
         margin-left: auto;
         margin-right: 0.0625em;
