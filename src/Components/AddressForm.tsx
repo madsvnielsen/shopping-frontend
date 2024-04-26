@@ -1,6 +1,6 @@
 import { ICity } from "../interfaces/ICity";
 import { CityAPI } from "../CityAPI";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { OrderInfoContext } from "../App";
 import "./AddressForm.css";
 

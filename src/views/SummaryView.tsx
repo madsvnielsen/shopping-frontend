@@ -19,12 +19,16 @@ export function SummaryView() {
                     <ul className="sumList">
                         <li className="listElement"><strong>Payment Method</strong> {orderInfo.paymentMethod}</li>
                         <li className="listElement"><strong>Street Name</strong> {orderInfo.streetName}</li>
+                    </ul>
+                    <ul className="sumList">
                         <li className="listElement"><strong>City</strong> {orderInfo.city}</li>
                         <li className="listElement"><strong>Zip Code</strong> {orderInfo.zipCode}</li>
                     </ul>
                     <ul className="sumList">
                         <li className="listElement"><strong>Full Name</strong> {orderInfo.fullName}</li>
                         <li className="listElement"><strong>Phone Number</strong> {orderInfo.phoneNumber}</li>
+                    </ul>
+                    <ul className="sumList">
                         <li className="listElement"><strong>Email</strong> {orderInfo.email}</li>
                     </ul>
                 </div>
