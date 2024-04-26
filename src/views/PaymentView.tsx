@@ -109,48 +109,56 @@ export function PaymentView() {
                         <AddressForm/>
                     </fieldset>
                 )}
-                <fieldset className="form-section">
-                    <legend>Preferences</legend>
-                    <div className="form-control-group checkbox-group">
-                        <input
-                            type="checkbox"
-                            id="terms"
-                            name="terms"
-                            onChange={handleTermsChange}
-                            checked={hasAgreedToTerms}
-                            required
-                        />
-                        <label htmlFor="terms">
-                            I agree to the{" "}
-                            <a href="/terms-and-conditions" target="_blank">
-                                Terms and Conditions
-                            </a>
-                        </label>
-                    </div>
+                <div>
+                    <p className="button">
+                        <button onClick={() => navigate("/basket/summary")} className="submit-btn">
+                            Continue
+                        </button>
+                    </p>
+                    <fieldset className="form-section">
+                        <legend>Preferences</legend>
+                        <div className="form-control-group checkbox-group">
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                name="terms"
+                                onChange={handleTermsChange}
+                                checked={hasAgreedToTerms}
+                                required
+                            />
+                            <label htmlFor="terms">
+                                I agree to the{" "}
+                                <a href="/terms-and-conditions" target="_blank">
+                                    Terms and Conditions
+                                </a>
+                            </label>
+                        </div>
 
-                    <div className="form-control-group checkbox-group">
-                        <input
-                            type="checkbox"
-                            id="mails"
-                            name="mails"
-                            onChange={handleMailsChange}
-                            checked={hasAgreedToMails}
-                        />
-                        <label htmlFor="mails">I want to receive marketing mails</label>
-                    </div>
+                        <div className="form-control-group checkbox-group">
+                            <input
+                                type="checkbox"
+                                id="mails"
+                                name="mails"
+                                onChange={handleMailsChange}
+                                checked={hasAgreedToMails}
+                            />
+                            <label htmlFor="mails">I want to receive marketing mails</label>
+                        </div>
 
-                    <div className="form-control-group">
-                        <label htmlFor="userMessage">Additional messages:</label>
-                        <textarea
-                            id="userMessage"
-                            name="userMessage"
-                            className="form-control"
-                            placeholder="Enter any message here..."
-                            value={userMessage}
-                            onChange={(e) => setUserMessage(e.target.value)}
-                        ></textarea>
-                    </div>
-                </fieldset>
+                        <div className="form-control-group">
+                            <label htmlFor="userMessage">Additional messages:</label>
+                            <textarea
+                                id="userMessage"
+                                name="userMessage"
+                                className="form-control"
+                                placeholder="Enter any message here..."
+                                value={userMessage}
+                                onChange={(e) => setUserMessage(e.target.value)}
+                            ></textarea>
+                        </div>
+                    </fieldset>
+                </div>
+
             </form>
             <form
                 action="handle_submit_form"
@@ -228,13 +236,6 @@ export function PaymentView() {
                             {orderInfo.paymentMethod === "invoice" && <InvoiceDetails/>}
                         </div>
                     </fieldset>
-                </div>
-                <div className="form-control-group">
-                    <p className="button">
-                        <button onClick={() => navigate("/basket/summary")} className="submit-btn">
-                            Continue
-                        </button>
-                    </p>
                 </div>
             </form>
 
