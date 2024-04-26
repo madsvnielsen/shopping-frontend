@@ -46,7 +46,7 @@
     }
 
     .listElement {
-        min-width: 150px;
+        min-width: 200px;
         border-right: 1px solid #bbb;
         padding: 20px;
         height: 100px;
@@ -55,5 +55,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        font-size: 20px;
     }
 }

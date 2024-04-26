@@ -13,7 +13,7 @@ export function SummaryView() {
             <Banner goToBasket={false}/>
             <StatusBar activeStep={3}/>
             <div style={{padding: 15}}>
-                <h2>Order Details</h2>
+                <h1>Order Details</h1>
                 <p>Please confirm your order details.</p>
                 <div className="listWrapper">
                     <ul className="sumList">
@@ -32,8 +32,9 @@ export function SummaryView() {
                         <li className="listElement"><strong>Email</strong> {orderInfo.email}</li>
                     </ul>
                 </div>
+                <PlaceOrder onClick={() => PokemonAPI.postOrder(orderInfo)}/>
             </div>
-            <PlaceOrder onClick={() => PokemonAPI.postOrder(orderInfo)}/>
+
         </div>
     );
 }
