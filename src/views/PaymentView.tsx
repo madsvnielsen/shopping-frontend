@@ -109,130 +109,130 @@ export function PaymentView() {
                         <AddressForm/>
                     </fieldset>
                 )}
-
                 <div>
-                    <fieldset>
-                        <legend>Payment method</legend>
+                    <fieldset className="form-section">
+                        <legend>Preferences</legend>
+                        <div className="form-control-group checkbox-group">
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                name="terms"
+                                onChange={handleTermsChange}
+                                checked={hasAgreedToTerms}
+                                required
+                            />
+                            <label htmlFor="terms">
+                                I agree to the{" "}
+                                <a href="/terms-and-conditions" target="_blank">
+                                    Terms and Conditions
+                                </a>
+                            </label>
+                        </div>
+
+                        <div className="form-control-group checkbox-group">
+                            <input
+                                type="checkbox"
+                                id="mails"
+                                name="mails"
+                                onChange={handleMailsChange}
+                                checked={hasAgreedToMails}
+                            />
+                            <label htmlFor="mails">I want to receive marketing mails</label>
+                        </div>
+
                         <div className="form-control-group">
-                            <ul className="form-select-group">
-                                <li className="form-select">
-                                    <label htmlFor="credit_card">Credit card</label>
-                                    <input
-                                        className="form-control"
-                                        type="radio"
-                                        id="credit_card"
-                                        name="payment_option"
-                                        value="credit_card"
-                                        checked={orderInfo.paymentMethod === "credit_card"}
-                                        onChange={(e) => setOrderInfo({
-                                            ...orderInfo,
-                                            paymentMethod: e.target.value
-                                        } as OrderInfo)}
-                                    />
-                                </li>
-                                <li className="form-select">
-                                    <label htmlFor="mobile_pay">Mobile Pay</label>
-                                    <input
-                                        className="form-control"
-                                        type="radio"
-                                        id="mobile_pay"
-                                        name="payment_option"
-                                        value="mobile_pay"
-                                        checked={orderInfo.paymentMethod === "mobile_pay"}
-                                        onChange={(e) => setOrderInfo({
-                                            ...orderInfo,
-                                            paymentMethod: e.target.value
-                                        } as OrderInfo)}
-                                    />
-                                </li>
-                                <li className="form-select">
-                                    <label htmlFor="gift_card">Gift card</label>
-                                    <input
-                                        className="form-control"
-                                        type="radio"
-                                        id="gift_card"
-                                        name="payment_option"
-                                        value="gift_card"
-                                        checked={orderInfo.paymentMethod === "gift_card"}
-                                        onChange={(e) => setOrderInfo({
-                                            ...orderInfo,
-                                            paymentMethod: e.target.value
-                                        } as OrderInfo)}
-                                    />
-                                </li>
-                                <li className="form-select">
-                                    <label htmlFor="invoice">Invoice</label>
-                                    <input
-                                        className="form-control"
-                                        type="radio"
-                                        id="invoice"
-                                        name="payment_option"
-                                        value="invoice"
-                                        checked={orderInfo.paymentMethod === "invoice"}
-                                        onChange={(e) => setOrderInfo({
-                                            ...orderInfo,
-                                            paymentMethod: e.target.value
-                                        } as OrderInfo)}
-                                    />
-                                </li>
-                            </ul>
-                            {orderInfo.paymentMethod === "credit_card" && <CardDetails/>}
-                            {orderInfo.paymentMethod === "mobile_pay" && <PhoneDetails/>}
-                            {orderInfo.paymentMethod === "gift_card" && <GiftDetails/>}
-                            {orderInfo.paymentMethod === "invoice" && <InvoiceDetails/>}
+                            <label htmlFor="userMessage">Additional messages:</label>
+                            <textarea
+                                id="userMessage"
+                                name="userMessage"
+                                className="form-control"
+                                placeholder="Enter any message here..."
+                                value={userMessage}
+                                onChange={(e) => setUserMessage(e.target.value)}
+                            ></textarea>
                         </div>
                     </fieldset>
-                </div>
-                <fieldset className="form-section">
-                    <legend>Preferences</legend>
-                    <div className="form-control-group checkbox-group">
-                        <input
-                            type="checkbox"
-                            id="terms"
-                            name="terms"
-                            onChange={handleTermsChange}
-                            checked={hasAgreedToTerms}
-                            required
-                        />
-                        <label htmlFor="terms">
-                            I agree to the{" "}
-                            <a href="/terms-and-conditions" target="_blank">
-                                Terms and Conditions
-                            </a>
-                        </label>
-                    </div>
-
-                    <div className="form-control-group checkbox-group">
-                        <input
-                            type="checkbox"
-                            id="mails"
-                            name="mails"
-                            onChange={handleMailsChange}
-                            checked={hasAgreedToMails}
-                        />
-                        <label htmlFor="mails">I want to receive marketing mails</label>
-                    </div>
-
-                    <div className="form-control-group">
-                        <label htmlFor="userMessage">Additional messages:</label>
-                        <textarea
-                            id="userMessage"
-                            name="userMessage"
-                            className="form-control"
-                            placeholder="Enter any message here..."
-                            value={userMessage}
-                            onChange={(e) => setUserMessage(e.target.value)}
-                        ></textarea>
-                    </div>
-                </fieldset>
-                <div className="form-control-group">
                     <p className="button">
                         <button onClick={() => navigate("/basket/summary")} className="submit-btn">
                             Continue
                         </button>
                     </p>
                 </div>
+
+                <fieldset>
+                    <legend>Payment method</legend>
+                    <div className="form-control-group">
+                        <ul className="form-select-group">
+                        <li className="form-select">
+                                <label htmlFor="credit_card">Credit card</label>
+                                <input
+                                    className="form-control"
+                                    type="radio"
+                                    id="credit_card"
+                                    name="payment_option"
+                                    value="credit_card"
+                                    checked={orderInfo.paymentMethod === "credit_card"}
+                                    onChange={(e) => setOrderInfo({
+                                        ...orderInfo,
+                                        paymentMethod: e.target.value
+                                    } as OrderInfo)}
+                                />
+                            </li>
+                            <li className="form-select">
+                                <label htmlFor="mobile_pay">Mobile Pay</label>
+                                <input
+                                    className="form-control"
+                                    type="radio"
+                                    id="mobile_pay"
+                                    name="payment_option"
+                                    value="mobile_pay"
+                                    checked={orderInfo.paymentMethod === "mobile_pay"}
+                                    onChange={(e) => setOrderInfo({
+                                        ...orderInfo,
+                                        paymentMethod: e.target.value
+                                    } as OrderInfo)}
+                                />
+                            </li>
+                            <li className="form-select">
+                                <label htmlFor="gift_card">Gift card</label>
+                                <input
+                                    className="form-control"
+                                    type="radio"
+                                    id="gift_card"
+                                    name="payment_option"
+                                    value="gift_card"
+                                    checked={orderInfo.paymentMethod === "gift_card"}
+                                    onChange={(e) => setOrderInfo({
+                                        ...orderInfo,
+                                        paymentMethod: e.target.value
+                                    } as OrderInfo)}
+                                />
+                            </li>
+                            <li className="form-select">
+                                <label htmlFor="invoice">Invoice</label>
+                                <input
+                                    className="form-control"
+                                    type="radio"
+                                    id="invoice"
+                                    name="payment_option"
+                                    value="invoice"
+                                    checked={orderInfo.paymentMethod === "invoice"}
+                                    onChange={(e) => setOrderInfo({
+                                        ...orderInfo,
+                                        paymentMethod: e.target.value
+                                    } as OrderInfo)}
+                                />
+                            </li>
+                        </ul>
+                        {orderInfo.paymentMethod === "credit_card" && <CardDetails/>}
+                        {orderInfo.paymentMethod === "mobile_pay" && <PhoneDetails/>}
+                        {orderInfo.paymentMethod === "gift_card" && <GiftDetails/>}
+                        {orderInfo.paymentMethod === "invoice" && <InvoiceDetails/>}
+                    </div>
+                </fieldset>
             </form>
+
+
         </div>
     );
 }

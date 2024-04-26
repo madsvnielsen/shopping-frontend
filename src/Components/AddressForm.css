@@ -1,9 +1,3 @@
-.form-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: start;
-}
 
 .form-control {
     background-color: darkred;
@@ -19,11 +13,6 @@
     
 }
 
-.form-control-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
 label {
     color: white;
     margin-top: 5px;
