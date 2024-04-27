@@ -16,7 +16,7 @@
     }
     .listElement {
         min-width: 150px;
-        border-right: 1px solid #bbb;
+        border: 1px solid white;
         padding: 20px;
         height: 100px;
         position: relative;
@@ -24,6 +24,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: darkred;
     }
 }
 
@@ -47,7 +48,7 @@
 
     .listElement {
         min-width: 150px;
-        border-right: 1px solid #bbb;
+        border: 1px solid white;
         padding: 20px;
         height: 100px;
         position: relative;
@@ -55,5 +56,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: darkred;
     }
 }
