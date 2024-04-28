@@ -110,6 +110,78 @@ export function PaymentView() {
                     </fieldset>
                 )}
                 <div>
+
+                    <fieldset>
+                        <legend>Payment method</legend>
+                        <div className="form-control-group">
+                            <ul className="form-select-group">
+                                <li className="form-select">
+                                    <label htmlFor="credit_card">Credit card</label>
+                                    <input
+                                        className="form-control"
+                                        type="radio"
+                                        id="credit_card"
+                                        name="payment_option"
+                                        value="credit_card"
+                                        checked={orderInfo.paymentMethod === "credit_card"}
+                                        onChange={(e) => setOrderInfo({
+                                            ...orderInfo,
+                                            paymentMethod: e.target.value
+                                        } as OrderInfo)}
+                                    />
+                                </li>
+                                <li className="form-select">
+                                    <label htmlFor="mobile_pay">Mobile Pay</label>
+                                    <input
+                                        className="form-control"
+                                        type="radio"
+                                        id="mobile_pay"
+                                        name="payment_option"
+                                        value="mobile_pay"
+                                        checked={orderInfo.paymentMethod === "mobile_pay"}
+                                        onChange={(e) => setOrderInfo({
+                                            ...orderInfo,
+                                            paymentMethod: e.target.value
+                                        } as OrderInfo)}
+                                    />
+                                </li>
+                                <li className="form-select">
+                                    <label htmlFor="gift_card">Gift card</label>
+                                    <input
+                                        className="form-control"
+                                        type="radio"
+                                        id="gift_card"
+                                        name="payment_option"
+                                        value="gift_card"
+                                        checked={orderInfo.paymentMethod === "gift_card"}
+                                        onChange={(e) => setOrderInfo({
+                                            ...orderInfo,
+                                            paymentMethod: e.target.value
+                                        } as OrderInfo)}
+                                    />
+                                </li>
+                                <li className="form-select">
+                                    <label htmlFor="invoice">Invoice</label>
+                                    <input
+                                        className="form-control"
+                                        type="radio"
+                                        id="invoice"
+                                        name="payment_option"
+                                        value="invoice"
+                                        checked={orderInfo.paymentMethod === "invoice"}
+                                        onChange={(e) => setOrderInfo({
+                                            ...orderInfo,
+                                            paymentMethod: e.target.value
+                                        } as OrderInfo)}
+                                    />
+                                </li>
+                            </ul>
+                            {orderInfo.paymentMethod === "credit_card" && <CardDetails/>}
+                            {orderInfo.paymentMethod === "mobile_pay" && <PhoneDetails/>}
+                            {orderInfo.paymentMethod === "gift_card" && <GiftDetails/>}
+                            {orderInfo.paymentMethod === "invoice" && <InvoiceDetails/>}
+                        </div>
+                    </fieldset>
                     <fieldset className="form-section">
                         <legend>Preferences</legend>
                         <div className="form-control-group checkbox-group">
@@ -159,77 +231,6 @@ export function PaymentView() {
                     </p>
                 </div>
 
-                <fieldset>
-                    <legend>Payment method</legend>
-                    <div className="form-control-group">
-                        <ul className="form-select-group">
-                        <li className="form-select">
-                                <label htmlFor="credit_card">Credit card</label>
-                                <input
-                                    className="form-control"
-                                    type="radio"
-                                    id="credit_card"
-                                    name="payment_option"
-                                    value="credit_card"
-                                    checked={orderInfo.paymentMethod === "credit_card"}
-                                    onChange={(e) => setOrderInfo({
-                                        ...orderInfo,
-                                        paymentMethod: e.target.value
-                                    } as OrderInfo)}
-                                />
-                            </li>
-                            <li className="form-select">
-                                <label htmlFor="mobile_pay">Mobile Pay</label>
-                                <input
-                                    className="form-control"
-                                    type="radio"
-                                    id="mobile_pay"
-                                    name="payment_option"
-                                    value="mobile_pay"
-                                    checked={orderInfo.paymentMethod === "mobile_pay"}
-                                    onChange={(e) => setOrderInfo({
-                                        ...orderInfo,
-                                        paymentMethod: e.target.value
-                                    } as OrderInfo)}
-                                />
-                            </li>
-                            <li className="form-select">
-                                <label htmlFor="gift_card">Gift card</label>
-                                <input
-                                    className="form-control"
-                                    type="radio"
-                                    id="gift_card"
-                                    name="payment_option"
-                                    value="gift_card"
-                                    checked={orderInfo.paymentMethod === "gift_card"}
-                                    onChange={(e) => setOrderInfo({
-                                        ...orderInfo,
-                                        paymentMethod: e.target.value
-                                    } as OrderInfo)}
-                                />
-                            </li>
-                            <li className="form-select">
-                                <label htmlFor="invoice">Invoice</label>
-                                <input
-                                    className="form-control"
-                                    type="radio"
-                                    id="invoice"
-                                    name="payment_option"
-                                    value="invoice"
-                                    checked={orderInfo.paymentMethod === "invoice"}
-                                    onChange={(e) => setOrderInfo({
-                                        ...orderInfo,
-                                        paymentMethod: e.target.value
-                                    } as OrderInfo)}
-                                />
-                            </li>
-                        </ul>
-                        {orderInfo.paymentMethod === "credit_card" && <CardDetails/>}
-                        {orderInfo.paymentMethod === "mobile_pay" && <PhoneDetails/>}
-                        {orderInfo.paymentMethod === "gift_card" && <GiftDetails/>}
-                        {orderInfo.paymentMethod === "invoice" && <InvoiceDetails/>}
-                    </div>
-                </fieldset>
             </form>
 
 
