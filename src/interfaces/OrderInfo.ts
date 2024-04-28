@@ -7,5 +7,6 @@ interface OrderInfo{
     zipCode: string,
     fullName: string,
     phoneNumber : string,
-    email: string 
+    email: string
+    totalPrice: string;
 }

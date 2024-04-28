@@ -6,7 +6,6 @@ function TotalPriceBox(props : {prices: number[]}) {
 
     return (
         <div className="TotalpriceBox">
-
             <div className="textBoxPriceBox">
                 <p className="headlinePriceBox">
                     Total price

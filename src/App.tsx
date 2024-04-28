@@ -13,10 +13,6 @@ import { createContext, useState } from "react";
 export const BasketContext = createContext({basket: [] as DetailedBasketItem[],  setBasket: (_: DetailedBasketItem[]) => {}});
 export const OrderInfoContext = createContext({orderInfo: {} as OrderInfo, setOrderInfo: (_:OrderInfo) => {}})
 
-
-
-
-
 function App() {
 
     const [basket, setBasket] = useState([] as DetailedBasketItem[])

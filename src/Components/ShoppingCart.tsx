@@ -4,7 +4,7 @@ import {DetailedBasketItem} from "../interfaces/BasketItem";
 import TotalPriceBox from "./TotalPriceBox.tsx";
 import DiscountNudge from './DiscountNudge.tsx';
 import PriceCalculator from "../HelperFunction/PriceCalculator.ts";
-import { BasketContext } from '../App.tsx';
+import {BasketContext, OrderInfoContext} from '../App.tsx';
 import { useContext } from 'react';
 
 
@@ -12,6 +12,9 @@ function ShoppingCart(props : { updateBasketItem : (item : DetailedBasketItem) =
     
     const { basket } = useContext(BasketContext);
     const prices = PriceCalculator({basketItems: basket, updateBasketItem: props.updateBasketItem});
+    const {orderInfo} = useContext(OrderInfoContext)
+    orderInfo.totalPrice = String(prices[2])
+
     return (
         <div style={{padding: 15}}>
             <h1>Your shopping cart</h1>

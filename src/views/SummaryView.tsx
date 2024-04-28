@@ -30,7 +30,9 @@ export function SummaryView() {
                     </ul>
                     <ul className="sumList">
                         <li className="listElement"><strong>Email</strong> {orderInfo.email}</li>
+                        <li className="listElement"><strong>Order total</strong> {orderInfo.totalPrice} $</li>
                     </ul>
+
                 </div>
                 <PlaceOrder onClick={() => PokemonAPI.postOrder(orderInfo)}/>
             </div>
