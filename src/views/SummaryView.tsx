@@ -30,7 +30,7 @@ export function SummaryView() {
                     </ul>
                     <ul className="sumList">
                         <li className="listElement"><strong>Email</strong> {orderInfo.email}</li>
-                        <li className="listElement"><strong>Price</strong> {orderInfo.totalPrice} $</li>
+                        <li className="listElement"><strong>Order total</strong> {orderInfo.totalPrice} $</li>
                     </ul>
 
                 </div>
