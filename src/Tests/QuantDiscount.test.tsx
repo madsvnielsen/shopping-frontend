@@ -2,8 +2,6 @@ import { render, screen, waitFor} from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import {BasketOverview} from "../views/BasketOverview.tsx";
 import {BasketItem, DetailedBasketItem} from "../interfaces/BasketItem.ts";
-import {Card} from "../interfaces/Card.tsx";
-import {PokemonAPI} from "../PokemonAPI.ts";
 import quantDiscount from "../HelperFunction/QuantDiscount.ts";
 import { MockBasket, MockComponent } from "./TestHelper.tsx";
 

@@ -3,10 +3,6 @@ import { describe, expect, it } from "vitest";
 import CheckoutCard from "../Components/CheckoutCard.tsx";
 import {BasketOverview} from "../views/BasketOverview.tsx";
 import {BasketItem, DetailedBasketItem} from "../interfaces/BasketItem.ts";
-import {PokemonAPI} from "../PokemonAPI.ts";
-import {  MemoryRouter } from "react-router-dom";
-import { useState } from "react";
-import { BasketContext, OrderInfoContext } from "../App.tsx";
 import { userEvent } from '@testing-library/user-event';
 import { MockBasket, MockComponent } from "./TestHelper.tsx";
 

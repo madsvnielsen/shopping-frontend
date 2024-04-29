@@ -1,4 +1,3 @@
-import PlaceOrderFunc from "../HelperFunction/PlaceOrderFunc.tsx";
 import './PlaceOrder.css';
 function PlaceOrder( props : {onClick : () => {}}){
     return(

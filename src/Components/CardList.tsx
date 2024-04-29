@@ -3,7 +3,6 @@ import ShopCard from "./ShopCard.tsx";
 import "./CardList.css";
 
 function CardList(props: { cards: Card[]; currentPage: number; totalPages: number; setIsAdded: (cardId: string) => void; addedCards: Set<string>; setAddedCards: (cards: Set<string>) => void }) {
-    const cardsPerPage = 8; // Assuming 8 cards per page
 
     return (
         <div className="CardList">
