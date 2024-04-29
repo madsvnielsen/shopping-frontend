@@ -14,7 +14,7 @@ export function PaymentView() {
     const {orderInfo, setOrderInfo} = useContext(OrderInfoContext)
 
     const navigate = useNavigate();
-
+    const submit_form = () => navigate("/basket/summary");
 
     const [deliveryAddress, setDeliveryAddress] = useState<boolean>(false);
 
@@ -41,7 +41,7 @@ export function PaymentView() {
             <Banner goToBasket={false}/>
             <StatusBar activeStep={2}/>
             <form
-                action="handle_submit_form"
+                onSubmit={submit_form}
                 className="form-container"
             >
                 <fieldset>
@@ -223,12 +223,14 @@ export function PaymentView() {
                                 onChange={(e) => setUserMessage(e.target.value)}
                             ></textarea>
                         </div>
+
+                        <p className="button">
+                            <button type="submit" className="submit-btn">
+                                Continue
+                            </button>
+                        </p>
                     </fieldset>
-                    <p className="button">
-                        <button onClick={() => navigate("/basket/summary")} className="submit-btn">
-                            Continue
-                        </button>
-                    </p>
+                    
                 </div>
 
             </form>
