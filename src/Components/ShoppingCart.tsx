@@ -27,7 +27,7 @@ function ShoppingCart(props : { updateBasketItem : (item : DetailedBasketItem) =
                 ))}
             </div>
 
-            <TotalPriceBox prices={prices}/>
+            <TotalPriceBox prices={prices} showButton={true}/>
             </div>
         </div>
     )

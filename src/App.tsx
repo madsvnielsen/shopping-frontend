@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PaymentView } from "./views/PaymentView.tsx";
 import {SummaryView} from "./views/SummaryView.tsx";
 import { createContext, useState } from "react";
+import {RecieptView} from "./views/RecieptView.tsx"
 
 
 
@@ -17,6 +18,7 @@ function App() {
 
     const [basket, setBasket] = useState([] as DetailedBasketItem[])
     const [orderInfo, setOrderInfo] = useState({
+        ordernumber: "",
         paymentMethod: "credit_card",
         streetName: "",
         city: "",
@@ -31,6 +33,7 @@ function App() {
         <OrderInfoContext.Provider value={{orderInfo, setOrderInfo}}>
     <BrowserRouter>
       <Routes>
+        <Route path="/basket/reciept" element={<RecieptView/>} />
         <Route path="/basket/payment" element={<PaymentView/>} />
         <Route path="/basket/summary" element={<SummaryView/>} />
         <Route path="/basket" element={<BasketOverview />} />
