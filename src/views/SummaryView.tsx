@@ -5,9 +5,16 @@ import {useContext} from "react";
 import {OrderInfoContext} from "../App.tsx";
 import {PokemonAPI} from "../PokemonAPI.ts";
 import './SummaryViewCSS.css'
+import {useNavigate} from "react-router-dom";
 
 export function SummaryView() {
-    const {orderInfo} = useContext(OrderInfoContext)
+    const {orderInfo, setOrderInfo} = useContext(OrderInfoContext)
+    const navigate = useNavigate()
+    async function handleOrder(){
+        const data : {Order : string} = await PokemonAPI.postOrder(orderInfo)
+        setOrderInfo({...orderInfo,ordernumber: data.Order})
+        navigate("/basket/reciept")
+    }
     return (
         <div className="shopPage">
             <Banner goToBasket={false}/>
@@ -34,9 +41,8 @@ export function SummaryView() {
                     </ul>
 
                 </div>
-                <PlaceOrder onClick={() => PokemonAPI.postOrder(orderInfo)}/>
+                <PlaceOrder onClick={() => handleOrder()}/>
             </div>
-
         </div>
     );
 }

@@ -1,0 +1,14 @@
+.productBox{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.productList{
+
+    padding: 1%;
+    font-size: 1em;
+}

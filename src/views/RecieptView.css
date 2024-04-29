@@ -1,0 +1,24 @@
+.OrderText{
+    color: white;
+    font-size: 1.25em;
+}
+
+.productText{
+    color: white;
+    font-size: 1.25em;
+    align-self: flex-start;
+    margin-left: 1%;
+}
+.line {
+    width: 100%; /* Set the width to 100% to span the entire width of the container */
+    height: 2px; /* Set the height of the line */
+    background-color: black; /* Set the background color of the line */
+}
+
+
+
+.info{
+    display: flex;
+    flex-direction: column;
+
+}

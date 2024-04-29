@@ -11,7 +11,7 @@ export class PokemonAPI {
     static token = 'e7c3a10b-7fc1-4ddc-a225-f3412514f740';
 
 
-    static async postOrder(orderInfo : OrderInfo): Promise<unknown> {
+    static async postOrder(orderInfo : OrderInfo): Promise<{ Order : string }> {
         try {
             const sessionId = window.sessionStorage.getItem("sessionId")
             const response = await fetch(
@@ -28,7 +28,7 @@ export class PokemonAPI {
 
             );
             const data = await response.json()
-            
+
             return await data;
         } catch (error) {
             console.error("Couldn't place order", error);
@@ -210,6 +210,7 @@ export class PokemonAPI {
             throw new Error("Couldn't get basket");
         }
     }
+
 
 }
 
