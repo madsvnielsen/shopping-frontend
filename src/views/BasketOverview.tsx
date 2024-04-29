@@ -65,7 +65,7 @@ export function BasketOverview() {
                     const itemsInBasket: BasketItem[] = await PokemonAPI.getBasket();
 
                     const temp = [];
-                    console.log(itemsInBasket)
+                    
 
                     for await (const item of itemsInBasket) {
                         const detailedItem = {
@@ -74,9 +74,13 @@ export function BasketOverview() {
                             card: await PokemonAPI.getCard(item.id),
                             isLaminated: item.isLaminated,
                         };
+                        
                         temp.push(detailedItem)
                     }
+                    
+                    
                     setBasket(temp)
+                    console.log(basket)
 
 
                 } catch (error) {

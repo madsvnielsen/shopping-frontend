@@ -82,6 +82,29 @@ export class PokemonAPI {
         }
     }
 
+
+    static async clearBasket(){
+        try {
+            const response = await fetch(
+                `${PokemonAPI.apiURL}/basket/`+ window.sessionStorage.getItem("sessionId"),
+                {
+                    method: 'DELETE',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                }
+
+            );
+            return await response.json();
+        } catch (error) {
+            console.error("Couldn't delete basket:", error);
+            throw new Error("Couldn't delete basket");
+        }
+    }
+
+    
+
     static async getCard(id: string): Promise<Card> {
         try {
         const response: Response = await fetch(`${PokemonAPI.apiURL}/products/` + id,
@@ -121,10 +144,10 @@ export class PokemonAPI {
             });
     }
 
-    static async listOfCards() {
+    static async listOfCards(pagenumber : number) {
         try {
             const response = await fetch(
-                `${PokemonAPI.apiURL}/products/list`,
+                `${PokemonAPI.apiURL}/products/list?pagenumber=`+pagenumber,
                 {
                     method: 'GET',
                     headers: {

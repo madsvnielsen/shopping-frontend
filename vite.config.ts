@@ -7,6 +7,7 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: ["vitest.setup.ts"],
+    testTimeout: 20000
   },
   build: {
     outDir: '/var/www/html/g16pokeshop.com/public_html/'

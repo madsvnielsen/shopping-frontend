@@ -7,7 +7,7 @@ import "./ShoppingPage.css";
 export function ShoppingPage() {
     const [cards, setCards] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
+    const totalPages = 10;
 
     const [loading, setLoading] = useState(true);
 
@@ -17,23 +17,26 @@ export function ShoppingPage() {
         setAddedCards(prevAddedCards => new Set(prevAddedCards).add(cardId));
     };
 
-    useEffect(() => {
-        async function getCards() {
-            const result = await PokemonAPI.listOfCards();
-            setCards(result);
-            setTotalPages(Math.ceil(result.length / 10)); // Assuming 10 cards per page
-            setLoading(false)
-        }
+    async function getCards() {
+        setLoading(true)
+        const result = await PokemonAPI.listOfCards(currentPage);
+        setCards(result);
+        console.log(result);
+        setLoading(false)
+    }
 
+    useEffect(() => {
         getCards();
     }, []);
 
     const handleNextPage = () => {
         setCurrentPage(prevPage => prevPage + 1);
+        getCards();
     };
 
     const handlePrevPage = () => {
         setCurrentPage(prevPage => prevPage - 1);
+        getCards();
     };
 
     return (
