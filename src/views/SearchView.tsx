@@ -8,7 +8,6 @@ import {Card} from "../interfaces/Card.tsx";
 export function SearchView() {
     const [cards, setCards] = useState([]as Card[]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
 
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
@@ -16,14 +15,12 @@ export function SearchView() {
     useEffect(() => {
         async function getCards() {
             if (searchQuery.length>0){
-            const result = await PokemonAPI.searchcard(searchQuery);
-            setCards(result);
-            setTotalPages(Math.ceil(result.length / 10));
-            setLoading(false)
-            }else {
-                const result = await PokemonAPI.listOfCards();
+                const result = await PokemonAPI.searchcard(searchQuery,currentPage);
                 setCards(result);
-                setTotalPages(Math.ceil(result.length / 10));
+                setLoading(false)
+            }else {
+                const result = await PokemonAPI.listOfCards(currentPage);
+                setCards(result);
                 setLoading(false)
             }
 
@@ -46,21 +43,20 @@ export function SearchView() {
 
     return (
         <div style={{ width: "100%" }}>
-    <Banner goToBasket={true}/>
-    <SearchBar onSearch={handleSearch} />
-    {loading && <h1 className="loading-text">Finding the best pokemon cards for you.</h1>}
+            <Banner goToBasket={true}/>
+            <SearchBar onSearch={handleSearch} />
+            {loading && <h1 className="loading-text">Finding the best pokemon cards for you.</h1>}
 
-    {!loading && <>
+            {!loading && <>
 
-    <CardList cards={cards} currentPage={currentPage} totalPages={totalPages} />
-    <div style={{ textAlign: "center", margin: "20px 20px" }}>
-        <button onClick={handlePrevPage} disabled={currentPage === 1}>Previous Page</button>
-    <span style={{ margin: "0 10px" }}>Page {currentPage} of {totalPages}</span>
-    <button onClick={handleNextPage} disabled={currentPage === totalPages}>Next Page</button>
-    </div>
-    </>
-    }
+                <CardList cards={cards} currentPage={currentPage} />
+                <div style={{ textAlign: "center", margin: "20px 20px" }}>
+                    <button onClick={handlePrevPage} disabled={currentPage === 1}>Previous Page</button>
+                    <span style={{ margin: "0 10px" }}>Page {currentPage}</span>
+                    <button onClick={handleNextPage}>Next Page</button>
+                </div>
+            </>
+            }
         </div>
     );
-    }
-
+}

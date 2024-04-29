@@ -6,15 +6,14 @@ import CardList from "../Components/CardList.tsx";
 export function ShoppingPage() {
     const [cards, setCards] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
+    //const [totalPages, setTotalPages] = useState(1);
 
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function getCards() {
-            const result = await PokemonAPI.listOfCards();
+            const result = await PokemonAPI.listOfCards(currentPage);
             setCards(result);
-            setTotalPages(Math.ceil(result.length / 10)); // Assuming 10 cards per page
             setLoading(false)
         }
         getCards();
@@ -34,11 +33,11 @@ export function ShoppingPage() {
             {loading && <h1 className="loading-text">Finding the best pokemon cards for you.</h1>}
 
             {!loading && <>
-                <CardList cards={cards} currentPage={currentPage} totalPages={totalPages} />
+                <CardList cards={cards} currentPage={currentPage}  />
                 <div style={{ textAlign: "center", margin: "20px 20px" }}>
                     <button onClick={handlePrevPage} disabled={currentPage === 1}>Previous Page</button>
-                    <span style={{ margin: "0 10px" }}>Page {currentPage} of {totalPages}</span>
-                    <button onClick={handleNextPage} disabled={currentPage === totalPages}>Next Page</button>
+                    <span style={{ margin: "0 10px" }}>Page {currentPage} </span>
+                    <button onClick={handleNextPage} >Next Page</button>
                 </div>
             </>
             }

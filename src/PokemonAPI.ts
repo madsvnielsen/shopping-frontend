@@ -26,10 +26,10 @@ export class PokemonAPI {
             throw new Error("Could not get card");
         }
     }
-    static async searchcard(search: string) :Promise<Array<Card>>{
+    static async searchcard(search: string, pagenumber: number) :Promise<Array<Card>>{
         try {
             const response = await fetch(
-                `${PokemonAPI.apiURL}/products/search/` + search,
+                `${PokemonAPI.apiURL}/products/search/` + search + "?pagenumber=" + pagenumber,
                 {
                     method: 'GET',
                     headers: {
@@ -47,10 +47,10 @@ export class PokemonAPI {
         }
     }
 
-    static async listOfCards() {
+    static async listOfCards(pagenumber: number) {
         try {
             const response = await fetch(
-                `${PokemonAPI.apiURL}/products/list`,
+                `${PokemonAPI.apiURL}/products/list?pagenumber=`+ pagenumber,
                 {
                     method: 'GET',
                     headers: {
