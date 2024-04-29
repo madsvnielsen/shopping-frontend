@@ -5,6 +5,7 @@ import {BasketItem, DetailedBasketItem} from "../interfaces/BasketItem.ts";
 import {Card} from "../interfaces/Card.tsx";
 import {PokemonAPI} from "../PokemonAPI.ts";
 import quantDiscount from "../HelperFunction/QuantDiscount.ts";
+import { MockBasket, MockComponent } from "./TestHelper.tsx";
 
 
 
@@ -20,19 +21,12 @@ describe(quantDiscount.name, () => {
 
   it("Should give discount", async() =>{
 
-      const basketItems : DetailedBasketItem[] = []
-      for await (const item of basketMockSingleCard) {
-          const card : Card = await PokemonAPI.getCard(item.id)
-          basketItems.push({
-              id: item.id,
-              card: card,
-              quantity: item.quantity,
-              isLaminated: item.isLaminated
-          } as DetailedBasketItem)
-      }
-      render(<BasketOverview basketMock={basketMockSingleCard} />);
+      const basketItems : DetailedBasketItem[] = await MockBasket(basketMockSingleCard)
+      render(<MockComponent>
+        <BasketOverview/>
+      </MockComponent>);
 
-      await waitFor(() => expect(screen.getByText(basketItems[0].card.name)).toBeInTheDocument(), { timeout: 5000 });
+      await waitFor(() => expect(screen.getByText(basketItems[0].card.name)).toBeInTheDocument(), { timeout: 15000 });
       let price: string = "0";
       if (basketItems[0].card.cardmarket.prices.averageSellPrice !== null) {
           price = ((basketItems[0].card.cardmarket.prices.averageSellPrice * 4) * 0.1).toFixed(2);

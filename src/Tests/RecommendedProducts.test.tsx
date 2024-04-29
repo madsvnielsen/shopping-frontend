@@ -21,7 +21,9 @@ async function loadRecommendedProducts(){
     for await (const id of recommendedMock){
         const card : Card = await PokemonAPI.getCard(id);
         mockProductsList.push(card);
+        
     }
+    console.log(mockProductsList)
 }
 
 
@@ -34,7 +36,7 @@ describe(RecommendedProducts.name, async () => {
         expect(screen.getByText("We think you might like...")).toBeInTheDocument();
 
         await waitFor(() => expect(screen.getByText('Jolteon')).toBeInTheDocument(), { timeout: 5000 });
-        expect(screen.getByText("Only $25.24")).toBeInTheDocument();
+        expect(screen.getByText("Only $" + mockProductsList[0].cardmarket.prices.averageSellPrice)).toBeInTheDocument();
 
     });
     it('should allow for adding', async () => {
