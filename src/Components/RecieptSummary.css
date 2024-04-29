@@ -1,14 +1,33 @@
-.RecieptBox{
-    display: flex;
-    align-items: flex-start;
-    padding: 1px;
-    background: #efefef;
-    max-height: 300px;
-    align-self: auto;
-    margin: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    width: 18%;
-    border-radius: 5px;
-    color: black;
+@media (min-width: 768px) {
+    .RecieptBox {
+        display: flex;
+        align-items: flex-start;
+        padding: 1px;
+        background: #efefef;
+        max-height: 300px;
+        align-self: auto;
+        margin: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        width: 18%;
+        border-radius: 5px;
+        color: black;
+    }
+}
+
+@media (max-width: 767px) {
+    .RecieptBox {
+        display: flex;
+        align-items: flex-start;
+        padding: 1px;
+        background: #efefef;
+        max-height: 300px;
+        align-self: auto;
+        margin: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        width: 75%;
+        border-radius: 5px;
+        color: black;
+    }
 }
