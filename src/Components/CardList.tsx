@@ -7,7 +7,7 @@ function CardList(props: { cards: Card[]; currentPage: number; totalPages: numbe
 
     return (
         <div className="CardList">
-            {props.cards.map((card, index) => (
+            {props.cards && props.cards.map((card, index) => (
                 <ShopCard
                     key={index}
                     card={card}

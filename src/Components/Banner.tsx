@@ -17,7 +17,7 @@ function Banner( props : {goToBasket : boolean}){
             )}
             {!props.goToBasket && (
                 <a href="/" className="productIcon">
-                    <p> Go to products</p>
+                    <p className='goToProdText'>Products</p>
 
                 </a>
                 )}

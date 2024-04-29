@@ -2,7 +2,7 @@
 
 @media (min-width: 768px) {
     .Banner {
-        min-width: 1540px;
+        width: 100%;
         background: #ad2624;
         text-align: left;
         padding-top: 0.625em; /* 10px / 16px */
@@ -24,6 +24,11 @@
         padding-right: 20px;
 
     }
+    .goToProdText{
+        font-size: 1.2em;
+        text-align: center;
+        padding-right: 1em;
+    }
 }
 
 @media (max-width: 767px) {
@@ -38,17 +43,26 @@
         align-items: center;
     }
     .cartIcon {
-        margin-left: auto;
         margin-right: 0.0625em;
+        width: 0.05em;
+
     }
     .productIcon {
         margin-left: auto;
-        margin-right: 0.0625em;
+        
+        
+        
     }
     .title {
         padding-left: 0.3125em;
         padding-right: 0.3125em;
-        font-size: 1.875em;
+        font-size: 1.475em;
         line-height: 1.1;
+    }
+
+    .goToProdText{
+        font-size: 0.8em;
+        text-align: left;
+        padding-right: 0.2em;
     }
 }

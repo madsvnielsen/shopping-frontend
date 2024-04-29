@@ -1,29 +1,54 @@
-.CardBox {
-    display: flex;
-    align-items: center;
-    padding: 1px;
-    background: #efefef;
-    margin: 10px;
-    width: fit-content;
-    align-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 8px;
-    
+
+@media (min-width: 768px) {
+   
+    .CardBox {
+        padding: 0.1px;
+        background: #efefef;
+        margin: 0.3em;
+        text-align: center;
+        border-radius: 8px;
+    }
+    .Button{
+        background-color: #ed1515;
+        margin-bottom: 5px;
+    }
+
+}
+@media (max-width: 767px) {
+
+    .CardBox {
+        padding: 0.1px;
+        background: #efefef;
+        margin: 0.3em;
+        text-align: center;
+        border-radius: 8px;
+        width: 6em;
+        height: auto;
+    }
+    .Button{
+        background-color: #ed1515;
+        margin-bottom: 5px;
+        font-size: 0.5em;
+    }
+
+}
+
+
+
+.pokemonImg {
+    display: block;
+    width: 100%;
+    height: auto;
     
 }
 
 
 
-.Button{
-    background-color: #ed1515;
-    margin-bottom: 5px;
-}
 
 .pricetext{
     color: black;
     margin: 2px;
+    font-size: 0.8em;
 }
 
 

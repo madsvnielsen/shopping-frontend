@@ -36,7 +36,7 @@ const StatusBar = (props : {activeStep : number}) => {
         <ul className="unordered">
             <li 
                 className={`step ${activeStep === 1 ? 'active' : ''} white`} 
-                style={{ marginLeft: '200px' }} 
+                
                 onClick={() => handleStepClick(1)}
             >
                 <span className="step">1</span>
@@ -44,7 +44,6 @@ const StatusBar = (props : {activeStep : number}) => {
             </li>
             <li 
                 className={`step ${activeStep === 2 ? 'active' : ''} white`} 
-                style={{ marginLeft: '120px' }} 
                 onClick={() => handleStepClick(2)}
             >
                 <span className="step">2</span>
@@ -52,7 +51,6 @@ const StatusBar = (props : {activeStep : number}) => {
             </li>
             <li 
                 className={`step ${activeStep === 3 ? 'active' : ''} white`} 
-                style={{ marginInline: '120px' }} 
                 onClick={() => handleStepClick(3)}
             >
                 <span className="step">3</span>
@@ -60,7 +58,6 @@ const StatusBar = (props : {activeStep : number}) => {
             </li>
             <li 
                 className={`step ${activeStep === 4 ? 'active' : ''} white`} 
-                style={{ marginRight: '200px' }} 
                 onClick={() => handleStepClick(4)}
             >
                 <span className="step">4</span>
