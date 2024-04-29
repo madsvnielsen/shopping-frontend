@@ -39,7 +39,7 @@ function CardDetails() {
         value={cardNumber}
         onChange={handleCardNumberChange}
         required
-        pattern="[0-9]{16}"
+        pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"
         placeholder="XXXX XXXX XXXX XXXX"
       />
       <label htmlFor="exp_date">Exp. date</label>
