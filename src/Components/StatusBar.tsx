@@ -25,6 +25,9 @@ const StatusBar = (props : {activeStep : number}) => {
             case 3:
                 navigate("/basket/summary")
                 break
+            case 4:
+                navigate("/basket/reciept")
+                break
             default:
                 break
 

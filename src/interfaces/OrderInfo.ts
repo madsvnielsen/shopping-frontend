@@ -1,6 +1,7 @@
 
 
 interface OrderInfo{
+    ordernumber: string,
     paymentMethod : string,
     streetName : string,
     city : string,
