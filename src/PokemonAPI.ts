@@ -5,7 +5,7 @@ export class PokemonAPI {
 
 
     static apiURL = "http://130.225.170.52:10261/api"
-    //static apiURL = "http://localhost:3000"
+    
 
 
     static token = 'e7c3a10b-7fc1-4ddc-a225-f3412514f740';

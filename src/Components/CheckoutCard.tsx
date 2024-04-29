@@ -51,7 +51,6 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
                 <img src={card.images == undefined ? "-" : card.images.small} className="pokemonImg"
                      alt={card.name}/>
             </div>
-
             <div className="textBox">
                 <p className="headline">
                     Name
@@ -71,8 +70,6 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
                 <p>
                     {card.rarity}
                 </p>
-            </div>
-            <div className="textBox">
                 <label className="quantity">Quantity</label>
                 <input type="number" value={props.basketItem.quantity} min="0" max="1000" onChange={enforceMinMax}/>
                 <label className="laminate">
@@ -105,7 +102,6 @@ function CheckoutCard(props: { basketItem: DetailedBasketItem, updateBasketItem:
                     updateItemQuantity(-1)
                 }}>Remove
                 </button>
-
             </div>
         </div>
     )

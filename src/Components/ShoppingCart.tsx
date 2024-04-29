@@ -19,15 +19,17 @@ function ShoppingCart(props : { updateBasketItem : (item : DetailedBasketItem) =
         <div style={{padding: 15}}>
             <h1>Your shopping cart</h1>
             <DiscountNudge subTotal={prices[1]} />
-            <div style={{display:"flex"}}>
+            <div style={{display: "flex"}} className='containers'>
 
             <div className="Wrapper">
                 {basket.map((basketItem, index) => (
                     <CheckoutCard key={index} basketItem={basketItem} updateBasketItem={props.updateBasketItem} />
                 ))}
+                
             </div>
-
             <TotalPriceBox prices={prices} showButton={true}/>
+
+            
             </div>
         </div>
     )
